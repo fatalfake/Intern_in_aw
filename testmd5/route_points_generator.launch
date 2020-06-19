@@ -1,0 +1,6 @@
+<launch>
+    <arg name="env_task_file" value="$(env PLANNING_TASK)" />
+    <node pkg="aw_global_planning" name="route_points_generator" type="route_points_generator" output="log">
+        <rosparam command="load" file="$(arg env_task_file)" />
+    </node>
+</launch>

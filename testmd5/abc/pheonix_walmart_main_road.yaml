@@ -1,0 +1,1143 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str pheonix_walmartasdaass
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/tasks :
+#start_pose:
+#sec_id:158
+#u_e 420551.791
+#u_n 3688992.725
+#yaw 3.11
+
+
+## start
+#ids:0 158-114
+   - task_type : !!str map
+     start_east : !!float 420555.891663
+     start_north : !!float 3688992.225
+     end_east : !!float 420377.241663
+     end_north : !!float 3689000.725
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     can_escape_stuck : !!bool true 
+#ids:1 pose2pose
+   - task_type : !!str pose_to_pose
+     end_east : !!float 420381.091663
+     end_north : !!float 3688999.225
+     max_velo : !!float 0.5
+     end_yaw : !!float -0.04
+     pose_to_pose_mode : !!int 3
+
+##goto 526
+
+#ids:2 114-115-503
+   - task_type : !!str map
+     start_east : !!float 420370.141663
+     start_north : !!float 3689000.525
+     end_east : !!float 420406.191663
+     end_north : !!float 3688985.725
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:3 50302-504
+   - task_type : !!str map
+     start_east : !!float 420397.22
+     start_north : !!float 3688994.6
+     end_east : !!float 420404.02
+     end_north : !!float 3688903.4
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+#50302(117)-50302(117)
+#ids:4 50302(117)-111-102(52600)
+   - task_type : !!str map
+     start_east : !!float 420404.766663
+     start_north : !!float 3688904.1
+     end_east : !!float 420393.516663
+     end_north : !!float 3688883.15
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+##loop 524,525,526,527,528,529,530,531,532,533
+
+#loop1
+#ids:5 52600-52400
+   - task_type : !!str map
+     start_east : !!float 420393.016663
+     start_north : !!float 3688888.3
+     end_east : !!float 420372.141663
+     end_north : !!float 3688881.05
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:6 52400-525  
+   - task_type : !!str map
+     start_east : !!float 420371.866663
+     start_north : !!float 3688876.175
+     end_east : !!float 420388.041663
+     end_north : !!float 3688893.2
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop2
+#ids:7 525-52601 
+   - task_type : !!str map
+     start_east : !!float 420382.441663
+     start_north : !!float 3688893.325
+     end_east : !!float 420390.666663
+     end_north : !!float 3688881.775
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:8 52601-52401 to be splited
+   - task_type : !!str map
+     start_east : !!float 420390.816663
+     start_north : !!float 3688884.725
+     end_east : !!float 420373.716663
+     end_north : !!float 3688881.125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:9 52401-525 
+   - task_type : !!str map
+     start_east : !!float 420373.691663
+     start_north : !!float 3688876.175
+     end_east : !!float 420388.041663
+     end_north : !!float 3688893.2
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop3
+#ids:10 525-531-53203 to be splited
+   - task_type : !!str map
+     start_east : !!float 420382.441663
+     start_north : !!float 3688893.325
+     end_east : !!float 420409.366663
+     end_north : !!float 3688814.075
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:11 53203-533-52800
+   - task_type : !!str map
+     start_east : !!float 420409.491663
+     start_north : !!float 3688819.275
+     end_east : !!float 420390.791663
+     end_north : !!float 3688815.425
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:12 52800-527-52402
+   - task_type : !!str map
+     start_east : !!float 420390.716663
+     start_north : !!float 3688810.075
+     end_east : !!float 420375.591663
+     end_north : !!float 3688881.125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:13 52402-525 
+   - task_type : !!str map
+     start_east : !!float 420375.391663
+     start_north : !!float 3688876.325
+     end_east : !!float 420388.116663
+     end_north : !!float 3688893.125
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop4
+#ids:14 525-531-53202
+   - task_type : !!str map
+     start_east : !!float 420382.316663
+     start_north : !!float 3688893.325
+     end_east : !!float 420410.916663
+     end_north : !!float 3688814.125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:15 53202-533-52801
+   - task_type : !!str map
+     start_east : !!float 420410.966663
+     start_north : !!float 3688819.075
+     end_east : !!float 420392.341663
+     end_north : !!float 3688815.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:16 52801-527-52403
+   - task_type : !!str map
+     start_east : !!float 420392.316663
+     start_north : !!float 3688810.375
+     end_east : !!float 420377.316663
+     end_north : !!float 3688881.125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:17 52403-525 
+   - task_type : !!str map
+     start_east : !!float 420377.116663
+     start_north : !!float 3688876.425
+     end_east : !!float 420388.041663
+     end_north : !!float 3688893.15
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop5
+#ids:18 525-531-53200
+   - task_type : !!str map
+     start_east : !!float 420382.316663
+     start_north : !!float 3688893.425
+     end_east : !!float 420414.391663
+     end_north : !!float 3688813.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:19 53200-533-53001
+   - task_type : !!str map
+     start_east : !!float 420414.441663
+     start_north : !!float 3688818.8
+     end_east : !!float 420396.166663
+     end_north : !!float 3688883.725
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:20 53001-531
+   - task_type : !!str map
+     start_east : !!float 420396.09166
+     start_north : !!float 3688878.925
+     end_east : !!float 420407.641663
+     end_north : !!float 3688893.35
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop6
+#ids:21 531-53201 
+   - task_type : !!str map
+     start_east : !!float 420399.241663
+     start_north : !!float 3688893.35
+     end_east : !!float 420412.641663
+     end_north : !!float 3688814
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:22 53201-533 
+   - task_type : !!str map
+     start_east : !!float 420412.666663
+     start_north : !!float 3688818.9
+     end_east : !!float 420398.616663
+     end_north : !!float 3688802.85
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:23 533-53000 
+   - task_type : !!str map
+     start_east : !!float 420405.016663
+     start_north : !!float 3688802.825
+     end_east : !!float 420394.441663
+     end_north : !!float 3688883.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+##goto 50101
+
+#ids:24 53000(102)-50101(116)
+   - task_type : !!str map
+     start_east : !!float 420394.541663
+     start_north : !!float 3688878.8
+     end_east : !!float 420385.541663
+     end_north : !!float 3688909.675
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+
+##loop 501,502,503,504
+
+#loop1
+#ids:25 50101-502
+   - task_type : !!str map
+     start_east : !!float 420384.791663
+     start_north : !!float 3688904.05
+     end_east : !!float 420399.691663
+     end_north : !!float 3688994.575
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop2
+#ids:26 502-50303 
+   - task_type : !!str map
+     start_east : !!float 420395.058328
+     start_north : !!float 3688994.775
+     end_east : !!float 420402.241663
+     end_north : !!float 3688907.6
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:27 50303-504
+   - task_type : !!str map
+     start_east : !!float 420402.366663
+     start_north : !!float 3688912.925
+     end_east : !!float 420391.391663
+     end_north : !!float 3688899.575
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:28 504-50100  
+   - task_type : !!str map
+     start_east : !!float 420396.008328
+     start_north : !!float 3688899.125
+     end_east : !!float 420384.033328
+     end_north : !!float 3688984.4
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:29 50100-502 
+   - task_type : !!str map
+     start_east : !!float 420383.908328
+     start_north : !!float 3688978.9
+     end_east : !!float 420400.008328
+     end_north : !!float 3688994.425
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop3
+#ids:30 502-50300 
+   - task_type : !!str map
+     start_east : !!float 420395.058328
+     start_north : !!float 3688994.85
+     end_east : !!float 420407.608328
+     end_north : !!float 3688907.825
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:31 50300-504   
+   - task_type : !!str map
+     start_east : !!float 420407.658328
+     start_north : !!float 3688912.525
+     end_east : !!float 420391.383328
+     end_north : !!float 3688899.6
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:32 504-50103 
+   - task_type : !!str map
+     start_east : !!float 420396.083328
+     start_north : !!float 3688899.75
+     end_east : !!float 420389.283328
+     end_north : !!float 3688984.3
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:33 50103-502  
+   - task_type : !!str map
+     start_east : !!float 420389.233328
+     start_north : !!float 3688979.7
+     end_east : !!float 420400.008328
+     end_north : !!float 3688994.425
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop4
+#ids:34 502-50301  
+   - task_type : !!str map
+     start_east : !!float 420395.058328
+     start_north : !!float 3688994.85
+     end_east : !!float 420405.808328
+     end_north : !!float 3688907.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:35 50301-504   
+   - task_type : !!str map
+     start_east : !!float 420405.908328
+     start_north : !!float 3688912.725
+     end_east : !!float 420391.383328
+     end_north : !!float 3688899.575
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:36 504-50102 
+   - task_type : !!str map
+     start_east : !!float 420396.058328
+     start_north : !!float 3688899.15
+     end_east : !!float 420387.533328
+     end_north : !!float 3688984.2
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+##goto 50702
+
+#ids:37 50102-152-50702
+   - task_type : !!str map
+     start_east : !!float 420387.408328
+     start_north : !!float 3688979.4
+     end_east : !!float 420441.016
+     end_north : !!float 3688994.6
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     can_escape_stuck : !!bool true 
+#ids:38 152-50702
+   - task_type : !!str map
+     start_east : !!float 420434.891663
+     start_north : !!float 3688995.075
+     end_east : !!float 420447.7166
+     end_north : !!float 3688982.25
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+##loop 507,508,505,506
+
+#loop1
+#ids:39 50702-508
+   - task_type : !!str map
+     start_east : !!float 420447.216663
+     start_north : !!float 3688988.85
+     end_east : !!float 420432.016663
+     end_north : !!float 3688895.9
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:40 508-50501
+   - task_type : !!str map
+     start_east : !!float 420436.416663
+     start_north : !!float 3688894.35
+     end_east : !!float 420427.691663
+     end_north : !!float 3688983.375
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:41  50501-506
+   - task_type : !!str map
+     start_east : !!float 420427.616663
+     start_north : !!float 3688980.475
+     end_east : !!float 420441.691663
+     end_north : !!float 3688990.95
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop2
+#ids:42  506-50703
+   - task_type : !!str map
+     start_east : !!float 420437.291663
+     start_north : !!float 3688991.05
+     end_east : !!float 420444.291663
+     end_north : !!float 3688904.075
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:43 50703-508 stuck
+   - task_type : !!str map
+     start_east : !!float 420444.391663
+     start_north : !!float 3688908.5
+     end_east : !!float 420432.041663
+     end_north : !!float 3688895.825
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:44 508-50500
+   - task_type : !!str map
+     start_east : !!float 420436.466663
+     start_north : !!float 3688894.425
+     end_east : !!float 420425.841663
+     end_north : !!float 3688983.275
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:45 50500-506
+   - task_type : !!str map
+     start_east : !!float 420425.816663
+     start_north : !!float 3688980.35
+     end_east : !!float 420441.741663
+     end_north : !!float 3688990.975
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop3
+#ids:46 506-50700
+   - task_type : !!str map
+     start_east : !!float 420437.366663
+     start_north : !!float 3688990.9
+     end_east : !!float 420449.391663
+     end_north : !!float 3688903.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:47 50700-508
+   - task_type : !!str map
+     start_east : !!float 420449.466663
+     start_north : !!float 3688908.3
+     end_east : !!float 420432.241663
+     end_north : !!float 3688895.925
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:48 508-50503
+   - task_type : !!str map
+     start_east : !!float 420437.666663
+     start_north : !!float 3688894.15
+     end_east : !!float 420431.166663
+     end_north : !!float 3688981.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:49 50503-506
+   - task_type : !!str map
+     start_east : !!float 420431.116663
+     start_north : !!float 3688978.125
+     end_east : !!float 420441.716663
+     end_north : !!float 3688990.975
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop4
+#ids:50 506-50701
+   - task_type : !!str map
+     start_east : !!float 420437.366663
+     start_north : !!float 3688990.925
+     end_east : !!float 420447.666663
+     end_north : !!float 3688903.95
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:51 50701-508
+   - task_type : !!str map
+     start_east : !!float 420447.741663
+     start_north : !!float 3688908.575
+     end_east : !!float 420432.266663
+     end_north : !!float 3688895.875
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:52 508-50502
+   - task_type : !!str map
+     start_east : !!float 420437.691663
+     start_north : !!float 3688894.225
+     end_east : !!float 420429.516663
+     end_north : !!float 3688981.775
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+#goto 154
+#ids:53 50502-154
+   - task_type : !!str map
+     start_east : !!float 420429.366663
+     start_north : !!float 3688977.95
+     end_east : !!float 420484.941663
+     end_north : !!float 3688986.275
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     can_escape_stuck : !!bool true 
+#loop 509,510,511,512
+#loop1
+#ids:54 154-51102-512
+   - task_type : !!str map
+     start_east : !!float 420484.491663
+     start_north : !!float 3688989.075
+     end_east : !!float 420470.991663
+     end_north : !!float 3688883.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:55 512-50901
+   - task_type : !!str map
+     start_east : !!float 420475.341663
+     start_north : !!float 3688881.95
+     end_east : !!float 420465.291663
+     end_north : !!float 3688980.55
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:56 50901-510
+   - task_type : !!str map
+     start_east : !!float 420465.166663
+     start_north : !!float 3688976.375
+     end_east : !!float 420478.916663
+     end_north : !!float 3688991.95
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop2
+#ids:57 510-51103
+   - task_type : !!str map
+     start_east : !!float 420472.016663
+     start_north : !!float 3688992.175
+     end_east : !!float 420481.891663
+     end_north : !!float 3688891.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:58 51103-512
+   - task_type : !!str map
+     start_east : !!float 420481.966663
+     start_north : !!float 3688896.825
+     end_east : !!float 420469.916663
+     end_north : !!float 3688883.625
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:59 512-50900
+   - task_type : !!str map
+     start_east : !!float 420475.316663
+     start_north : !!float 3688881.95
+     end_east : !!float 420463.741663
+     end_north : !!float 3688980.65
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:60 50900-510
+   - task_type : !!str map
+     start_east : !!float 420463.541663
+     start_north : !!float 3688976.25
+     end_east : !!float 420478.891663
+     end_north : !!float 3688991.975
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop3
+#ids:61 510-51100
+   - task_type : !!str map
+     start_east : !!float 420474.691663
+     start_north : !!float 3688992.15
+     end_east : !!float 420486.791663
+     end_north : !!float 3688891.65
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:62 51100-512
+   - task_type : !!str map
+     start_east : !!float 420486.941663
+     start_north : !!float 3688896.55
+     end_east : !!float 420469.991663
+     end_north : !!float 3688883.7
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:63 512-50903
+   - task_type : !!str map
+     start_east : !!float 420475.291663
+     start_north : !!float 3688881.95
+     end_east : !!float 420468.816663
+     end_north : !!float 3688980.55
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:64 50903-510
+   - task_type : !!str map
+     start_east : !!float 420468.616663
+     start_north : !!float 3688976.3
+     end_east : !!float 420478.916663
+     end_north : !!float 3688991.975
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop4
+#ids:65 510-51101
+   - task_type : !!str map
+     start_east : !!float 420474.716663
+     start_north : !!float 3688992.125
+     end_east : !!float 420485.091663
+     end_north : !!float 3688891.625
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:66 51101-512
+   - task_type : !!str map
+     start_east : !!float 420485.141663
+     start_north : !!float 3688896.675
+     end_east : !!float 420469.891663
+     end_north : !!float 3688883.675
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:67 512-50902
+   - task_type : !!str map
+     start_east : !!float 420475.341663
+     start_north : !!float 3688882.025
+     end_east : !!float 420466.916663
+     end_north : !!float 3688980.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+##goto 156
+
+#ids:68 50902-156-515
+   - task_type : !!str map
+     start_east : !!float 420466.916663
+     start_north : !!float 3688976.275
+     end_east : !!float 420523.341663
+     end_north : !!float 3688981.675
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     can_escape_stuck : !!bool true 
+
+##loop 513,514,515,516,517,518,519,520.521.522,523
+
+#loop1
+#ids:69 515-516-51702-518
+   - task_type : !!str map
+     start_east : !!float 420522.691663
+     start_north : !!float 3688986.125
+     end_east : !!float 420508.991663
+     end_north : !!float 3688870.075
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:70 518-51301
+   - task_type : !!str map
+     start_east : !!float 420512.941663
+     start_north : !!float 3688868.775
+     end_east : !!float 420503.416663
+     end_north : !!float 3688979.925
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:71 51301-514
+   - task_type : !!str map
+     start_east : !!float 420503.466663
+     start_north : !!float 3688975.575
+     end_east : !!float 420516.866663
+     end_north : !!float 3688990.4
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop2
+#ids:72 514-51703
+   - task_type : !!str map
+     start_east : !!float 420509.391663
+     start_north : !!float 3688990.5
+     end_east : !!float 420519.491663
+     end_north : !!float 3688877.775
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:73 51703-518
+   - task_type : !!str map
+     start_east : !!float 420519.491663
+     start_north : !!float 3688882.975
+     end_east : !!float 420507.941663
+     end_north : !!float 3688870.275
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:74 518-51300
+   - task_type : !!str map
+     start_east : !!float 420512.941663
+     start_north : !!float 3688868.675
+     end_east : !!float 420501.616663
+     end_north : !!float 3688979.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:75 51300-514
+   - task_type : !!str map
+     start_east : !!float 420501.466663
+     start_north : !!float 3688975.4
+     end_east : !!float 420516.841663
+     end_north : !!float 3688990.425
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop3
+#ids:76 514-520
+   - task_type : !!str map
+     start_east : !!float 420512.291663
+     start_north : !!float 3688990.625
+     end_east : !!float 420535.816663
+     end_north : !!float 3688989.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:77 520-52203
+   - task_type : !!str map
+     start_east : !!float 420528.266663
+     start_north : !!float 3688990.075
+     end_east : !!float 420538.566663
+     end_north : !!float 3688945.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:78 52203-523
+   - task_type : !!str map
+     start_east : !!float 420538.766663
+     start_north : !!float 3688948.825
+     end_east : !!float 420528.616663
+     end_north : !!float 3688934.975
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:79 523-51701
+   - task_type : !!str map
+     start_east : !!float 420534.066663
+     start_north : !!float 3688935.075
+     end_east : !!float 420508.016663
+     end_north : !!float 3688870.225
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:80 518-51302
+   - task_type : !!str map
+     start_east : !!float 420513.066663
+     start_north : !!float 3688868.625
+     end_east : !!float 420505.141663
+     end_north : !!float 3688979.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:81 51302-514
+   - task_type : !!str map
+     start_east : !!float 420505.091663
+     start_north : !!float 3688975.775
+     end_east : !!float 420516.891663
+     end_north : !!float 3688990.45
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop4
+#ids:82 514-520
+   - task_type : !!str map
+     start_east : !!float 420512.316663
+     start_north : !!float 3688990.675
+     end_east : !!float 420535.791663
+     end_north : !!float 3688989.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:83 520-52202
+   - task_type : !!str map
+     start_east : !!float 420528.316663
+     start_north : !!float 3688990.075
+     end_east : !!float 420540.316663
+     end_north : !!float 3688945.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:84 52202-523
+   - task_type : !!str map
+     start_east : !!float 420540.366663
+     start_north : !!float 3688948.775
+     end_east : !!float 420528.716663
+     end_north : !!float 3688935.075
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:85 523-51700
+   - task_type : !!str map
+     start_east : !!float 420534.166663
+     start_north : !!float 3688935.275
+     end_east : !!float 420524.866663
+     end_north : !!float 3688877.75
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:86 51700-518
+   - task_type : !!str map
+     start_east : !!float 420525.016663
+     start_north : !!float 3688882.625
+     end_east : !!float 420507.941663
+     end_north : !!float 3688870.325
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:87 518-51303
+   - task_type : !!str map
+     start_east : !!float 420513.016663
+     start_north : !!float 3688868.625
+     end_east : !!float 420506.766663
+     end_north : !!float 3688979.825
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:88 51303-514
+   - task_type : !!str map
+     start_east : !!float 420506.741663
+     start_north : !!float 3688975.725
+     end_east : !!float 420516.891663
+     end_north : !!float 3688990.475
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop6
+#ids:89 514-520
+   - task_type : !!str map
+     start_east : !!float 420512.316663
+     start_north : !!float 3688990.675
+     end_east : !!float 420535.791663
+     end_north : !!float 3688989.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:90 520-52200
+   - task_type : !!str map
+     start_east : !!float 420528.316663
+     start_north : !!float 3688990.125
+     end_east : !!float 420544.141663
+     end_north : !!float 3688945.375
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:91 52200-523
+   - task_type : !!str map
+     start_east : !!float 420544.391663
+     start_north : !!float 3688948.825
+     end_east : !!float 420528.641663
+     end_north : !!float 3688935.125
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:92 523-51901
+   - task_type : !!str map
+     start_east : !!float 420534.241663
+     start_north : !!float 3688935.275
+     end_east : !!float 420525.391663
+     end_north : !!float 3688980.925
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:93 51901-156
+   - task_type : !!str map
+     start_east : !!float 420525.516663
+     start_north : !!float 3688976.8
+     end_east : !!float 420535.741663
+     end_north : !!float 3688989.75
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#loop5
+#ids:94 514-520
+   - task_type : !!str map
+     start_east : !!float 420512.316663
+     start_north : !!float 3688990.625
+     end_east : !!float 420535.766663
+     end_north : !!float 3688989.8
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:95 520-52201
+   - task_type : !!str map
+     start_east : !!float 420528.266663
+     start_north : !!float 3688990.075
+     end_east : !!float 420542.066663
+     end_north : !!float 3688945.375
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:96 52201-523
+   - task_type : !!str map
+     start_east : !!float 420542.116663
+     start_north : !!float 3688948.825
+     end_east : !!float 420523.716663
+     end_north : !!float 3688981
+     stop_check : !!bool false
+     max_velo : !!float 0.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+#ids:97 51900-520
+   - task_type : !!str map
+     start_east : !!float 420523.591663
+     start_north : !!float 3688976.75
+     end_east : !!float 420554.408328
+     end_north : !!float 3688992.125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     can_escape_stuck : !!bool true 
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
