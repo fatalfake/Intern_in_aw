@@ -5,6 +5,8 @@
 md5_path=/tmp/task_to_json_md5.sum
 path=/opt/ros/kinetic/share/aw_launch/config/conf/tasks
 
+gnome-terminal -x bash -c "roscore"
+
 # 判断MD5基准校验文件是否存在，不存在则创建此文件,并修改权限只有root用户或者指定用户有读写权限
 [ ! -f $md5_path ] && touch $md5_path && chmod 600 $md5_path
 # read -p "请输入你需要MD5检验文件的目录,必须以\"/\"开始: " path
