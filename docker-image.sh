@@ -24,4 +24,4 @@ docker run -ti --rm \
     --network host \
     --privileged \
     -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
-    awcar:latest
+    registry.autowise.ai/awcar:latest
