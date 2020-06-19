@@ -27,16 +27,11 @@ for i in `cat ${md5_path} | awk '{print $2}'`;do
 done
 
 for list in `find $path -type f`;do
-    # echo "list = $list"
     new_md5_arg1=`md5sum $list | awk '{print $1}'`
-    # echo $new_md5_arg1
     new_md5_arg2=`md5sum $list | awk '{print $2}'`
-    # echo $new_md5_arg2
     old_md5_arg2=`awk -v List="$list" '$2 == List{print $2}' $md5_path`
-    # echo $old_md5_arg2
     if [[ "$new_md5_arg2" == "$old_md5_arg2" ]];then
         old_md5_arg1=`awk -v List="$list" '$2 == List{print $1}' $md5_path`
-        # echo $old_md5_arg1
         if [[ ! "$new_md5_arg1" == "$old_md5_arg1" ]];then
             echo -e "[Detection time：`date +"%Y-%m-%d %T.%N"`]  [File：$list] \033[31m[MD5 check result：Changed]\033[0m" 2>&1 
             # 去除原md5，添加新md5至 $md5_path
@@ -64,7 +59,6 @@ for list in `find $path -type f`;do
     else
         new_file_md5=`md5sum ${list}`
         md5sum ${list} >> ${md5_path}
-        # echo ${new_file_md5}
         echo -e "[Detection time：`date +"%Y-%m-%d %T.%N"`]  [File：$list] \033[31m[MD5 check result：Added]\033[0m" 2>&1 
         if echo ${list} | grep -q '\.yaml' 
         then
