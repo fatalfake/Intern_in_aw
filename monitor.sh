@@ -1,10 +1,11 @@
 #!/bin/bash
-#
+export LANG=C
 
 # 定义MD5文件保存的路径
 md5_path=/tmp/task_to_json_md5.sum
 path=/opt/ros/kinetic/share/aw_launch/config/conf/tasks
 
+source ~/.autowise/setup.sh
 # gnome-terminal -x bash -c "roscore"
 xterm -e bash -c 'roscore' &
 
@@ -50,10 +51,11 @@ for list in `find $path -type f`;do
                 echo 'Project name is: '${project_name}
                 rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
                 # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-                xterm -e "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
+                xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
                 #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
                 sleep 40
                 # source ./devel/setup.sh
+                # source ~/.autowise/setup.sh
                 roslaunch aw_global_planning route_points_generator.launch
                 echo 'Task complete.'
             fi
@@ -72,9 +74,10 @@ for list in `find $path -type f`;do
             echo 'Project name is: '${project_name}
             rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
             # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-            xterm -e "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
+            xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
             sleep 40
-            source ./devel/setup.sh
+            # source ./devel/setup.sh
+            # source ~/.autowise/setup.sh
             roslaunch aw_global_planning route_points_generator.launch
             echo 'Task complete.'
         fi
