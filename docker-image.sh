@@ -19,9 +19,9 @@ docker run -ti --rm \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v ~:/home/autowise/ \
     -w /home/autowise/ \
-    --gpus all \
-    --ulimit core=-1 --security-opt seccomp=unconfined \
-    --network host \
-    --privileged \
-    -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
+    # --gpus all \
+    # --ulimit core=-1 --security-opt seccomp=unconfined \
+    # --network host \
+    # --privileged \
+    # -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
     registry.autowise.ai/awcar:latest
