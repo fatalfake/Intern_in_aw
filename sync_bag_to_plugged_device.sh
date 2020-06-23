@@ -325,40 +325,48 @@ function sync_history_files() {
 
             filename=`basename $file`
 
-            IFS='_' read -r -a names <<< $(echo $filename)
+            if echo ${filename} | grep -q '.active'
+            then
+                echo "######################################"
+                echo "####.active file detected. Ignore.####"
+                echo "######################################"
+            else
+            
+                IFS='_' read -r -a names <<< $(echo $filename)
 
-            date_of_file="${names[0]}${names[1]}${names[2]}"
-            vehicle_id="${names[6]}_${names[7]}"
-            park_id="${names[8]}"
-            n=9
-            while [ $n -lt 100 ]
-            do
-                park_id="${park_id}_${names[n]}"
-                ((n++))
-                if echo ${names[n]} | grep -q '.bag'
-                then
-                    break
-                fi
-            done
-            echo vehicle_id: ${vehicle_id}
-            echo park_id: ${park_id}
+                date_of_file="${names[0]}${names[1]}${names[2]}"
+                vehicle_id="${names[6]}_${names[7]}"
+                park_id="${names[8]}"
+                n=9
+                while [ $n -lt 100 ]
+                do
+                    park_id="${park_id}_${names[n]}"
+                    ((n++))
+                    if echo ${names[n]} | grep -q '.bag'
+                    then
+                        break
+                    fi
+                done
+                echo vehicle_id: ${vehicle_id}
+                echo park_id: ${park_id}
 
-            head -n 1000 $file | grep -s -a time= | head -n 1 > start_hex_meta_temp.txt
-            tail -n 200 $file | grep -s -a time= | tail -n 1 > end_hex_meta_temp.txt
+                head -n 1000 $file | grep -s -a time= | head -n 1 > start_hex_meta_temp.txt
+                tail -n 200 $file | grep -s -a time= | tail -n 1 > end_hex_meta_temp.txt
 
-            start_time_stamp=`/usr/local/lib/systemd/user/scripts/hex_to_time.out start_hex_meta_temp.txt`
-            end_time_stamp=`/usr/local/lib/systemd/user/scripts/hex_to_time.out end_hex_meta_temp.txt`
-            start_time=`date -d @${start_time_stamp} "+%Y-%m-%d %H:%M:%S"`
-            end_time=`date -d @${end_time_stamp} "+%Y-%m-%d %H:%M:%S"`
-            echo start_time: ${start_time}
-            echo end_time: ${end_time}
-            a=${start_time_stamp}
-            b=${end_time_stamp}
-            duration=$(echo "${b} - ${a}" | bc)
-            duration=`echo $duration | awk '{print int($duration)}'` 
-            echo duration: ${duration} s
-		
-            write_meta `basename $file` "Copied" `stat -c "%s" $file` $vehicle_id $park_id $duration $start_time_stamp $end_time_stamp
+                start_time_stamp=`/usr/local/lib/systemd/user/scripts/hex_to_time.out start_hex_meta_temp.txt`
+                end_time_stamp=`/usr/local/lib/systemd/user/scripts/hex_to_time.out end_hex_meta_temp.txt`
+                start_time=`date -d @${start_time_stamp} "+%Y-%m-%d %H:%M:%S"`
+                end_time=`date -d @${end_time_stamp} "+%Y-%m-%d %H:%M:%S"`
+                echo start_time: ${start_time}
+                echo end_time: ${end_time}
+                a=${start_time_stamp}
+                b=${end_time_stamp}
+                duration=$(echo "${b} - ${a}" | bc)
+                duration=`echo $duration | awk '{print int($duration)}'` 
+                echo duration: ${duration} s
+            
+                write_meta `basename $file` "Copied" `stat -c "%s" $file` $vehicle_id $park_id $duration $start_time_stamp $end_time_stamp
+            fi
         fi
         printf "$SYNC_FILE_PID copy $file $dst_path complete\n"
     done
