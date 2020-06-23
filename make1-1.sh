@@ -33,6 +33,13 @@ function write_meta() {
 
 filename=$1
 
+if echo ${filename} | grep -q '.active'
+then
+    echo "######################################"
+    echo "####.active file detected. Ignore.####"
+    echo "######################################"
+else
+
 IFS='_' read -r -a names <<< $(echo $filename)
 
 date_of_file="${names[0]}${names[1]}${names[2]}"
@@ -72,5 +79,8 @@ echo duration: ${duration} s
 status=Copied
 size=`ls -l $filename| awk '{print $5}'`
 
+
 write_meta $filename $status $size $vehicle_id $park_id $duration $start_time_stamp $end_time_stamp
+
+fi
 
