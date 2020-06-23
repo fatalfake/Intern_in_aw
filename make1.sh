@@ -42,7 +42,7 @@ while [ $n -lt 100 ]
 do
     park_id="${park_id}_${names[n]}"
     ((n++))
-    if echo ${names[n]} | grep -q '[^a-z]'
+    if echo ${names[n]} | grep -q '.bag'
     then
         break
     fi
