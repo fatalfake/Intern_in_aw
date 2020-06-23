@@ -24,10 +24,13 @@ string string_to_hex(const string &str)
         ss << hex << int((unsigned char)str[i]) << endl; //unsigned char 很关键，如果符号位是1，不转换为unsigned，就会多一大堆f
         ss >> tmp;
         // cout<<"temp: "<<tmp<<endl;
-        if (tmp == "0")
+        // cout<<"len:  "<<tmp.length()<<endl;
+        // cout<<"new:  "<<"0"+tmp<<endl;
+        if (tmp.length() == 1)
         {
-            tmp = "00";
+            tmp = "0"+tmp;
         }
+        
         result += tmp;
     }
     return result;
