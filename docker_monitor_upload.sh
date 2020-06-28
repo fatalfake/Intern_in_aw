@@ -18,14 +18,14 @@ mkdir -p $HOME/.coredump
 
 # docker run -ti --rm -e "TERM=xterm-256color" "$@" -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ -w /home/autowise/ -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models registry.autowise.ai/awcar /bin/bash
 
-xterm -e bash -c 'docker run -ti --rm -e "ROS_MASTER_URI=http://localhost:11311" -e "ROS_PACKAGE_PATH=/opt/ros/kinetic/share" -e "ROS_ROOT=/opt/ros/kinetic/share/ros" -e "TERM=xterm-256color" "$@" -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ -w /home/autowise/ -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models registry.autowise.ai/awcar' &
+docker run -ti --rm -e "TERM=xterm-256color" "$@" -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined --network host --privileged -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models registry.autowise.ai/awcar bash -c 'cd qyc; ./monitor.sh'
 
-sleep 5
+# sleep 5
 
-container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
+# container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
 
-# docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1
-# echo ${container}
+# # docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1
+# # echo ${container}
 
-#TO-DO:在run docker的时候把环境变量设置好?
-docker exec -it ${container} bash -c "cd qyc; source ~/.autowise/setup.sh; ./monitor.sh"
+# #TO-DO:在run docker的时候把环境变量设置好?
+# docker exec -it ${container} bash -c "cd qyc; source ~/.autowise/setup.sh; ./monitor.sh"
