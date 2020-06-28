@@ -61,7 +61,7 @@ for list in `find $path -type f`;do
                 #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
                 sleep 40
                 # source ./devel/setup.sh
-                # source ~/.autowise/setup.sh
+                source ~/.autowise/setup.sh
                 roslaunch aw_global_planning route_points_generator.launch
                 echo 'Task complete.'
             fi
