@@ -83,7 +83,7 @@ for list in `find $path -type f`;do
             xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
             sleep 40
             # source ./devel/setup.sh
-            # source ~/.autowise/setup.sh
+            source ~/.autowise/setup.sh
             roslaunch aw_global_planning route_points_generator.launch
             echo 'Task complete.'
         fi
