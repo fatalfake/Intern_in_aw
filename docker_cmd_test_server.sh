@@ -54,3 +54,7 @@ cd autowise_test; cd log_based_simu; python regression.py"
 # export ROS_VERSION=1; \
 # export ROS_ETC_DIR=/opt/ros/kinetic/etc/ros; \
 # export ROS_DISTRO=kinetic; \
+
+
+# pip install sqlalchemy; \
+# pip install MySQL-python; \ 

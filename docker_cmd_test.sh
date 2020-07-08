@@ -13,16 +13,16 @@ echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
 
 mkdir -p $HOME/.coredump
 
-echo '==================Reading parameters================'
-bag_name=$1
-echo "----------------${bag_name}"
+# echo '==================Reading parameters================'
+bag_path=$1
+# echo "----------------${bag_path}"
 start_sec=$2
-echo "----------------${start_sec}"
+# echo "----------------${start_sec}"
 end_sec=$3
-echo "----------------${end_sec}"
+# echo "----------------${end_sec}"
 case_dir=$4
-echo "----------------${case_dir}"
-echo '===================================================='
+# echo "----------------${case_dir}"
+# echo '===================================================='
 
 
 xterm -e bash -c 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
@@ -46,14 +46,18 @@ docker exec -it ${container} bash -c "export PATH=/opt/ros/kinetic/share/euslisp
 /usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:\
 /usr/bin:/usr/sbin:/bin:/sbin; \
 export PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin/:/usr/local/bin:/usr/local/lib/python2.7/dist-packages; \
-pip install sqlalchemy;
 export ROS_ROOT=/opt/ros/kinetic/share/ros; \
 export ROS_MASTER_URI=http://localhost:11311; \
 export ROS_PYTHON_VERSION=2; \
 export ROS_VERSION=1; \
 export ROS_ETC_DIR=/opt/ros/kinetic/etc/ros; \
 export ROS_DISTRO=kinetic; \
-source ~/.autowise/setup.sh; \
+export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:\
+/opt/ros/kinetic/lib:\
+/opt/ros/kinetic/lib/x86_64-linux-gnu:\
+/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib; \
 source /opt/ros/kinetic/setup.bash; \
-cd autowise_test; cd log_based_simu; python regression.py;
+source ~/.autowise/setup.sh; \
+cd autowise_test_new; cd log_based_simu; \
+python regression.py; \
 echo =======================END=============================;" 
