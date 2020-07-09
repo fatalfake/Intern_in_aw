@@ -13,16 +13,18 @@ echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
 
 mkdir -p $HOME/.coredump
 
-# echo '==================Reading parameters================'
-bag_path=$1
-# echo "----------------${bag_path}"
-start_sec=$2
-# echo "----------------${start_sec}"
-end_sec=$3
-# echo "----------------${end_sec}"
-case_dir=$4
-# echo "----------------${case_dir}"
-# echo '===================================================='
+# # echo '==================Reading parameters================'
+# bag_path=$1
+# # echo "----------------${bag_path}"
+# start_sec=$2
+# # echo "----------------${start_sec}"
+# end_sec=$3
+# # echo "----------------${end_sec}"
+# case_dir=$4
+# # echo "----------------${case_dir}"
+# case_name=`awk -F/ '{print $NF}'<<<"${case_dir}"`
+# echo ${case_name}
+# # echo '===================================================='
 
 
 xterm -e bash -c 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
@@ -59,5 +61,19 @@ export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:\
 source /opt/ros/kinetic/setup.bash; \
 source ~/.autowise/setup.sh; \
 cd autowise_test_new; cd log_based_simu; \
-python regression.py; \
+sort ./config/regression_caselist -o ./config/regression_caselist
+#python regression.py; \
+
 echo =======================END=============================;" 
+
+
+# ./savecase.py -s ${start_sec} -e ${end_sec} ${bag_path} ${case_dir}; \
+# ×××××××××××××××××××
+# 问题：docker里面没有aw_bag的package，update了也没有
+# ×××××××××××××××××××
+
+# grep -q '${case_name}' ./config/regression_caselist && echo 'Case ${case_name} already exists in regression_caselist.' \
+# || echo ${case_name} >> ./config/regression_caselist; \
+
+
+# python regression.py; \

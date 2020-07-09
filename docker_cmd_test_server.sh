@@ -48,6 +48,10 @@ cd autowise_test; cd log_based_simu; python regression.py"
 
 # ./savecase.py ${bag_path} ${case_dir} ${start_sec} ${end_sec};
 
+# ./savecase.py -s ${start_sec} -e ${end_sec} ${bag_path} ${case_dir}; \
+
+# python regression.py; \
+
 # export ROS_ROOT=/opt/ros/kinetic/share/ros; \
 # export ROS_MASTER_URI=http://localhost:11311; \
 # export ROS_PYTHON_VERSION=2; \
