@@ -36,7 +36,9 @@ def get_caselist_by_group(caselist):
         if i == len(caselist)-1:
             if len(temp) == 0:
                 temp.append(caselist[i])
-                caselist_by_group.append(temp) 
+                caselist_by_group.append(temp)
+            else:
+                caselist_by_group.append(temp)
             break
         next_nonius = 5
         while(caselist[i+1][next_nonius] != '-'):
@@ -55,10 +57,13 @@ def get_caselist_by_group(caselist):
                 temp.append(caselist[i])
             caselist_by_group.append(temp)
             temp = []
+    print("**********")
     for group in caselist_by_group:
         for case in group:
             print(case)
-            print("**********")
+            
+    print(caselist_by_group)
+    print("*************")
 
 
 

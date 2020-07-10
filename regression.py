@@ -526,6 +526,8 @@ class RegressionManager(object):
                 if len(temp) == 0:
                     temp.append(caselist[i])
                     caselist_by_group.append(temp) 
+                else:
+                    caselist_by_group.append(temp)
                 break
             next_nonius = 5
             while(caselist[i+1][next_nonius] != '-'):
