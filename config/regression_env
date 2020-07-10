@@ -1,0 +1,9 @@
+[regression_case]
+case_running_id = 1594375296
+caselist_filename = regression_caselist
+record_dir = /home/autowise/bags/regression_bags
+
+[case_description]
+description_file = case_description.xml
+file_semicolon = "|"
+

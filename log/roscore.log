@@ -1,0 +1,58 @@
+... logging to /home/autowise/.ros/log/3c79d5d6-c294-11ea-9acb-e86a64cd3627/roslaunch-autowise-29533.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+]2;roscore
+[1mstarted roslaunch server http://autowise:32895/[0m
+ros_comm version 1.12.14
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [29545][0m
+[1mROS_MASTER_URI=http://autowise:11311/[0m
+]2;roscore http://autowise:11311/
+[1msetting /run_id to 3c79d5d6-c294-11ea-9acb-e86a64cd3627[0m
+[1mprocess[rosout-1]: started with pid [29559][0m
+started core service [/rosout]
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
+... logging to /home/autowise/.ros/log/568af7fc-c294-11ea-9acb-e86a64cd3627/roslaunch-autowise-29741.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+]2;roscore
+[1mstarted roslaunch server http://autowise:41039/[0m
+ros_comm version 1.12.14
+
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.14
+
+NODES
+
+auto-starting new master
+[1mprocess[master]: started with pid [29758][0m
+[1mROS_MASTER_URI=http://autowise:11311/[0m
+]2;roscore http://autowise:11311/
+[1msetting /run_id to 568af7fc-c294-11ea-9acb-e86a64cd3627[0m
+[1mprocess[rosout-1]: started with pid [29771][0m
+started core service [/rosout]
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

@@ -109,6 +109,5 @@ int main()
 {
     cout << "This is a leetcode train file." << endl;
     Solution s;
-    cout << s.replaceSpace("We are happy.");
     return 0;
 }

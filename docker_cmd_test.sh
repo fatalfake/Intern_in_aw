@@ -61,8 +61,8 @@ export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:\
 source /opt/ros/kinetic/setup.bash; \
 source ~/.autowise/setup.sh; \
 cd autowise_test_new; cd log_based_simu; \
-sort ./config/regression_caselist -o ./config/regression_caselist
-#python regression.py; \
+sort ./config/regression_caselist -o ./config/regression_caselist; \
+python regression.py; \
 
 echo =======================END=============================;" 
 

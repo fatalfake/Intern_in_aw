@@ -1,0 +1,15 @@
+modules:
+  - module_name: !!str arrival_check
+    enable: !!bool true
+    params:
+      finish_condition:
+        distance_diff: 2
+        yaw_diff: 1 
+  - module_name: !!str collision_check
+    enable: !!bool true
+  - module_name: !!str comfort_check
+    enable: !!bool true
+  - module_name: !!str trajectory_check
+    enable: !!bool true
+
+
