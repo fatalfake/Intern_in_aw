@@ -11,14 +11,28 @@ echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
 
 mkdir -p $HOME/.coredump
 
-docker run -ti --rm -e "TERM=xterm-256color" "$@" \
--e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
--v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ \
--v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
--w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
---network host --privileged \
--v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
-registry.autowise.ai/awcar /bin/bash
+container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
+
+if [[ ! -n ${container} ]]; 
+then 
+    docker run -ti --rm -e "TERM=xterm-256color" "$@" \
+    -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
+    -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ \
+    -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
+    -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
+    --network host --privileged \
+    -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
+    registry.autowise.ai/awcar:latest /bin/bash
+fi
+
+# docker run -ti --rm -e "TERM=xterm-256color" "$@" \
+# -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
+# -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ \
+# -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
+# -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
+# --network host --privileged \
+# -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
+# registry.autowise.ai/awcar:latest /bin/bash
 
 
 # xterm -e bash -c 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \

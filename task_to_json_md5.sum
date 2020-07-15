@@ -40,3 +40,15 @@ e3ea768660c7ae3307c04d3f63cd367f  /opt/ros/kinetic/share/aw_launch/config/conf/t
 a244505cdd76f708cfcbe993b7ab4660  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_disney/disney_part.yaml
 a5dc2e2d389914d971295c88aab85b21  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_disney/disney_art.yaml
 f4aec94b5ed6fe914de04f428386915f  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_binjiang/binjiang_road_demo.yaml
+229babff3b98883df3a57f23c9e0917b  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_binjiang/binjiang_task.yaml
+e1fad991068385bb65523537dbfc5887  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_binjiang/binjiang_task_jingda.yaml
+cb38afad13b920aeb9c1bf4991b8bb48  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiamen_xianyue/xiamen_xianyue_to_gate.yaml
+98a6341095ffabcf0fd98583b4229fc6  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiamen_xianyue/xiamen_xianyue.yaml
+25bb27c49e6ac1fbeaeff999a45df9f6  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiamen_xianyue/xiamen_xianyue_turn.yaml
+78075c6d12d5847a2b7c536bf015a5de  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiamen_xianyue/xiamen_xianyue_turn_2.yaml
+ab55b9e505c5fee08971cc42f8ae3d65  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_demo_yutong2.yaml
+beb74c9812645e31dbd0cd92121a97ad  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang.yaml
+f3e82a654fbd9425747de1285048f60a  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_repeated.yaml
+a5da8e62cc170f989f07a1bc925f7eb3  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_demo.yaml
+41c5b0e7f9ab63e47308df085041e432  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_demo_arits.yaml
+1588f33b19e172fa1f3fad751c875a71  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_demo_curb.yaml

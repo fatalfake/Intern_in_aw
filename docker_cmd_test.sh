@@ -32,7 +32,7 @@ xterm -e bash -c 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
 -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
 --network host --privileged \
 -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
-registry.autowise.ai/awcar /bin/bash' &
+registry.autowise.ai/awcar:latest /bin/bash' &
 
 sleep 5
 
