@@ -1,0 +1,360 @@
+﻿/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_all
+/aw/planning/aw_planning/itinerary/route_id : !!str 5
+/aw/planning/aw_planning/itinerary/tasks :
+  #s792-799
+   - task_type : !!str map
+     start_east : !!float 274626.25
+     start_north : !!float 3480024.3
+     end_east : !!float 274690.325
+     end_north : !!float 3479990.025
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s794-799
+   - task_type : !!str map
+     start_east : !!float 274681.125
+     start_north : !!float 3479994.725
+     end_east : !!float 274869.625
+     end_north : !!float 3479898.825
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s799-812
+   - task_type : !!str map
+     start_east : !!float 274863.925
+     start_north : !!float 3479902.025
+     end_east : !!float 274957.025
+     end_north : !!float 3479849.925
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s812-814
+   - task_type : !!str map
+     start_east : !!float 274950.925
+     start_north : !!float 3479853.725
+     end_east : !!float 275737.325
+     end_north : !!float 3479373.225
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s814-819
+   - task_type : !!str map
+     start_east : !!float 275730.625
+     start_north : !!float 3479376.825
+     end_east : !!float 275823.025
+     end_north : !!float 3479323.525
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s819-821
+   - task_type : !!str map
+     start_east : !!float 275815.625
+     start_north : !!float 3479328.725
+     end_east : !!float 275998.125
+     end_north : !!float 3479207.725
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s821-828
+   - task_type : !!str map
+     start_east : !!float 275992.825
+     start_north : !!float 3479211.525
+     end_east : !!float 276066.425
+     end_north : !!float 3479167.525
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s828-830
+   - task_type : !!str map
+     start_east : !!float 276061.125
+     start_north : !!float 3479171.425
+     end_east : !!float 276394.625
+     end_north : !!float 3478960.625
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s830-833
+   - task_type : !!str map
+     start_east : !!float 276389.325
+     start_north : !!float 3478963.825
+     end_east : !!float 276525.025
+     end_north : !!float 3478880.725
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s833-837
+   - task_type : !!str map
+     start_east : !!float 276518.825
+     start_north : !!float 3478883.625
+     end_east : !!float 276765.125
+     end_north : !!float 3478741.925
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s837-840
+   - task_type : !!str map
+     start_east : !!float 276759.225
+     start_north : !!float 3478745.525
+     end_east : !!float 276958.425
+     end_north : !!float 3478650.925
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s840-842
+   - task_type : !!str map
+     start_east : !!float 276953.525
+     start_north : !!float 3478652.625
+     end_east : !!float 277211.525
+     end_north : !!float 3478577.125
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s842-843
+   - task_type : !!str map
+     start_east : !!float 277204.325
+     start_north : !!float 3478579.925
+     end_east : !!float 277313.925
+     end_north : !!float 3478541.325
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s843-849
+   - task_type : !!str map
+     start_east : !!float 277306.925
+     start_north : !!float 3478542.425
+     end_east : !!float 277461.525
+     end_north : !!float 3478495.825
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+
+   - task_type : !!str map
+     start_east : !!float 277452.825
+     start_north : !!float 3478498.025
+     end_east : !!float 277874.925
+     end_north : !!float 3478374.225
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s849-853
+   - task_type : !!str map
+     start_east : !!float 277868.625
+     start_north : !!float 3478376.325
+     end_east : !!float 277995.125
+     end_north : !!float 3478331.825
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+
+     ##s853-855
+   - task_type : !!str map
+     start_east : !!float 277976.125
+     start_north : !!float 3478338.425
+     end_east : !!float 277916.85
+     end_north : !!float 3478389.8
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+     #s855-860
+   - task_type : !!str map
+     start_east : !!float 277920.575
+     start_north : !!float 3478388.625
+     end_east : !!float 277502.975
+     end_north : !!float 3478511.425
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s860-863
+   - task_type : !!str map
+     start_east : !!float 277509.275
+     start_north : !!float 3478509.325
+     end_east : !!float 277399.375
+     end_north : !!float 3478548.325
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s863-865
+   - task_type : !!str map
+     start_east : !!float 277405.275
+     start_north : !!float 3478546.425
+     end_east : !!float 277251.575
+     end_north : !!float 3478593.225
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s865-867
+   - task_type : !!str map
+     start_east : !!float 277255.975
+     start_north : !!float 3478591.975
+     end_east : !!float 276988.575
+     end_north : !!float 3478668.525
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s867-872
+   - task_type : !!str map
+     start_east : !!float 276994.975
+     start_north : !!float 3478666.725
+     end_east : !!float 276776.95
+     end_north : !!float 3478764.55
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s872-874
+   - task_type : !!str map
+     start_east : !!float 276783.45
+     start_north : !!float 3478761.45
+     end_east : !!float 276562.85
+     end_north : !!float 3478889.85
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s874-877
+   - task_type : !!str map
+     start_east : !!float 276566.05
+     start_north : !!float 3478887.35
+     end_east : !!float 276475.95
+     end_north : !!float 3478947.45
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s877-884
+   - task_type : !!str map
+     start_east : !!float 276480.65
+     start_north : !!float 3478944.35
+     end_east : !!float 276097.05
+     end_north : !!float 3479178.55
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s884-889
+   - task_type : !!str map
+     start_east : !!float 276103.35
+     start_north : !!float 3479174.85
+     end_east : !!float 275900.55
+     end_north : !!float 3479298.75
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s889-891
+   - task_type : !!str map
+     start_east : !!float 275905.65
+     start_north : !!float 3479295.55
+     end_east : !!float 275854.45
+     end_north : !!float 3479332.45
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s891-893
+   - task_type : !!str map
+     start_east : !!float 275858.95
+     start_north : !!float 3479329.35
+     end_east : !!float 275738.25
+     end_north : !!float 3479402.55
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s893-905
+   - task_type : !!str map
+     start_east : !!float 275749.425
+     start_north : !!float 3479395.775
+     end_east : !!float 275268.825
+     end_north : !!float 3479709.375
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s905-914
+   - task_type : !!str map
+     start_east : !!float 275273.9
+     start_north : !!float 3479706.35
+     end_east : !!float 274739.325
+     end_north : !!float 3479993.125
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s914-916
+   - task_type : !!str map
+     start_east : !!float 274745.725
+     start_north : !!float 3479989.825
+     end_east : !!float 274658.925
+     end_north : !!float 3480041.525
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     ##s916-792
+   - task_type : !!str map
+     start_east : !!float 274701.8
+     start_north : !!float 3480017.875
+     end_east : !!float 274641.725
+     end_north : !!float 3480015.975
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+ 
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index: !!int 0

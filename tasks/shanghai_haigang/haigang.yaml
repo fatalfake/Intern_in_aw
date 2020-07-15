@@ -1,0 +1,79 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str haigang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+#- task_type :   !!str script
+#  script_name:  !!str script/start/check_key.py haigang
+#
+#- task_type :   !!str script
+#  script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+# s1 - s2 middle
+- task_type :   !!str map
+  start_east :    !!float 395085.72500 
+  start_north:    !!float 3415753.02500
+  end_east :    !!float 395109.42500
+  end_north:    !!float 3415776.02500
+  stop_check :  !!bool false
+  max_velo  :   !!float 0.5
+  execute_mode: !!int 2
+  use_rel_ref:  !!bool false
+
+# s1 - s102 close
+- task_type :   !!str map
+  start_east :    !!float 395085.72500 
+  start_north:    !!float 3415753.02500
+  end_east :    !!float 395150.77500
+  end_north:    !!float 3415848.52500
+  max_velo  :   !!float 1.0
+  stop_check :  !!bool true
+  execute_mode: !!int 2
+  use_rel_ref:  !!bool true
+
+#- task_type :   !!str script
+#  script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+- task_type :   !!str map
+  start_east :    !!float 395085.72500 
+  start_north:    !!float 3415753.02500
+  end_east :    !!float 395123.22500
+  end_north:    !!float 3415825.22500
+  max_velo  :   !!float 1.0
+  center_offset: !!float -0.5
+  stop_check :  !!bool true
+  execute_mode: !!int 2
+  use_rel_ref:  !!bool false
+
+# parking to dump
+- task_type :   !!str parking
+  end_east :    !!float 395128.07500
+  end_north :   !!float 3415843.57500
+  end_yaw :     !!float -0.8398
+
+##  dump on
+#   - task_type :   !!str script
+#     script_name:  !!str ../../vehicle/aw_vehicle/script/yutong/dump_on.py
+#   - task_type :   !!str script
+#     script_name:  !!str sleep 5
+##  dump off
+#   - task_type :   !!str script
+#     script_name:  !!str ../../vehicle/aw_vehicle/script/yutong/dump_off.py
+
+# prepare to parking
+- task_type :   !!str map
+  start_east :    !!float 395126.42500 
+  start_north:    !!float 3415845.27500
+  end_east :    !!float 395169.02500
+  end_north:    !!float 3415798.97500
+  max_velo  :   !!float 2.0
+  stop_check :  !!bool true
+  execute_mode: !!int 2
+  use_rel_ref:  !!bool false
+
+# parking to stop
+- task_type :   !!str parking
+  end_east :    !!float 395130.82500
+  end_north:    !!float 3415797.02500
+  end_yaw :     !!float 0.77305
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 1
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

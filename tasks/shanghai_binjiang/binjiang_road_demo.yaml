@@ -1,0 +1,78 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type : !!str map
+     start_east : !!float 353894.7593
+     start_north : !!float 3445308.89
+     end_east : !!float 353886.2343
+     end_north : !!float 3445335.365
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353888.7843
+     start_north : !!float 3445327.59
+     end_east : !!float 353874.6343
+     end_north : !!float 3445349.915
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353881.0343
+     start_north : !!float 3445345.115
+     end_east : !!float 353853.2843
+     end_north : !!float 3445366.14
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353858.2593
+     start_north : !!float 3445362.365
+     end_east : !!float 353733.8093
+     end_north : !!float 3445596.59
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353740.5593
+     start_north : !!float 3445584.04
+     end_east : !!float 353658.7343
+     end_north : !!float 3445583.215
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353664.0093
+     start_north : !!float 3445587.615
+     end_east : !!float 353629.8843
+     end_north : !!float 3445559.04
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353635.0593
+     start_north : !!float 3445563.165
+     end_east : !!float 353498.3593
+     end_north : !!float 3445624.89
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 353508.0343
+     start_north : !!float 3445622.515
+     end_east : !!float 353333.1343
+     end_north : !!float 3445924.815
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

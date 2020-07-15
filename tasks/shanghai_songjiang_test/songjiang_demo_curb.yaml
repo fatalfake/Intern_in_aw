@@ -1,0 +1,107 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str songjiang
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+
+    #s343r - s356r
+   - task_type :   !!str map
+     start_east :    !!float 334752.125
+     start_north :   !!float 3435810.3
+     end_east :    !!float 334963.875
+     end_north:    !!float 3436045.025
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+
+    #s356r - s356r
+   - task_type :   !!str map
+     start_east :    !!float 334752.125
+     start_north :   !!float 3435810.3
+     end_east :    !!float 334977.225
+     end_north:    !!float 3436042.075
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true                                                 
+     rel_border_dis: !!float -0.3
+     max_velo:     !!float 0.5
+
+    # point-to s357
+   - task_type :   !!str point_to
+     end_east :    !!float 334909.575
+     end_north:    !!float 3436065.6
+     lateral_safe: !!float 0.4
+    
+   # pose-to-pose s357
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334957.6
+     end_north:    !!float 3436055.6
+     end_yaw:    !!float 2.85
+
+    # s357l - s357l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334944.125
+     end_north:    !!float 3436059.225
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.5
+
+    # s357l - s353l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334834.725
+     end_north:    !!float 3436079.925
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+
+    # s357l - s328l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334793.325
+     end_north:    !!float 3436052.825
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     rel_border_dis: !!float -0.3
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+
+    # s357l - s328l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334791.625
+     end_north:    !!float 3436047.125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.5
+
+    # s357l - s360l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334726.925
+     end_north:    !!float 3435817.9
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true                                                  
+     max_velo:     !!float 1.0
+
+  
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

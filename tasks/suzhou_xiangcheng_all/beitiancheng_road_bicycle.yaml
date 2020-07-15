@@ -1,0 +1,27 @@
+﻿/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_all
+/aw/planning/aw_planning/itinerary/route_id : !!str 15
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type : !!str map
+     start_east : !!float 274961.375
+     start_north : !!float 3479666.725
+     end_east : !!float 276294.65
+     end_north : !!float 3478829.1
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 276318.5
+     start_north : !!float 3478813.15
+     end_east : !!float 274981.025
+     end_north : !!float 3479656.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index: !!int 0

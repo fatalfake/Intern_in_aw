@@ -1,0 +1,54 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_demo_park
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+
+   - task_type :   !!str pose_to_pose
+     end_east : !!float 273988.775
+     end_north : !!float 3478301.925
+     end_yaw:    !!float -0.44
+     pose_to_pose_mode: !!int 1
+
+
+   - task_type : !!str map
+     start_east : !!float 273969.725
+     start_north : !!float 3478311.15
+     end_east : !!float 273990.65
+     end_north : !!float 3478300.85
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 273985.975
+     start_north : !!float 3478303.525
+     end_east : !!float 274021.9
+     end_north : !!float 3478324.875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type :   !!str pose_to_pose
+     end_east : !!float 274018.4
+     end_north : !!float 3478325.725
+     end_yaw:    !!float -2.3
+     pose_to_pose_mode: !!int 3
+
+   - task_type : !!str map
+     start_east : !!float 274020.275
+     start_north : !!float 3478327.825
+     end_east : !!float 273970.9
+     end_north : !!float 3478313.525
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+
+   - task_type : !!str pose_to_pose
+     end_east : !!float 273975.225
+     end_yaw:    !!float 1.13
+     pose_to_pose_mode: !!int 3
+     end_north : !!float 3478304.125
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

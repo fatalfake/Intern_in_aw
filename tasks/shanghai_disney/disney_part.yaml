@@ -1,0 +1,97 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_disney
+/aw/planning/aw_planning/itinerary/route_id : !!str 3
+/aw/planning/aw_planning/maneuver/bypass_width_limit : !!float 2.0
+
+/aw/planning/aw_planning/itinerary/tasks :
+    #- task_type :   !!str script
+    #script_name:  !!str script/start/check_key.py disney_start
+    #- task_type :   !!str script
+    # script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+# start
+   - task_type :   !!str map
+     start_east :  !!float 371742.5
+     start_north:  !!float 3446209.5
+     end_east :    !!float 371770.15
+     end_north:    !!float 3446174.55
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371742.5
+     start_north:  !!float 3446209.5
+     end_east :    !!float 371776.1875
+     end_north:    !!float 3446145.6125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# no curb
+   - task_type :   !!str map
+     start_east :  !!float 371764.0375
+     start_north:  !!float 3446151.0625
+     end_east :    !!float 371869.425
+     end_north:    !!float 3446068.4125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371781.9625
+     start_north:  !!float 3446141.3375
+     end_east :    !!float 371906.7
+     end_north:    !!float 3446059.6625
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# staight
+   - task_type :   !!str map
+     start_east :  !!float 371913.7
+     start_north:  !!float 3446057.4625
+     end_east :    !!float 371777.175
+     end_north:    !!float 3446166.1875
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.15
+     center_type : 1
+     center_offset : 0.95
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371791.20
+     start_north:  !!float 3446154.60
+     end_east :    !!float 371777.30
+     end_north:    !!float 3446188.30
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# end
+   - task_type :   !!str map
+     start_east :  !!float 371781.50
+     start_north:  !!float 3446172.10
+     end_east :    !!float 371737.60
+     end_north:    !!float 3446203.90
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+     #- task_type :  !!str script
+     #script_name: !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+     #- task_type :   !!str script
+     #script_name:  !!str script/start/stop_key.py disney_start
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

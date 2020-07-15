@@ -1,0 +1,76 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str boschung_factory
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/lane_width : 4.8
+/aw/planning/aw_planning/itinerary/areas_path : "config/ccpp/boschung_factory/boschung_factory_areas_demo.txt"
+/aw/planning/aw_planning/itinerary/tasks :
+  #0 unlock local map, build map begin
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_begin.sh
+  #1: s1-s20
+  # wash-on
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+  - task_type :   !!str map
+    start_east :    !!float 341187.11
+    start_north:    !!float 5189385.625
+    end_east :    !!float 341241.095
+    end_north:    !!float 5189445.19
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    can_escape_stuck: !!bool true
+
+  #3 lock local map, build map end
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_end.sh
+ 
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341241.095
+    end_north:    !!float 5189445.19
+    end_yaw:      !!float -2.32
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+
+  # generate parkingslot tasks
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py False True [] []
+
+  # parkingslots
+  - task_type :   !!str dynamic
+    start_east :    !!float 341243.195
+    start_north:    !!float 5189447.59
+    start_yaw:    !!float -2.32
+    end_east :    !!float 341194.1
+    end_north:    !!float 5189393.0
+    end_yaw:    !!float -2.32
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341189.1
+    end_north:    !!float 5189387.9
+    end_yaw:      !!float 0.87
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+
+#    # generate area tasks
+#  - task_type :   !!str script
+#    script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True False [] []
+#
+#  # area 0
+#  - task_type :   !!str dynamic
+#    start_east :    !!float 341201.1
+#    start_north:    !!float 5189406.4
+#    start_yaw:    !!float -2.29
+#    end_east :    !!float 341207.395
+#    end_north:    !!float 5189408.165
+#    end_yaw:    !!float 0.83
+
+  # wash off
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

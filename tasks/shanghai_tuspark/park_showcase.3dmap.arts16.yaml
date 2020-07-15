@@ -1,0 +1,51 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_qidi
+/aw/planning/aw_planning/itinerary/route_id : !!str 4 
+/aw/planning/aw_planning/itinerary/tasks :
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+#  - task_type :   !!str pose_to_pose
+#    pose_to_pose_mode: !!int 2
+#    end_east :    !!float 334837.60000
+#    end_north :   !!float 3435820.00000
+#    end_yaw :     !!float 0.0
+#  - task_type :   !!str script
+#    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+# L26~L18
+#  - task_type :   !!str map
+#    start_east :  !!float 334842.75000
+#    start_north:  !!float 3435733.75000
+#    end_east :    !!float 334976.55000
+#    end_north:    !!float 3435772.55000
+#    stop_check :  !!bool false
+#    execute_mode: !!int 2
+#    use_rel_ref:  !!bool true
+# L10~L70
+#  - task_type :    !!str map
+#    start_east :  !!float 334921.65000
+#    start_north:  !!float 3435817.45000
+#    end_east :    !!float 334814.05000
+#    end_north:    !!float 3435820.35000
+#    execute_mode: !!int 2
+#    use_rel_ref:  !!bool true
+#    stop_check :  !!bool false
+# L10~L2
+#  - task_type :    !!str map
+#    start_east :  !!float 334921.65000
+#    start_north:  !!float 3435817.45000
+#    end_east :    !!float 334836.60000
+#    end_north :   !!float 3435820.00000
+#    execute_mode: !!int 2
+#    use_rel_ref:  !!bool false
+#    stop_check :  !!bool true
+#    terminal_dist: !!float 5.0
+#  - task_type :   !!str script
+#    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+   - task_type :   !!str pose_to_pose
+     pose_to_pose_mode: !!int 2
+     end_east :    !!float 334829.40000
+     end_north :   !!float 3435826.92500
+     end_yaw :     !!float 4.67
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

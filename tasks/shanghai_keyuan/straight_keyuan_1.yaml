@@ -1,0 +1,87 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_keyuan
+/aw/planning/aw_planning/itinerary/route_id : !!str 101
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check.py
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/blink.py
+# wash part
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/wash_switch.py
+   - task_type :   !!str map
+     start_east :  !!float 365796.65
+     start_north:  !!float 3449128.78
+     end_east :    !!float 365963.418584
+     end_north:    !!float 3448988.40314
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.6
+   - task_type :   !!str map
+     start_east :  !!float 365796.65
+     start_north:  !!float 3449128.78
+     end_east :    !!float 366073.887925
+     end_north:    !!float 3448902.89705
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+   - task_type :   !!str map
+     start_east :  !!float 365796.65
+     start_north:  !!float 3449128.78
+     end_east :    !!float 366660.425
+     end_north:    !!float 3448540.550
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.6
+   - task_type :   !!str map
+     start_east :  !!float 365796.65
+     start_north:  !!float 3449128.78
+     end_east :    !!float 366693.125
+     end_north:    !!float 3448534.15
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.0
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/wash_switch.py
+   - task_type :   !!str parking
+     end_east :    !!float 366722.780575
+     end_north :   !!float 3448546.35845
+     end_yaw :     !!float 0.6108652381980153
+   - task_type :   !!str script
+     script_name:  !!str script/start/set_key.py first_cross
+   - task_type :   !!str parking
+     end_east :    !!float 366704.524277
+     end_north:    !!float 3448544.72936
+     end_yaw :     !!float 6.17808897655
+     max_velo:  !!float 0.5
+     terminal_dist : !!float 0.5
+     accuracy_stop : !!bool true
+     check_free_dist : !!float 8.0
+   - task_type :   !!str script
+     script_name:  !!str script/start/set_key.py first_dumping
+#  dump on
+   - task_type :   !!str script
+     script_name:  !!str ../../vehicle/aw_vehicle/script/yutong/dump_on.py
+   - task_type :   !!str script
+     script_name:  !!str sleep 5
+#  dump off
+   - task_type :   !!str script
+     script_name:  !!str ../../vehicle/aw_vehicle/script/yutong/dump_off.py
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py third_parked
+   - task_type :   !!str parking
+     end_east :    !!float 366719.325
+     end_north:    !!float 3448528.50
+     end_yaw :     !!float 1.49693376025
+     max_velo:  !!float 0.5
+     terminal_dist : !!float 0.5
+     accuracy_stop : !!bool true
+     check_free_dist : !!float 8.0
+   - task_type :   !!str script
+     script_name:  !!str script/start/set_key.py first_parked
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

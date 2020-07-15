@@ -1,0 +1,54 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str beijing_chaoyang
+/aw/planning/aw_planning/itinerary/route_id : !!str 6
+/aw/planning/aw_planning/itinerary/tasks :
+   #- task_type :   !!str script
+   #  script_name:  !!str script/start/check_key.py chaoyang_park_start
+   #- task_type :   !!str script
+   # script_name:  !!str $(rospack find aw_vehicle)/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :    !!float 455199.0375
+     start_north:    !!float 4422630.51250
+     end_east :    !!float 455362.9375
+     end_north:    !!float 4422646.1875
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   #-  task_type :   !!str script
+   #-  script_name:  !!str $(rospack find aw_vehicle)/script/jingda/wash_off.py
+   - task_type :   !!str map
+     start_east :    !!float 455199.0375
+     start_north:    !!float 4422630.51250
+     end_east :    !!float 455259.65208
+     end_north:    !!float 4422691.94445
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str point_to
+     end_east :    !!float 455295.75208
+     end_north:    !!float 4422694.09445
+   #- task_type :   !!str script
+   #- script_name:  !!str $(rospack find aw_vehicle)/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :    !!float 455208.95208
+     start_north:    !!float 4422642.49445
+     end_east :    !!float 455236.90208
+     end_north:    !!float 4422550.36945
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false 
+   - task_type :   !!str map
+     start_east :  !!float 455352.65208
+     start_north:  !!float 4422631.79445
+     end_east :    !!float 455259.65208
+     end_north:    !!float 4422691.94445
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   #-  task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_vehicle)/script/jingda/wash_off.py
+   #-  task_type :   !!str script
+   #   script_name:  !!str script/start/stop_key.py chaoyang_park_start
+ 
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

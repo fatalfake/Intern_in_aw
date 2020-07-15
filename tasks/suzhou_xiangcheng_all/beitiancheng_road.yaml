@@ -1,0 +1,140 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_all
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+     #s316-325
+   - task_type : !!str map
+     start_east : !!float 274961.875
+     start_north : !!float 3479669.5
+     end_east : !!float 275131.625
+     end_north : !!float 3479565.525
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s325-301
+   - task_type : !!str map
+     start_east : !!float 275128.575
+     start_north : !!float 3479567.975
+     end_east : !!float 275326.725
+     end_north : !!float 3479439.375
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s301-344
+   - task_type : !!str map
+     start_east : !!float 275323.375
+     start_north : !!float 3479441.875
+     end_east : !!float 275824.225
+     end_north : !!float 3479111.825
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s344-352
+   - task_type : !!str map
+     start_east : !!float 275820.425
+     start_north : !!float 3479114.475
+     end_east : !!float 276041.775
+     end_north : !!float 3478969.875
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     ##s352-360
+   - task_type : !!str map
+     start_east : !!float 276038.675
+     start_north : !!float 3478972.475
+     end_east : !!float 276287.275
+     end_north : !!float 3478830.225
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+     #s360-366
+   - task_type : !!str map
+     start_east : !!float 276323.525
+     start_north : !!float 3478805.875
+     end_east : !!float 276095.325
+     end_north : !!float 3478955.875
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     
+     #s366-375
+   - task_type : !!str map
+     start_east : !!float 276096.825
+     start_north : !!float 3478955.075
+     end_east : !!float 275864.225
+     end_north : !!float 3479106.675
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s375-384
+   - task_type : !!str map
+     start_east : !!float 275865.425
+     start_north : !!float 3479106.175
+     end_east : !!float 275558.825
+     end_north : !!float 3479305.675
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s384-303
+   - task_type : !!str map
+     start_east : !!float 275559.825
+     start_north : !!float 3479304.875
+     end_east : !!float 275368.725
+     end_north : !!float 3479432.675
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s303-395
+   - task_type : !!str map
+     start_east : !!float 275369.725
+     start_north : !!float 3479431.875
+     end_east : !!float 275095.825
+     end_north : !!float 3479609.375
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     #s395-397
+   - task_type : !!str map
+     start_east : !!float 275097.225
+     start_north : !!float 3479608.775
+     end_east : !!float 275030.925
+     end_north : !!float 3479647.375
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+     ##s397-318
+   - task_type : !!str map
+     start_east : !!float 275032.025
+     start_north : !!float 3479646.775
+     end_east : !!float 275002.2
+     end_north : !!float 3479648.425
+     stop_check : !!bool false
+     max_velo : !!float 1
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index: !!int 0

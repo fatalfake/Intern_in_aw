@@ -1,0 +1,200 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str pheonix_walmart
+/aw/planning/aw_planning/itinerary/route_id : !!str 10
+/aw/planning/aw_planning/itinerary/tasks :
+  - task_type :   !!str map
+    start_east :    !!float 420551.19
+    start_north:    !!float 3689063.19
+    end_east :    !!float 420541.39
+    end_north:    !!float 3688996.29
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420547.99
+    start_north:    !!float 3689006.59
+    end_east :    !!float 420508.3
+    end_north:    !!float 3688997.9
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420503.1
+    end_north:    !!float 3688996.6
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420484.64
+    end_north:    !!float 3688997.4
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420481.1
+    end_north:    !!float 3688999.375
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420450.69
+    end_north:    !!float 3689000.225
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420445.64
+    end_north:    !!float 3688997.675
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420415.52
+    end_north:    !!float 3688998.85
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420408.82
+    end_north:    !!float 3689002.8
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420541.67
+    start_north:    !!float 3688996.525
+    end_east :    !!float 420393.44
+    end_north:    !!float 3689003.65
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420399.7
+    start_north:    !!float 3689003.075
+    end_east :    !!float 420386.69
+    end_north:    !!float 3688980.625
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 5.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 420388.44
+    end_north:    !!float 3688982.375
+    end_yaw:      !!float 1.57
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+
+  - task_type :   !!str map
+    start_east :    !!float 420389.19
+    start_north:    !!float 3688972.175
+    end_east :    !!float 420389.76
+    end_north:    !!float 3688993.24
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420389.19
+    start_north:    !!float 3688972.175
+    end_east :    !!float 420398.64
+    end_north:    !!float 3688995.41
+    stop_check :  !!bool false
+    max_velo  :   !!float 0.5
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420391.42
+    start_north:    !!float 3688994.35
+    end_east :    !!float 420537.56
+    end_north:    !!float 3688989.0125
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_distance: !!float 3.0
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str map
+    start_east :    !!float 420528.16
+    start_north:    !!float 3688989.26
+    end_east :    !!float 420551.0375
+    end_north:    !!float 3689008.99
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    can_escape_stuck: !!bool true
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 420547.99
+    end_north:    !!float 3689006.84
+    end_yaw:      !!float -1.63
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

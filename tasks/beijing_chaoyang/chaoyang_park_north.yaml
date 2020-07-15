@@ -1,0 +1,243 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str beijing_chaoyang
+/aw/planning/aw_planning/itinerary/route_id : !!str 4
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py chaoyang_park_start
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455179.4833
+     end_north:    !!float 4422614.23611
+     stop_check :  !!bool false
+     max_velo  :   !!float 0.5
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# the first part going cross the brige
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455376.15000
+     end_north:    !!float 4422670.67500
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_vehicle)/script/airuite/wash_on_new.py
+# the north part going east, along the river
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455552.82500
+     end_north:    !!float 4422831.25000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis:  !!float -0.5
+     center_type:     !!int 2
+     center_offset:   !!float -1.15
+# the part going south with curb on right
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455687.77500
+     end_north:    !!float 4422591.07500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+# use center because of the trees
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455780.22500
+     end_north:    !!float 4422500.90000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# the part going south with curb on right, s23 ~ s36
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455734.00000
+     end_north:    !!float 4422424.70000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+# the inner part without curb on right
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455438.65000
+     end_north:    !!float 4422302.00000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis:  !!float -0.3
+     center_type:     !!int 2
+     center_offset:   !!float -0.95
+# pass the tree area
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455405.80000
+     end_north:    !!float 4422284.27500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# the inner part without curb on right
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455043.97500
+     end_north:    !!float 4422223.35000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis:  !!float -0.3
+     center_type:     !!int 2
+     center_offset:   !!float -0.95
+# the inner part with curb on right, S73 ~ s80
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 454987.87500
+     end_north:    !!float 4422373.25000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+# the inner part without curb on right, along the river
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455362.9375
+     end_north:    !!float 4422646.1875
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis:  !!float -0.5
+     center_type:     !!int 2
+     center_offset:   !!float -1.15
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_vehicle)/script/airuite/wash_off_new.py
+   - task_type :   !!str map
+     start_east :    !!float 455199.0375
+     start_north:    !!float 4422630.51250
+     end_east :    !!float 455296.42500
+     end_north:    !!float 4422698.00000
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str point_to
+     end_east :    !!float 455328.07500
+     end_north:    !!float 4422689.00000
+     max_velo  :   !!float 0.5
+     lateral_safe: !!float 0.5
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_vehicle)/script/airuite/wash_on_new.py
+# the part going cross the brige
+   - task_type :   !!str map
+     start_east :  !!float 455208.95208
+     start_north:  !!float 4422642.49445
+     end_east :    !!float 455364.40000
+     end_north:    !!float 4422653.55000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     lane_expanse: !!float 12.0
+     max_velo  :   !!float 1.0
+     center_type:   !!int 0
+     center_offset: !!float -0.2
+#the part going southwest
+   - task_type :    !!str map
+     start_east :   !!float 455208.95208
+     start_north:   !!float 4422642.49445
+     end_east :     !!float 455360.37500
+     end_north:     !!float 4422645.75000
+     stop_check :   !!bool false
+     execute_mode:  !!int 2
+     use_rel_ref:   !!bool false
+     center_type:   !!int 0
+     center_offset: !!float -0.4
+#the first part of the outer circul, with curb on right, s193 ~ s182
+   - task_type :   !!str map
+     start_east :    !!float 455208.95208
+     start_north:    !!float 4422642.49445
+     end_east :     !!float 455275.67500
+     end_north:     !!float 4422567.40000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+#the first part of the outer circul, with curb & trees on right, s193 ~ s182
+   - task_type :   !!str map
+     start_east :    !!float 455208.95208
+     start_north:    !!float 4422642.49445
+     end_east :     !!float 454986.47500
+     end_north:     !!float 4422384.40000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:   !!bool false
+     center_type:   !!int 0
+     center_offset: !!float -0.4
+#the middle part of outer circul, without curb on right
+   - task_type :   !!str map
+     start_east :    !!float 455208.95208
+     start_north:    !!float 4422642.49445
+     end_east :    !!float 455564.27500
+     end_north:    !!float 4422833.67500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis:  !!float -0.4
+     center_type:     !!int 2
+     center_offset:   !!float -1.05
+#the last part of outer part
+   - task_type :   !!str map
+     start_east :  !!float 455352.65208
+     start_north:  !!float 4422631.79445
+     end_east :    !!float 455374.47500
+     end_north:    !!float 4422672.12500
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+#     use_rel_ref:  !!bool false
+#     center_type:   !!int 0
+#     center_offset: !!float -0.4
+     use_rel_ref:  !!bool true
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_vehicle)/script/airuite/wash_off_new.py
+   - task_type :   !!str map
+     start_east :  !!float 455352.65208
+     start_north:  !!float 4422631.79445
+     end_east :    !!float 455194.50000
+     end_north:    !!float 4422631.62500
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     center_type:   !!int 0
+     center_offset: !!float -0.4
+   - task_type :   !!str map
+     start_east :  !!float 455352.65208
+     start_north:  !!float 4422631.79445
+     end_east :    !!float 455183.67500
+     end_north:    !!float 4422599.22500
+     stop_check :  !!bool true
+     max_velo :    !!float 0.75
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str parking
+# pose from localized
+#     end_east :    !!float 455179.142669
+#     end_north :   !!float 4422584.89025
+#     end_yaw :     !!float 1.9191982045404146
+# pose from map
+#     end_east :    !!float 455180.10833
+#     end_north :   !!float 4422583.58611
+#     end_yaw :     !!float 1.91
+# pose to avoid the pumper, 115degree
+     end_east :    !!float 455180.18833
+     end_north :   !!float 4422583.58611
+     end_yaw :     !!float 1.98
+     max_velo :    !!float 0.5
+   - task_type :   !!str script
+     script_name:  !!str script/start/stop_key.py chaoyang_park_start
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

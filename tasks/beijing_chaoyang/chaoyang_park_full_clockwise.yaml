@@ -1,0 +1,195 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str beijing_chaoyang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+#   - task_type :   !!str script
+#     script_name:  !!str script/start/check_key.py chaoyang_park_start
+# [parking lot]
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455179.4833
+     end_north:    !!float 4422614.23611
+     stop_check :  !!bool true
+     max_velo  :   !!float 0.5
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [additional] staff only & crossing the bridge.
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455355.475
+     end_north:    !!float 4422669.65
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :    !!float 455349.341201
+     start_north:    !!float 4422673.31864
+     end_east :    !!float 455383.675
+     end_north:    !!float 4422683.70
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+# [north circle] north -> east -> the center bridge.
+   - task_type :   !!str map
+     start_east :    !!float 455375.775
+     start_north:    !!float 4422670.600
+     end_east :    !!float 455693.72500
+     end_north:    !!float 4422581.27500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455772.1500
+     end_north:    !!float 4422508.67500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :    !!float 455180.10833
+     start_north:    !!float 4422583.58611
+     end_east :    !!float 455267.70000
+     end_north:    !!float 4422297.725
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [center bridge] north -> south.
+   - task_type :   !!str map
+     start_east :    !!float 455300.65
+     start_north:    !!float 4422292.925
+     end_east :    !!float 455128.05
+     end_north:    !!float 4421929.375
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [center circle] north -> west -> south.
+   - task_type :   !!str map
+     start_east :    !!float 455148.00
+     start_north:    !!float 4421959.025
+     end_east :    !!float 455128.025
+     end_north:    !!float 4421758.80
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [center circle to south circle]
+   - task_type :   !!str map
+     start_east :    !!float 455095.525
+     start_north:    !!float 4421763.10
+     end_east :    !!float 455273.325
+     end_north:    !!float 4421648.90
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [south circle] north -> west.
+   - task_type :   !!str map
+     start_east :    !!float 455258.925
+     start_north:    !!float 4421693.10
+     end_east :    !!float 455421.55
+     end_north:    !!float 4421218.425
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [south circle] west -> south.
+   - task_type :   !!str map
+     start_east :    !!float 455384.25
+     start_north:    !!float 4421241.525
+     end_east :    !!float 455573.65
+     end_north:    !!float 4420980.575
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [south circle] south -> east.
+   - task_type :   !!str map
+     start_east :    !!float 455525.00
+     start_north:    !!float 4420978.725
+     end_east :    !!float 455590.80
+     end_north:    !!float 4421377.175
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [south circle] east -> north.
+   - task_type :   !!str map
+     start_east :    !!float 455589.975
+     start_north:    !!float 4421352.025
+     end_east :    !!float 455184.625
+     end_north:    !!float 4421742.375
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [center circle] south -> north.
+   - task_type :   !!str map
+     start_east :    !!float 455210.175
+     start_north:    !!float 4421731.775
+     end_east :    !!float 455150.725
+     end_north:    !!float 4421960.450
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [center bridge] south -> north.
+   - task_type :   !!str map
+     start_east :    !!float 455158.325
+     start_north:    !!float 4421918.60
+     end_east :    !!float 455255.900
+     end_north:    !!float 4422282.800
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [north circle] south -> west -> north.
+   - task_type :   !!str map
+     start_east :    !!float 455248.800
+     start_north:    !!float 4422261.65
+     end_east :    !!float 454997.45
+     end_north:    !!float 4422330.850
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :    !!float 455000.40
+     start_north:    !!float 4422300.00
+     end_east :    !!float 455367.625
+     end_north:    !!float 4422656.125
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+# [additional] crossing the bridge & staff only.
+   - task_type :   !!str map
+     start_east :    !!float 455363.325
+     start_north:    !!float 4422647.85
+     end_east :    !!float 455256.45
+     end_north:    !!float 4422689.95
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :    !!float 455284.75
+     start_north:    !!float 4422697.725
+     end_east :    !!float 455194.50000
+     end_north:    !!float 4422631.62500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :  !!float 455352.65208
+     start_north:  !!float 4422631.79445
+     end_east :    !!float 455183.67500
+     end_north:    !!float 4422599.22500
+     stop_check :  !!bool true
+     max_velo :    !!float 0.5
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+# [parking lot]
+   - task_type :   !!str parking
+     end_east :    !!float 455180.10833
+     end_north :   !!float 4422583.58611
+     end_yaw :     !!float 1.91
+     max_velo :    !!float 0.5
+ 
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

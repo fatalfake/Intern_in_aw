@@ -1,0 +1,128 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_auto_expo
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/tasks :
+   #- task_type :   !!str script
+   #  script_name:  !!str script/start/check_key.py jiading_auto_expo_start
+
+   # s212 - s207
+   - task_type :   !!str map
+     start_east :    !!float 325100.05
+     start_north :   !!float 3462266.4
+     end_east :    !!float 325077.05000
+     end_north:    !!float 3462221.25000
+     stop_check :  !!bool true
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # wash-on
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+   # s205 - s322 close in future
+   - task_type :   !!str map
+     start_east :    !!float 325097.97500
+     start_north:    !!float 3462228.47500
+     end_east :    !!float 325760.8875
+     end_north:    !!float 3462306.75
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # s322 - s350
+   - task_type :   !!str map
+     start_east :    !!float 325758.0875
+     start_north:    !!float 3462258.35
+     end_east :    !!float 325885.8250
+     end_north:    !!float 3462165.9000
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   ## s349 - s365
+   - task_type :   !!str map
+     start_east :    !!float 325857.4250
+     start_north:    !!float 3462146.7000
+     end_east :    !!float 326210.7500
+     end_north:    !!float 3462127.3250
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # s363 - s35
+   - task_type :   !!str map
+     start_east :    !!float 326191.2500 
+     start_north:    !!float 3462134.9500
+     end_east :    !!float 326021.7375
+     end_north:    !!float 3461901.65
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # s35 - s61
+   - task_type :   !!str map
+     start_east :    !!float 326004.1375
+     start_north:    !!float 3461900.55
+     end_east :    !!float 325856.65000
+     end_north:    !!float 3462454.70000
+     stop_check :  !!bool true
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   ## wash-off
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+   # point-to
+   - task_type :   !!str point_to
+     end_east :    !!float 325895.87500
+     end_north:    !!float 3462487.47500
+     lateral_safe: !!float 0.1
+
+   ## wash-on
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+   # s163 - s160 middle line
+   - task_type :   !!str map
+     start_east :    !!float 325812.62500
+     start_north:    !!float 3462428.92500
+     end_east :    !!float 325881.62500
+     end_north:    !!float 3462475.72500
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # s161 - s311 close in future 
+   - task_type :   !!str map
+     start_east :    !!float 325858.62500
+     start_north:    !!float 3462452.72500
+     end_east :    !!float 325115.1625
+     end_north:    !!float 3462260.425
+     stop_check :  !!bool false
+     max_velo  :   !!float 4
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   # wash-off
+   #- task_type :   !!str script
+   #  script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+   # parking
+   - task_type :   !!str parking
+     end_east :    !!float 325100.9
+     end_north :   !!float 3462265.02
+     end_yaw :     !!float 5.203
+     max_velo :    !!float 1.0
+
+  #- task_type :   !!str script
+  #  script_name:  !!str script/start/stop_key.py jiading_auto_expo_start
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

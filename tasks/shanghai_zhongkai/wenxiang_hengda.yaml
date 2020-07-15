@@ -1,0 +1,35 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_wenxiang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str map
+     start_east :  !!float 333739.8
+     start_north:  !!float 3435240
+     end_east :    !!float 333761
+     end_north:    !!float 3435228
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+
+/aw/planning/sepcial_section:
+    - section_id:                   !!int 64067
+      section_lable:                !!int 1
+#      collision_stop_to_distance:   !!float 4.5
+#      collision_check_distance:     !!float 1.5
+#      collision_slow_velo:          !!float 2.5
+#      collision_trajectory_shift:   !!float 0.4
+      cross_check_distance:         !!float 20
+      cross_slow_distance:          !!float 60
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 5
+    - section_id:                   !!int 77081
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 20
+      cross_slow_distance:          !!float 60
+      cross_straight_slow_velo:     !!float 7
+      cross_turn_slow_velo:         !!float 4
+    - section_id:                   !!int 214220
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 20
+      cross_slow_distance:          !!float 60
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 3

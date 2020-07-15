@@ -1,0 +1,150 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str boschung_factory
+/aw/planning/aw_planning/itinerary/route_id : !!str 5
+/aw/planning/aw_planning/itinerary/tasks :
+
+  #0 unlock local map, build map begin
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_begin.sh
+  #1: s1-s20
+  # wash-on
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+  - task_type :   !!str map
+    start_east :    !!float 341187.11
+    start_north:    !!float 5189385.625
+    end_east :    !!float 341203.31
+    end_north:    !!float 5189365.23
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    can_escape_stuck: !!bool true
+
+  #2: s20-s2
+  - task_type :   !!str map
+    start_east :    !!float 341217.41
+    start_north:    !!float 5189352.63
+    end_east :    !!float 341201.01
+    end_north:    !!float 5189401.28
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    can_escape_stuck: !!bool true
+
+  #3 lock local map, build map end
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_end.sh
+  #4 generate parkingslot tasks
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py False True [] []
+
+  # s4003
+  - task_type :   !!str map
+    start_east :    !!float 341193.08
+    start_north:    !!float 5189393.88
+    end_east :    !!float 341285.47
+    end_north:    !!float 5189494.9
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341284.72
+    end_north:    !!float 5189495.275
+    end_yaw:      !!float -2.32
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+ 
+  # s4001
+  - task_type :   !!str map
+    start_east :    !!float 341283.39
+    start_north:    !!float 5189497.3
+    end_east :    !!float 341190.63
+    end_north:    !!float 5189396.08
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    #end_east :    !!float 341197.71
+    #end_north:    !!float 5189397.73
+    end_east :    !!float 341193.16
+    end_north:    !!float 5189395.16
+    end_yaw:      !!float 0.83
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.83
+    pose_to_pose_mode: !!int 3
+ 
+  # s4004
+  - task_type :   !!str map
+    start_east :    !!float 341194.58
+    start_north:    !!float 5189392.93
+    end_east :    !!float 341286.64
+    end_north:    !!float 5189493.7
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341284.72
+    end_north:    !!float 5189495.275
+    end_yaw:      !!float -2.32
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+ 
+  # s4002
+  - task_type :   !!str map
+    start_east :    !!float 341284.44
+    start_north:    !!float 5189496.125
+    end_east :    !!float 341192.18
+    end_north:    !!float 5189395.23
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341193.16
+    end_north:    !!float 5189395.16
+    end_yaw:      !!float 0.83
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.83
+    pose_to_pose_mode: !!int 3
+
+  # parkingslots
+  - task_type :   !!str dynamic
+    start_east :    !!float 341191.7950
+    start_north:    !!float 5189390.9150
+    start_yaw:    !!float 0.8308
+    end_east :    !!float 341244.9950
+    end_north:    !!float 5189449.7150
+    end_yaw:    !!float 0.8308
+  # wash off
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

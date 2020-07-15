@@ -1,0 +1,51 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_hotel_show
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+  #- task_type :   !!str script
+  #  script_name:  !!str script/start/check_key.py jiading_test
+  #- task_type :   !!str script
+  #  script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+# start section: s1 - s2
+  - task_type :   !!str map
+    start_east :    !!float 326318.52500
+    start_north:    !!float 3462442.87500
+    end_east :    !!float 326339.17500
+    end_north:    !!float 3462456.72500
+    stop_check :  !!bool true
+    max_velo  :   !!float 4.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist : !!float 40.0
+# - task_type :   !!str script
+#   script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+# section: s2 - s11, close
+  - task_type :   !!str map
+    start_east :    !!float 326334.42500 
+    start_north:    !!float 3462452.62500
+    end_east :    !!float 326336.82500
+    end_north:    !!float 3462472.47500
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.5
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_dist : !!float 40.0
+# section: s9 - s3
+  - task_type :   !!str map
+    start_east :    !!float 326345.02500 
+    start_north:    !!float 3462480.22500
+    end_east :    !!float 326342.72500
+    end_north:    !!float 3462458.67500
+    stop_check :  !!bool true
+    max_velo  :   !!float 1.5
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_dist : !!float 40.0
+# - task_type :   !!str script
+#   script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+# parking
+  - task_type :   !!str point_to
+    end_east :    !!float 326333.97500
+    end_north:    !!float 3462456.72500
+    end_yaw:      !!float 0.0
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true

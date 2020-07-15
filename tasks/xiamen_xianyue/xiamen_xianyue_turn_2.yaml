@@ -1,0 +1,82 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str xiamen_xianyue
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py xiamen_xianyue_start
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+#   - task_type :   !!str map
+#     start_east :  !!float 612130.750
+#     start_north:  !!float 2710214.975
+#     end_east :    !!float 612091.100
+#     end_north:    !!float 2710232.700
+#     stop_check :  !!bool false
+#     execute_mode: !!int 2
+#     use_rel_ref:  !!bool false
+#     max_velo:     !!float 1.3
+#     lane_expanse: !!float 0.4
+   - task_type :   !!str map
+     start_east :  !!float 612130.750
+     start_north:  !!float 2710214.975
+     end_east :    !!float 611379.050
+     end_north:    !!float 2710171.200
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+   - task_type :   !!str point_to
+     end_east :    !!float 611402.500
+     end_north:    !!float 2710177.125
+     max_velo  :   !!float 0.5
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 611418.150
+     end_north:    !!float 2710178.600
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 6.0
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612126.796
+     end_north:    !!float 2710219.72
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+#   - task_type :   !!str map
+#     start_east :  !!float 611377.600
+#     start_north:  !!float 2710166.425
+#     end_east :    !!float 612098.800
+#     end_north:    !!float 2710220.900
+#     stop_check :  !!bool true
+#     execute_mode: !!int 2
+#     use_rel_ref:  !!bool true
+#     max_velo:     !!float 1.3
+#     lane_expanse: !!float 0.6
+#   - task_type :   !!str map
+#     start_east :  !!float 611377.600
+#     start_north:  !!float 2710166.425
+#     end_east :    !!float 612136.000
+#     end_north:    !!float 2710228.07500
+#     stop_check :  !!bool true
+#     execute_mode: !!int 2
+#     use_rel_ref:  !!bool false
+#     max_velo:     !!float 1.3
+#     lane_expanse: !!float 0.6
+   - task_type :  !!str script
+     script_name: !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+#   - task_type :   !!str parking
+#     end_east  :   !!float 612130.750
+#     end_north :   !!float 2710214.975
+#     end_yaw   :   !!float 2.0594885173533086
+#     max_velo  :   !!float 0.5
+   - task_type :   !!str script
+     script_name:  !!str script/start/stop_key.py xiamen_xianyue_start
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

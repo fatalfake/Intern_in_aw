@@ -1,0 +1,69 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str songjiang
+/aw/planning/aw_planning/itinerary/route_id : !!str 6
+/aw/planning/aw_planning/itinerary/tasks :
+
+    #s361r - s337r
+   - task_type :   !!str map
+     start_east :    !!float 334733.5125
+     start_north :   !!float 3435735.0
+     end_east :    !!float 334776.2125
+     end_north:    !!float 3435882.9
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+     terminal_dist:  !!float 15.0
+
+   # wash-on
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+   #s339r - s356r
+   - task_type :   !!str map
+     start_east :    !!float 334772.5125
+     start_north :   !!float 3435871.9
+     end_east :    !!float 334964.8
+     end_north:    !!float 3436044.15
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+     terminal_dist:  !!float 15.0
+
+    #s356r - s356r
+   - task_type :   !!str map
+     start_east :    !!float 334772.5125
+     start_north :   !!float 3435871.9
+     end_east :    !!float 334977.225
+     end_north:    !!float 3436042.075
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     rel_border_dis: !!float -0.5
+     max_velo:     !!float 0.5
+
+   # wash-off
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+   # pose-to-pose s357
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334973.43
+     end_north:    !!float 3436053.425
+     end_yaw:    !!float 2.9579
+     pose_to_pose_mode: !!int 3
+
+   # s357l - s353l
+   - task_type :   !!str map
+     start_east :    !!float 334985.56
+     start_north:    !!float 3436051.625
+     end_east :    !!float 334906.225
+     end_north:    !!float 3436066.25
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.0
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

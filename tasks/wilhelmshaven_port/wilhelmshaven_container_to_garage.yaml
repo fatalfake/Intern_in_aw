@@ -1,0 +1,25 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str de_wilhelmshaven
+/aw/planning/aw_planning/itinerary/route_id : 4
+/aw/planning/aw_planning/maneuver/bypass_width_limit : !!float 1.0
+/aw/planning/aw_planning/itinerary/tasks :
+  #0 s118 - s94
+  - task_type :   !!str map
+    start_east :    !!float 440523.83
+    start_north:    !!float 5929701.9
+    end_east :    !!float 440660.375
+    end_north:    !!float 5929708.925
+    stop_check :  !!bool true
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  # s93
+  - task_type :   !!str parking
+    end_east :  !!float 440668.15
+    end_north:  !!float 5929715.3
+    end_yaw :     !!float -1.5
+    max_velo:  !!float 0.5
+ 
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

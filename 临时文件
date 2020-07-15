@@ -1,0 +1,11 @@
+ select 
+  evaluationrecord.createtime, caseid, testcase.casename, 
+  indication.name, indication.comment, evaluationrecord.indicationvalue 
+from evaluationrecord 
+  left join indication on evaluationrecord.indicationid= indication.id 
+  left join testcase on evaluationrecord.caseid=testcase.id 
+  left join regression on evaluationrecord.regressionid = regression.id 
+where 
+  indication.name in ($indication) 
+  and testcase.casename in ($testcase)
+  and regression.version in ($regressionid);

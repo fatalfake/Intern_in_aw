@@ -1,0 +1,61 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str songjiang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+    #- task_type :   !!str script
+    #- script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+    #s343r - s356r
+   - task_type :   !!str map
+     start_east :    !!float 334752.125
+     start_north :   !!float 3435810.3
+     end_east :    !!float 334977.225
+     end_north:    !!float 3436042.075
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true                                                 
+     max_velo:     !!float 1.0
+
+    # point-to s357
+   - task_type :   !!str point_to
+     end_east :    !!float 334909.575
+     end_north:    !!float 3436065.6
+     lateral_safe: !!float 0.4
+    
+   # pose-to-pose s357
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334957.6
+     end_north:    !!float 3436055.6
+     end_yaw:    !!float 2.85
+
+    # s357l - s360l
+   - task_type :   !!str map
+     start_east :    !!float 334978.475
+     start_north:    !!float 3436052.9
+     end_east :    !!float 334714.44
+     end_north:    !!float 3435766.72
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true                                                 
+     max_velo:     !!float 1.0
+    
+    # s344l - s340l
+   - task_type :   !!str map
+     start_east :    !!float 334719.59
+     start_north:    !!float 3435786.82
+     end_east :    !!float 334726.925
+     end_north:    !!float 3435817.9
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true                                                  
+     max_velo:     !!float 1.0
+
+  
+     #- task_type :   !!str script
+     #- script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

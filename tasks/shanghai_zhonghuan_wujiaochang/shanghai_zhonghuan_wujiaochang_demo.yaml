@@ -1,0 +1,16 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_zhonghuan_wujiaochang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1 
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type : !!str map
+     start_east : !!float 358666.82500000
+     start_north : !!float 3464391.37500000
+     end_east : !!float 356897.68750000
+     end_north : !!float 3463618.21250000
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     use_rel_ref:  !!bool true
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0 
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

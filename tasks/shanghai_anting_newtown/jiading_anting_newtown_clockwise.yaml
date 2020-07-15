@@ -1,0 +1,51 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_anting_newtown
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/is_struct_map : !!bool true
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+#   - task_type :   !!str script
+#     script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+
+    #s310r - s316r
+   - task_type :   !!str map
+     start_east :    !!float 325167.425
+     start_north :   !!float 3461394.025
+     end_east :    !!float 325006.325
+     end_north:    !!float 3461540.075
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+
+     #s317r - s343r
+   - task_type :   !!str map
+     start_east :    !!float 325025.125
+     start_north :   !!float 3461525.575
+     end_east :    !!float 325351.925
+     end_north:    !!float 3462367.025
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0  
+
+    #s343r - s388
+   - task_type :   !!str map
+     start_east :    !!float 325218.825
+     start_north :   !!float 3462356.225
+     end_east :    !!float 327456.375
+     end_north:    !!float 3461578.325
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+
+  
+#   - task_type :   !!str script
+#     script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

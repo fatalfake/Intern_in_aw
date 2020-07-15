@@ -1,0 +1,52 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_lingang
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+   # start
+   #S1-8
+   - task_type :   !!str map
+     start_east :    !!float 397091.45 
+     start_north :   !!float 3417775.01
+     end_east :    !!float 396911.975
+     end_north:    !!float 3418002.94
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   #S8-19
+   - task_type :   !!str map
+     start_east :    !!float 396933.875
+     start_north :   !!float 3417970.64
+     end_east :    !!float 396676.275
+     end_north:    !!float 3418527.84
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   #S19-31
+   - task_type :   !!str map
+     start_east :    !!float 396685.475
+     start_north :   !!float 3418495.24
+     end_east :    !!float 396622.675
+     end_north:    !!float 3419113.74
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+   #S31-39
+   - task_type :   !!str map
+     start_east :    !!float 396620.275
+     start_north :   !!float 3419072.74
+     end_east :    !!float 396589.575
+     end_north:    !!float 3419124.44
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

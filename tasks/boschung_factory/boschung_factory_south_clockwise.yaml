@@ -1,0 +1,29 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str boschung_factory
+/aw/planning/aw_planning/itinerary/route_id : 8
+/aw/planning/aw_planning/itinerary/tasks :
+
+  # s120-127
+  - task_type :   !!str map
+    start_east :    !!float 341193.74
+    start_north:    !!float 5189368.4625
+    end_east :    !!float 341192.69
+    end_north:    !!float 5189352.1625
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  # s128-s120
+  - task_type :   !!str map
+    start_east :    !!float 341205.44
+    start_north:    !!float 5189341.9125
+    end_east :    !!float 341208.69
+    end_north:    !!float 5189355.4625
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index : !!int 0

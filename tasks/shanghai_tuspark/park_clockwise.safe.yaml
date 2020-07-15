@@ -1,0 +1,22 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_qidi
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str map
+     start_east :  !!float 334792.39465
+     start_north:  !!float 3435808.0623
+     end_east :    !!float 334792.15
+     end_north:    !!float 3435804.3
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str map
+     start_east :  !!float 334874.1
+     start_north:  !!float 3435726.45
+     end_east :    !!float 334884.2
+     end_north:    !!float 3435726.85
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true

@@ -1,0 +1,73 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 4
+/aw/planning/aw_planning/itinerary/tasks :
+
+   #s47-110
+   - task_type : !!str map
+     start_east : !!float 274757.625
+     start_north : !!float 3479280.775
+     end_east : !!float 276221.21
+     end_north : !!float 3478338.175
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   #s110-144
+   - task_type : !!str map
+     start_east : !!float 276198.21
+     start_north : !!float 3478353.275
+     end_east : !!float 276574.55
+     end_north : !!float 3478107.7
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   #s144-146
+   - task_type : !!str map
+     start_east : !!float 276554.35
+     start_north : !!float 3478120.7
+     end_east : !!float 276594.55
+     end_north : !!float 3478132
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   #s146-79
+   - task_type : !!str map
+     start_east : !!float 276611.65
+     start_north : !!float 3478122.4
+     end_east : !!float 275586.16
+     end_north : !!float 3478780.275
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   #s79-170
+   - task_type : !!str map
+     start_east : !!float 275619.56
+     start_north : !!float 3478758.675
+     end_east : !!float 274782.16
+     end_north : !!float 3479305.725
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   #s170-171
+   - task_type : !!str map
+     start_east : !!float 274805.66
+     start_north : !!float 3479291.475
+     end_east : !!float 274768.68
+     end_north : !!float 3479274.05
+     stop_check : !!bool false
+     max_velo : !!float 1.5
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index : !!int 0

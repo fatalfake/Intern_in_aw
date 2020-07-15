@@ -1,0 +1,51 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_zhongkai
+/aw/planning/aw_planning/itinerary/route_id : !!str 2 
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str map
+     start_east :  !!float 334766.7
+     start_north:  !!float 3435793.1
+     end_east :    !!float 333783
+     end_north:    !!float 3436267
+     stop_check :  !!bool false
+   - task_type :   !!str map
+     start_east :  !!float 333657
+     start_north:  !!float 3436290
+     end_east :    !!float 333774
+     end_north:    !!float 3435227.5
+   - task_type :   !!str parking
+     end_east :    !!float 333750.524625
+     end_north :   !!float 3435208.61907
+     end_yaw :     !!float 1.36615389972
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+
+/aw/planning/sepcial_section:
+    - section_id:                   !!int 98102
+      section_lable:                !!int 1
+#      collision_stop_to_distance:   !!float 4.5
+#      collision_check_distance:     !!float 1.5
+#      collision_slow_velo:          !!float 2.5
+#      collision_trajectory_shift:   !!float 0.4
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 2
+    - section_id:                   !!int 77083
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 4
+    - section_id:                   !!int 181177
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 20
+      cross_slow_distance:          !!float 30
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 1
+    - section_id:                   !!int 169167
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 20
+      cross_slow_distance:          !!float 30
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 1

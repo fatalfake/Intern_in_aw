@@ -1,0 +1,62 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_keyuan
+/aw/planning/aw_planning/itinerary/route_id : !!str 102
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check.py
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+# speed_up part
+   - task_type :   !!str map
+     start_east :  !!float 365798.90
+     start_north:  !!float 3449132.08
+     end_east :    !!float 366733.60
+     end_north:    !!float 3448525.13
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 2.0
+#wash part
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :  !!float 366703.40
+     start_north:  !!float 3448527.58
+     end_east :    !!float 366734.56
+     end_north:    !!float 3448547.93
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.2
+   - task_type :   !!str map
+     start_east :  !!float 366703.40
+     start_north:  !!float 3448527.58
+     end_east :    !!float 366734.56
+     end_north:    !!float 3448547.93
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.2
+   - task_type :  !!str script
+     script_name: !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+#prepare to park
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py first_dumping
+   - task_type :   !!str map
+     start_east :  !!float 366703.40
+     start_north:  !!float 3448527.58
+     end_east :    !!float 366706.300
+     end_north:    !!float 3448549.700
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.0
+#park
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py first_parked
+   - task_type :   !!str parking
+     end_east :    !!float 366716.00
+     end_north:    !!float 3448527.93
+     end_yaw :     !!float 1.49693376025
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

@@ -1,0 +1,45 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_zhongkai
+/aw/planning/aw_planning/itinerary/route_id : !!str 3
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str map
+     start_east :  !!float 334766.7
+     start_north:  !!float 3435793.1
+     #end_east :    !!float 334773.9
+     #end_north:    !!float 3435787.2
+     #end_east :    !!float 334690
+     #end_north:    !!float 3435719
+     end_east :    !!float 334725.35
+     end_north:    !!float 3435708.56
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+
+/aw/planning/sepcial_section:
+    - section_id:                   !!int 98102
+      section_lable:                !!int 1
+#      collision_stop_to_distance:   !!float 4.5
+#      collision_check_distance:     !!float 1.5
+#      collision_slow_velo:          !!float 2.5
+#      collision_trajectory_shift:   !!float 0.4
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 2
+    - section_id:                   !!int 77083
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 4
+    - section_id:                   !!int 181177
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 1
+    - section_id:                   !!int 169167
+      section_lable:                !!int 1
+      cross_check_distance:         !!float 30
+      cross_slow_distance:          !!float 80
+      cross_straight_slow_velo:     !!float 6
+      cross_turn_slow_velo:         !!float 1

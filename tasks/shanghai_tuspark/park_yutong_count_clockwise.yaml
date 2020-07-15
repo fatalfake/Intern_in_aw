@@ -1,0 +1,31 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_qidi
+/aw/planning/aw_planning/itinerary/route_id : !!str 10
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/blink.py
+# start washing
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/wash_switch.py
+   - task_type :   !!str map
+     start_east :  !!float 334819.375
+     start_north:  !!float 3435821.875
+     end_east :    !!float 334845.575
+     end_north:    !!float 3435821.275
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.0
+   - task_type :   !!str map
+     start_east :  !!float 334775.975
+     start_north:  !!float 3435754.275
+     end_east :    !!float 334776.775
+     end_north:    !!float 3435759.275
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.0
+# stop washing
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/yutong/wash_switch.py
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

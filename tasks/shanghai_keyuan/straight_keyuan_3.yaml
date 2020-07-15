@@ -1,0 +1,57 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_keyuan
+/aw/planning/aw_planning/itinerary/route_id : !!str 103
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check.py
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+# wash part
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :  !!float 365796.85
+     start_north:  !!float 3449129.15
+     end_east :    !!float 365844.825
+     end_north:    !!float 3449077.700
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.2
+   - task_type :   !!str map
+     start_east :  !!float 365796.85
+     start_north:  !!float 3449129.15
+     end_east :    !!float 366688.95
+     end_north:    !!float 3448529.35
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.2
+   - task_type :   !!str map
+     start_east :  !!float 365796.85
+     start_north:  !!float 3449129.15
+     end_east :    !!float 366697.05
+     end_north:    !!float 3448528.15
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.2
+   - task_type :  !!str script
+     script_name: !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py first_cross
+#prepare to park
+   - task_type :   !!str parking
+     end_east :    !!float 366722.325
+     end_north:    !!float 3448540.300
+     end_yaw :     !!float 0.5759586531581288
+#park
+   - task_type :   !!str parking
+     end_east :    !!float 366713.00
+     end_north:    !!float 3448527.35
+     end_yaw :     !!float 1.49693376025
+   - task_type :   !!str script
+     script_name:  !!str script/start/set_key.py third_parked
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+
+

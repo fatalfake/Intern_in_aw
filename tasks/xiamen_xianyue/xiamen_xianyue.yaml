@@ -1,0 +1,18 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str xiamen_xianyue
+/aw/planning/aw_planning/itinerary/route_id : !!str 4
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str map
+     #start_east :  !!float 612131.68
+     #start_north:  !!float 2710215.65
+     #end_east :    !!float 611377.88
+     #end_north:    !!float 2710170.75
+     start_east :  !!float 611379.96
+     start_north:  !!float 2710167.5
+     end_east :    !!float 612136.56
+     end_north:    !!float 2710228.35
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref: true
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true

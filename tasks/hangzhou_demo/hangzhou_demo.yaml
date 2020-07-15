@@ -1,0 +1,43 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str hangzhou_demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name : !!str script/start/check_key.py hangzhou_demo_start
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :  !!float 219112.3750
+     start_north:  !!float 3354503.18125
+     end_east :    !!float 219105.90
+     end_north:    !!float 3354503.18625
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.8
+   - task_type :   !!str script
+     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+   - task_type :   !!str script
+     script_name : !!str script/start/stop_key.py hangzhou_demo_start
+   - task_type :   !!str script
+     script_name : !!str script/start/check_key.py hangzhou_demo_return
+   - task_type :   !!str map
+     start_east :  !!float 219092.18750
+     start_north:  !!float 3354532.1625
+     #end_east :    !!float 219092.18250
+     #end_north:    !!float 3354544.88125
+     end_east :  !!float 219093.412063
+     end_north:  !!float 3354548.2789
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.8
+   - task_type :   !!str script
+     script_name : !!str script/start/stop_key.py hangzhou_demo_return
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+
+

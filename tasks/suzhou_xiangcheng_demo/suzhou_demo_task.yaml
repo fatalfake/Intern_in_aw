@@ -1,0 +1,68 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+
+   - task_type : !!str map
+     start_east : !!float 275511.89035
+     start_north : !!float 3479801.6943
+     end_east : !!float 275545.39035
+     end_north : !!float 3479817.1443
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 275543.24035
+     start_north : !!float 3479813.1443
+     end_east : !!float 275695.39035
+     end_north : !!float 3480218.8443
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+   - task_type : !!str map
+     start_east : !!float 275693.84035
+     start_north : !!float 3480213.5943
+     end_east : !!float 275678.84035
+     end_north : !!float 3480218.2943
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 275680.09035
+     start_north : !!float 3480221.6443
+     end_east : !!float 275528.24035
+     end_north : !!float 3479817.7443
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+
+   - task_type : !!str map
+     start_east : !!float 275533.85
+     start_north : !!float 3479830.6
+     end_east : !!float 275516.8
+     end_north : !!float 3479792.7
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str pose_to_pose 
+     end_east : !!float 275515.875
+     end_north : !!float 3479807.825
+     end_yaw : !!float -0.5055
+     max_velo : !!float 0.5
+
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

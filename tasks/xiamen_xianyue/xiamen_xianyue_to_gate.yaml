@@ -1,0 +1,130 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str xiamen_xianyue
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/maneuver/unstructed/coll_fallback : !!float 0.75
+/aw/planning/aw_planning/maneuver/unstructed/coll_free_num : !!int 2
+
+/aw/planning/aw_planning/itinerary/tasks :
+#   - task_type :   !!str script
+#     script_name:  !!str script/start/check_key.py xiamen_xianyue_start
+#   - task_type :   !!str script
+#     script_name:  !!str $(rospack find aw_vehicle)/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east  : !!float 612130.750
+     start_north : !!float 2710214.975
+     end_east :    !!float 612091.100
+     end_north:    !!float 2710232.700
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.4
+   - task_type :   !!str map
+     start_east  : !!float 612130.750
+     start_north : !!float 2710214.975
+     end_east :    !!float 611389.00000
+     end_north:    !!float 2710175.80000
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+   - task_type :   !!str point_to
+     end_east :    !!float 611420.10000
+     end_north:    !!float 2710181.25000
+     lateral_safe: !!float 0.4
+#     end_east :    !!float 611402.500
+#     end_north:    !!float 2710177.125
+     max_velo  :   !!float 0.5
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 611418.150
+     end_north:    !!float 2710178.600
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 6.0
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612025.62500
+     end_north:    !!float 2710296.37500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612060.17500
+     end_north:    !!float 2710261.82500
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612194.65000
+     end_north:    !!float 2710092.00000
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+#   - task_type :  !!str script
+#     script_name: !!str $(rospack find aw_vehicle)/script/jingda/wash_off.py
+#turn around near the south gate
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612197.00000
+     end_north:    !!float 2710089.70000
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+#   - task_type :  !!str script
+#     script_name: !!str $(rospack find aw_vehicle)/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :  !!float 611377.600
+     start_north:  !!float 2710166.425
+     end_east :    !!float 612116.10000
+     end_north:    !!float 2710206.65000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+   - task_type :   !!str map
+     start_east :  !!float 612112.45000
+     start_north:  !!float 2710207.22500
+#     end_east :    !!float 612129.37500
+#     end_north:    !!float 2710228.22500
+     end_east :    !!float 612135.00000
+     end_north:    !!float 2710226.40000
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.6
+     bypass_width_limit: !!float 2.0
+#   - task_type :  !!str script
+#     script_name: !!str $(rospack find aw_vehicle)/script/jingda/wash_off.py
+   - task_type :   !!str parking
+#     end_east  :   !!float 612130.750
+#     end_north :   !!float 2710214.975
+     end_east  :   !!float 612130.2805284372
+     end_north :   !!float 2710215.857947593
+     end_east  :   !!float 612130.750
+     end_north :   !!float 2710214.975
+     end_yaw   :   !!float 2.0594885173533086
+     max_velo  :   !!float 0.5
+#   - task_type :   !!str script
+#     script_name:  !!str script/start/stop_key.py xiamen_xianyue_start
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

@@ -7,8 +7,6 @@ export DOMAIN_NAME=registry.autowise.ai
 openssl s_client -connect $DOMAIN_NAME:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM | sudo tee /usr/local/share/ca-certificates/$DOMAIN_NAME.crt
 sudo update-ca-certificates
 
-sudo systemctl restart docker
-
 echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
 
 mkdir -p $HOME/.coredump

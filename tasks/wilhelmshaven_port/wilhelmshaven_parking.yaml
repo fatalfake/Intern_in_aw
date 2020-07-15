@@ -1,0 +1,67 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str de_wilhelmshaven
+/aw/planning/aw_planning/itinerary/route_id : 7
+/aw/planning/aw_planning/maneuver/bypass_width_limit : !!float 1.0
+/aw/planning/aw_planning/itinerary/tasks :
+  #0 start map s93 - s72
+  - task_type :   !!str map
+    start_east :    !!float 440668.075
+    start_north:    !!float 5929715.725000
+    end_east :    !!float 440719.67500
+    end_north:    !!float 5929695.32500 
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #1 start map s72 - s70
+  - task_type :   !!str map
+    start_east :    !!float 440713.025
+    start_north:    !!float 5929695.275
+    end_east :    !!float 440576.925
+    end_north:    !!float 5929662.375
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+
+  #2 point-to s170
+  - task_type :   !!str point_to
+    end_east :    !!float 440588.9250
+    end_north:    !!float 5929659.6750
+    lateral_safe: !!float 0.4
+
+  #3 s170 - s172
+  - task_type :   !!str map
+    start_east :    !!float 440563.9750
+    start_north:    !!float 5929659.6750
+    end_east :    !!float 440712.675
+    end_north:    !!float 5929698.275
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    lane_expanse: !!float 10.0
+    use_rel_ref:  !!bool false
+
+  #4 s172 - s94
+  - task_type :   !!str map
+    start_east :    !!float 440718.7750
+    start_north:    !!float 5929698.0750
+    end_east :    !!float 440660.375
+    end_north:    !!float 5929708.925
+    stop_check :  !!bool true
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    lane_expanse: !!float 10.0
+    use_rel_ref:  !!bool false
+
+  #5 s93
+  - task_type :   !!str parking
+    end_east :  !!float 440668.15
+    end_north:  !!float 5929715.3
+    end_yaw :     !!float -1.5
+    max_velo:  !!float 0.5
+ 
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

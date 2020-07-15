@@ -1,0 +1,235 @@
+﻿/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_all
+/aw/planning/aw_planning/itinerary/route_id : !!str 14
+/aw/planning/aw_planning/itinerary/tasks :
+  #s792-812
+   - task_type : !!str map
+     start_east : !!float 274626.25
+     start_north : !!float 3480024.3
+     end_east : !!float 275732.025
+     end_north : !!float 3479376.125
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s812-814
+   - task_type : !!str map
+     start_east : !!float 275646.0
+     start_north : !!float 3479430.925
+     end_east : !!float 275798.325
+     end_north : !!float 3479339.225
+     stop_check : !!bool false
+     max_velo : !!float 2
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s814-819
+   - task_type : !!str map
+     start_east : !!float 275730.625
+     start_north : !!float 3479376.825
+     end_east : !!float 275992.025
+     end_north : !!float 3479211.125
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s819-830
+   - task_type : !!str map
+     start_east : !!float 275931.225
+     start_north : !!float 3479249.925
+     end_east : !!float 276394.625
+     end_north : !!float 3478960.625
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s830-833
+   - task_type : !!str map
+     start_east : !!float 276320.325
+     start_north : !!float 3479004.325
+     end_east : !!float 276958.425
+     end_north : !!float 3478650.925
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s840-842
+   - task_type : !!str map
+     start_east : !!float 276886.6
+     start_north : !!float 3478677.125
+     end_east : !!float 277312.225
+     end_north : !!float 3478541.125
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s842-843
+   - task_type : !!str map
+     start_east : !!float 277242.425
+     start_north : !!float 3478562.525
+     end_east : !!float 277874.925
+     end_north : !!float 3478374.225
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s849-853
+   - task_type : !!str map
+     start_east : !!float 277810.825
+     start_north : !!float 3478393.325
+     end_east : !!float 277995.125
+     end_north : !!float 3478331.825
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+
+     ##s853-855
+   - task_type : !!str map
+     start_east : !!float 277908.125
+     start_north : !!float 3478359.425
+     end_east : !!float 277916.85
+     end_north : !!float 3478389.8
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     terminal_dist: !!float 20.0
+
+     #s855-860
+   - task_type : !!str map
+     start_east : !!float 277990.575
+     start_north : !!float 3478366.325
+     end_east : !!float 277399.375
+     end_north : !!float 3478548.325
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s863-865
+   - task_type : !!str map
+     start_east : !!float 277471.025
+     start_north : !!float 3478526.125
+     end_east : !!float 276988.575
+     end_north : !!float 3478668.525
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s867-872
+   - task_type : !!str map
+     start_east : !!float 277044.475
+     start_north : !!float 3478651.725
+     end_east : !!float 276776.95
+     end_north : !!float 3478764.55
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s872-874
+   - task_type : !!str map
+     start_east : !!float 276844.85
+     start_north : !!float 3478728.925
+     end_east : !!float 276475.95
+     end_north : !!float 3478947.45
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s877-884
+   - task_type : !!str map
+     start_east : !!float 276530.4
+     start_north : !!float 3478913.9
+     end_east : !!float 276097.05
+     end_north : !!float 3479178.55
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s884-889
+   - task_type : !!str map
+     start_east : !!float 276143.25
+     start_north : !!float 3479147.9
+     end_east : !!float 275854.45
+     end_north : !!float 3479332.45
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 20.0
+
+     #s891-893
+   - task_type : !!str map
+     start_east : !!float 275880.225
+     start_north : !!float 3479315.325
+     end_east : !!float 275662.825
+     end_north : !!float 3479455.75
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     #s893-905
+   - task_type : !!str map
+     start_east : !!float 275708.225
+     start_north : !!float 3479426.725
+     end_east : !!float 274658.925
+     end_north : !!float 3480041.525
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool true
+     terminal_dist: !!float 40.0
+
+     ##s916-792
+   - task_type : !!str map
+     start_east : !!float 274710.225
+     start_north : !!float 3480013.525
+     end_east : !!float 274594.225
+     end_north : !!float 3480072.125
+     stop_check : !!bool false
+     max_velo : !!float 4
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     terminal_dist: !!float 20.0
+
+   - task_type : !!str map
+     start_east : !!float 274637.225
+     start_north : !!float 3480049.525
+     end_east : !!float 274689.625
+     end_north : !!float 3479989.725
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+     terminal_dist: !!float 20.0
+ 
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index: !!int 0

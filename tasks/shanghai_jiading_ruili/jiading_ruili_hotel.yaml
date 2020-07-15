@@ -1,0 +1,58 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_ruili_hotel
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/maneuver/lane_expanse : !!float 0.6
+/aw/planning/aw_planning/maneuver/unstructed/coll_free_num : !!int 2
+/aw/planning/aw_planning/itinerary/tasks :
+#- task_type :   !!str script
+#  script_name:  !!str script/start/check_key.py shangyan
+  - task_type :   !!str parking
+    end_east :    !!float 326342.977406
+    end_north:    !!float 3462457.28606
+    end_yaw:      !!float 0.457011498603
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+# section: s13 - s11, close
+  - task_type :   !!str map
+    start_east :    !!float 326320.704545
+    start_north:    !!float 3462443.42686
+    end_east :    !!float 326335.15000
+    end_north:    !!float 3462470.65000
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+    terminal_dist : !!float 3.0
+# section: s9 - s3
+  - task_type :   !!str map
+    start_east :    !!float 326345.02500 
+    start_north:    !!float 3462480.22500
+    end_east :    !!float 326342.72500
+    end_north:    !!float 3462458.67500
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool true
+  - task_type :   !!str map
+    start_east :    !!float 326345.02500 
+    start_north:    !!float 3462480.22500
+    end_east :    !!float 326346.067413
+    end_north:    !!float 3462458.82647
+    stop_check :  !!bool true
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist : !!float 2.0
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+# parking
+  - task_type :   !!str parking
+#    end_east :    !!float 326331.022185
+#    end_north:    !!float 3462455.22389
+    end_east :    !!float 326330.7222196419
+    end_north:    !!float 3462455.2193310605
+    end_yaw:      !!float 0.0151970499307
+    check_free_dist : !!float 2.0
+#- task_type :   !!str script
+#  script_name:  !!str script/start/check_key.py shangyan
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

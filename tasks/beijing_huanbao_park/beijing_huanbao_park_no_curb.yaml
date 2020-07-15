@@ -1,0 +1,33 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str beijing_huanbao_park
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type : !!str map
+     start_east : !!float 428080.825
+     start_north : !!float 4435074.875
+     end_east : !!float 428596.925
+     end_north : !!float 4434313.525
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 428571.175
+     start_north : !!float 4434322.875
+     end_east : !!float 429709.2
+     end_north : !!float 4434753.775
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+
+   - task_type : !!str map
+     start_east : !!float 429710.8
+     start_north : !!float 4434731.875
+     end_east : !!float 428156.475
+     end_north : !!float 4435098.925
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

@@ -1,0 +1,48 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_qidi
+/aw/planning/aw_planning/itinerary/route_id : !!str 5
+/aw/planning/aw_planning/itinerary/tasks :
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334839.22500
+     end_north :   !!float 3435818.47500
+     end_yaw :     !!float 0.0
+     pose_to_pose_mode: !!int 2
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+   - task_type :   !!str map
+     start_east :  !!float 334792.39465
+     start_north:  !!float 3435808.0623
+     end_east :    !!float 334796.00000
+     end_north:    !!float 3435743.50000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+   - task_type :    !!str map
+     start_east :  !!float 334880.875
+     start_north:  !!float 3435726.5
+     end_east :    !!float 334826.55
+     end_north:    !!float 3435818.9
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     stop_check :  !!bool false
+   - task_type :    !!str map
+     start_east :  !!float 334880.875
+     start_north:  !!float 3435726.5
+     end_east :    !!float 334843.575
+     end_north:    !!float 3435818.575
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     stop_check :  !!bool true
+     terminal_dist: !!float 5.0
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334831.0500
+     end_north :   !!float 3435825.7000
+     end_yaw :     !!float 4.64
+     pose_to_pose_mode: !!int 2
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

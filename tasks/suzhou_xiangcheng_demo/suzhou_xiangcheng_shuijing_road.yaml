@@ -1,0 +1,47 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 9
+/aw/planning/aw_planning/itinerary/tasks :
+
+   - task_type : !!str map
+     start_east : !!float 275527.17
+     start_north : !!float 3479815.625
+     end_east : !!float 275016.14
+     end_north : !!float 3478872.575
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 275027.94
+     start_north : !!float 3478899.125
+     end_east : !!float 275036.49
+     end_north : !!float 3478882.025
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 275026.34
+     start_north : !!float 3478859.525
+     end_east : !!float 275523.62
+     end_north : !!float 3479769.425
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+   - task_type : !!str map
+     start_east : !!float 275511.27
+     start_north : !!float 3479742.675
+     end_east : !!float 275502.12
+     end_north : !!float 3479759.375
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index : !!int 0

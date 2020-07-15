@@ -7,7 +7,7 @@ export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:/o
 source /opt/ros/kinetic/setup.sh
 
 # 定义MD5文件保存的路径
-md5_path=/tmp/task_to_json_md5.sum
+md5_path=./task_to_json_md5.sum
 path=/opt/ros/kinetic/share/aw_launch/config/conf/tasks
 
 source ~/.autowise/setup.sh
@@ -50,20 +50,24 @@ for list in `find $path -type f`;do
             # 执行JSON生成
             if echo ${list} | grep -q '\.yaml' 
             then
-                export PLANNING_TASK=${list}
-                echo 'Task file is: '${PLANNING_TASK}
-                project_name=`echo ${list} | cut -d / -f 10`
-                echo 'Project name is: '${project_name}
-                rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
-                xterm -e bash -c 'roscore' &
-                # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-                xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
-                #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
-                sleep 40
-                # source ./devel/setup.sh
-                source ~/.autowise/setup.sh
-                roslaunch aw_global_planning route_points_generator.launch
-                echo 'Task complete.'
+                grep ${list} ./blacklist >> /dev/null
+                if [ $? -ne 0 ];
+                then 
+                    export PLANNING_TASK=${list}
+                    echo 'Task file is: '${PLANNING_TASK}
+                    project_name=`echo ${list} | cut -d / -f 10`
+                    echo 'Project name is: '${project_name}
+                    rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
+                    xterm -e bash -c 'roscore' &
+                    # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
+                    xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
+                    #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
+                    sleep 20
+                    # source ./devel/setup.sh
+                    source ~/.autowise/setup.sh
+                    roslaunch aw_global_planning route_points_generator.launch
+                    echo 'Task complete.'
+                fi
             fi
         else
             echo -e "[Detection time：`date +"%Y-%m-%d %T.%N"`]  [File：$list] \033[32m[MD5 check result：Unchanged]\033[0m"
@@ -74,18 +78,22 @@ for list in `find $path -type f`;do
         echo -e "[Detection time：`date +"%Y-%m-%d %T.%N"`]  [File：$list] \033[31m[MD5 check result：Added]\033[0m" 2>&1 
         if echo ${list} | grep -q '\.yaml' 
         then
-            export PLANNING_TASK=${list}
-            echo 'Task file is: '${PLANNING_TASK}
-            project_name=`echo ${list} | cut -d / -f 10`
-            echo 'Project name is: '${project_name}
-            rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
-            # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-            xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
-            sleep 40
-            # source ./devel/setup.sh
-            source ~/.autowise/setup.sh
-            roslaunch aw_global_planning route_points_generator.launch
-            echo 'Task complete.'
+            grep ${list} ./blacklist >> /dev/null
+            if [ $? -ne 0 ];
+            then 
+                export PLANNING_TASK=${list}
+                echo 'Task file is: '${PLANNING_TASK}
+                project_name=`echo ${list} | cut -d / -f 10`
+                echo 'Project name is: '${project_name}
+                rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
+                # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
+                xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
+                sleep 20
+                # source ./devel/setup.sh
+                source ~/.autowise/setup.sh
+                roslaunch aw_global_planning route_points_generator.launch
+                echo 'Task complete.'
+            fi
         fi
     fi
     # 如果文件数量大，可以把sleep的时间间隔设置小点。

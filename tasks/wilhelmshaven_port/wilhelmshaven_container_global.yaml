@@ -1,0 +1,92 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str de_wilhelmshaven
+/aw/planning/aw_planning/itinerary/route_id : 2
+/aw/planning/aw_planning/maneuver/bypass_width_limit : !!float 2.0
+/aw/planning/aw_planning/itinerary/tasks :
+  #0 unlock local map, build map begin
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_begin.sh
+  #1 start map s93 - s18
+  - task_type :   !!str map
+    start_east :    !!float 440668.075
+    start_north:    !!float 5929715.625
+    end_east :    !!float 440523.475
+    end_north:    !!float 5929704.1
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  #2 s16 - s27
+  - task_type :   !!str map
+    start_east :    !!float 440551.325
+    start_north:    !!float 5929716.025
+    end_east :    !!float 440439.96
+    end_north:    !!float 5929658.24
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    lane_expanse: !!float 10.0
+    use_rel_ref:  !!bool false
+  #3 s27 - s142
+  - task_type :   !!str map
+    start_east :    !!float 440439.26
+    start_north:    !!float 5929678.25
+    end_east :    !!float 440516.51
+    end_north:    !!float 5929693.15
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  #4 s143 - s47
+  - task_type :   !!str map
+    start_east :    !!float 440517.21
+    start_north:    !!float 5929671.45
+    end_east :    !!float 440490.51
+    end_north:    !!float 5929661.3
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  #5 s46 - s148
+  - task_type :   !!str map
+    start_east :    !!float 440489.7
+    start_north:    !!float 5929683.55
+    end_east :    !!float 440466.66
+    end_north:    !!float 5929684.05
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  #6 s149 - s116
+  - task_type :   !!str map
+    start_east :    !!float 440467.56
+    start_north:    !!float 5929663.95
+    end_east :    !!float 440553.36
+    end_north:    !!float 5929713.95
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  #7 lock local map, build map end
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/build_map_end.sh
+  #8 generate coverage planning tasks
+  - task_type :   !!str script
+    script_name:  !!str $(rospack find aw_planning)/script/generate_tasks.sh
+
+  #9 s116 - s16
+  - task_type :   !!str pose_to_pose
+    end_east :  !!float 440551.233
+    end_north:  !!float 5929716.375
+    end_yaw :     !!float -2.54
+    max_velo:  !!float 0.5
+
+  #10 sweeping!!!
+  - task_type :   !!str dynamic
+    start_east :    !!float 0.0
+    start_north:    !!float 0.0
+    end_east :    !!float 0.0
+    end_north:    !!float 0.0
+ 
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

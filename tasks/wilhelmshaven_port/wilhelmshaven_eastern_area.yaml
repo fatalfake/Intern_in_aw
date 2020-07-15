@@ -1,0 +1,89 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str de_wilhelmshaven
+/aw/planning/aw_planning/itinerary/route_id : 6
+/aw/planning/aw_planning/maneuver/bypass_width_limit : !!float 1.0
+/aw/planning/aw_planning/itinerary/tasks :
+
+  #0 s93 - s75
+  - task_type :   !!str map
+    start_east :    !!float 440668.075
+    start_north:    !!float 5929715.675
+    end_east :    !!float 440742.975
+    end_north:    !!float 5929682.675
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+  
+  #1 s73 - s231
+  - task_type :   !!str map
+    start_east :    !!float 440727.9
+    start_north:    !!float 5929695.2
+    end_east :    !!float 440853.7
+    end_north:    !!float 5929695.775
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #2 s230 - s238
+  - task_type :   !!str map
+    start_east :    !!float 440861.475
+    start_north:    !!float 5929707.55
+    end_east :    !!float 440991.3
+    end_north:    !!float 5929690.8
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    lane_expanse: !!float 10.0
+    use_rel_ref:  !!bool false
+
+  #3 point-to s437
+  - task_type :   !!str point_to
+    end_east :    !!float 440973.9
+    end_north:    !!float 5929696.175
+    lateral_safe: !!float 0.4
+
+  #4 s438 - s417
+  - task_type :   !!str map
+    start_east :    !!float 440985.675
+    start_north:    !!float 5929694.85
+    end_east :    !!float 440946.45
+    end_north:    !!float 5929701.875
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #5 s418 - s175
+  - task_type :   !!str map
+    start_east :    !!float 440945.5
+    start_north:    !!float 5929712.525
+    end_east :    !!float 440746.45
+    end_north:    !!float 5929688.025
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #6 s402 - s94
+  - task_type :   !!str map
+    start_east :    !!float 440757.6
+    start_north:    !!float 5929674.6
+    end_east :    !!float 440660.375
+    end_north:    !!float 5929708.925
+    stop_check :  !!bool true
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #7 s93
+  - task_type :   !!str parking
+    end_east :  !!float 440668.15
+    end_north:  !!float 5929715.3
+    end_yaw :     !!float -1.5
+    max_velo:  !!float 0.5
+ 
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+

@@ -1,0 +1,95 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str suzhou_xiangcheng_demo
+/aw/planning/aw_planning/itinerary/route_id : !!str 6
+/aw/planning/aw_planning/itinerary/tasks :
+
+#s47-s52
+   - task_type : !!str map
+     start_east : !!float 274761.075
+     start_north : !!float 3479293.175
+     end_east : !!float 275038.775
+     end_north : !!float 3479122.275
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s52-s93
+   - task_type : !!str map
+     start_east : !!float 275027.275
+     start_north : !!float 3479129.625
+     end_east : !!float 275262.825
+     end_north : !!float 3478978.225
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s93-s113
+   - task_type : !!str map
+     start_east : !!float 275253.325
+     start_north : !!float 3478984.225
+     end_east : !!float 276583.925
+     end_north : !!float 3478116.375
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s113-s66
+   - task_type : !!str map
+     start_east : !!float 276565.275
+     start_north : !!float 3478127.725
+     end_east : !!float 276589.225
+     end_north : !!float 3478121.925
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s112-s73
+   - task_type : !!str map
+     start_east : !!float 276565.275
+     start_north : !!float 3478127.725
+     end_east : !!float 275957.275
+     end_north : !!float 3478530.425
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s73-s88
+   - task_type : !!str map
+     start_east : !!float 275974.275
+     start_north : !!float 3478519.725
+     end_east : !!float 275172.175
+     end_north : !!float 3479037.925
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s88-s46
+   - task_type : !!str map
+     start_east : !!float 275194.175
+     start_north : !!float 3479023.825
+     end_east : !!float 274764.375
+     end_north : !!float 3479299.425
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+#s46-s47
+   - task_type : !!str map
+     start_east : !!float 274780.1
+     start_north : !!float 3479290.075
+     end_east : !!float 274771.66
+     end_north : !!float 3479287.475
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index : !!int 0

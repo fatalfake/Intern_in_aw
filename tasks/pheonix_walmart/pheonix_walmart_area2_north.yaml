@@ -1,0 +1,888 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str pheonix_walmart
+/aw/planning/aw_planning/itinerary/route_id : !!str 0
+/aw/planning/aw_planning/itinerary/pose2pose_restricted_area_path : "config/ccpp/pheonix_walmart/walmart_restricted_areas.txt"
+/aw/planning/aw_planning/itinerary/tasks :
+
+#0
+   - task_type :   !!str map
+     start_east :    !!float 420551.19
+     start_north:    !!float 3689063.19
+     end_east :    !!float 420541.39
+     end_north:    !!float 3688996.29
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#1
+   - task_type :   !!str map
+     start_east :    !!float 420547.99
+     start_north:    !!float 3689006.59
+     end_east :    !!float 420508.3
+     end_north:    !!float 3688997.9
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#2
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420503.1
+     end_north:    !!float 3688996.6
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#3
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420484.64
+     end_north:    !!float 3688997.4
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#4
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420481.1
+     end_north:    !!float 3688999.375
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#5
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420450.69
+     end_north:    !!float 3689000.225
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#6
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420445.64
+     end_north:    !!float 3688997.675
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#7
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420415.52
+     end_north:    !!float 3688998.85
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#8
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420408.82
+     end_north:    !!float 3689002.8
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#9
+   - task_type :   !!str map
+     start_east :    !!float 420541.67
+     start_north:    !!float 3688996.525
+     end_east :    !!float 420393.44
+     end_north:    !!float 3689003.65
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#10
+   - task_type :   !!str map
+     start_east :    !!float 420399.7
+     start_north:    !!float 3689003.075
+     end_east :    !!float 420386.69
+     end_north:    !!float 3688980.625
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 5.0
+     can_escape_stuck: !!bool true
+
+#11
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 420388.44
+     end_north:    !!float 3688982.375
+     end_yaw:      !!float 1.57
+     stop_check :  !!bool true
+     max_velo  :   !!float 0.5
+     pose_to_pose_mode: !!int 3
+
+#12
+   - task_type :   !!str map
+     start_east :    !!float 420389.19
+     start_north:    !!float 3688972.175
+     end_east :    !!float 420389.76
+     end_north:    !!float 3688993.24
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#13
+   - task_type :   !!str map
+     start_east :    !!float 420389.19
+     start_north:    !!float 3688972.175
+     end_east :    !!float 420398.64
+     end_north:    !!float 3688995.41
+     stop_check :  !!bool false
+     max_velo  :   !!float 0.5
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#14
+   - task_type :   !!str map
+     start_east :    !!float 420391.42
+     start_north:    !!float 3688994.35
+     end_east :    !!float 420537.56
+     end_north:    !!float 3688989.0125
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     terminal_distance: !!float 3.0
+     can_escape_stuck: !!bool true
+
+#15
+   - task_type :   !!str map
+     start_east :    !!float 420528.16
+     start_north:    !!float 3688989.26
+     end_east :    !!float 420552.0375
+     end_north:    !!float 3689008.99
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     can_escape_stuck: !!bool true
+
+#16
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 420547.99
+     end_north:    !!float 3689006.84
+     end_yaw:      !!float -1.63
+     stop_check :  !!bool true
+     max_velo  :   !!float 0.5
+     pose_to_pose_mode: !!int 3
+
+#17 s20-s153
+   - task_type : !!str map
+     start_east : !!float 420548.071868
+     start_north : !!float 3689007.5625
+     end_east : !!float 420453.221868
+     end_north : !!float 3688997.6875
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+#18 153-167
+   - task_type : !!str map
+     start_east : !!float 420472.759365
+     start_north : !!float 3688997.46667
+     end_east : !!float 420447.734365
+     end_north : !!float 3688980.16667
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+
+#19 50700-50700
+   - task_type : !!str map
+     start_east : !!float 420450.291663
+     start_north : !!float 3688987.625
+     end_east : !!float 420449.091663
+     end_north : !!float 3688898.975
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#20 50700-50503
+   - task_type : !!str map
+     start_east : !!float 420446.14
+     start_north : !!float 3688915.2
+     #start_east : !!float 420449.141663
+     #start_north : !!float 3688896.425
+     end_east : !!float 420430.691663
+     end_north : !!float 3688906.85
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#21 50503-50503
+   - task_type : !!str map
+     start_east : !!float 420433.99
+     start_north : !!float 3688895.3
+     # end_east : !!float 420431.441663
+     end_east : !!float 420431.491663
+     # end_north : !!float 3688987.25
+     end_north : !!float 3688985.35
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#22 50503-50703
+   - task_type : !!str map
+     # start_east : !!float 420431.416663
+     start_east : !!float 420431.466
+     # start_north : !!float 3688983.325
+     start_north : !!float 3688974.175
+     end_east : !!float 420445.116663
+     end_north : !!float 3688979.475
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+#23 50703-50703
+   - task_type : !!str map
+     start_east : !!float 420445.116663
+     start_north : !!float 3688981.725
+     end_east : !!float 420444.091663
+     end_north : !!float 3688894.875
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#24 50703-50500
+   - task_type : !!str map
+     start_east : !!float 420444.191663
+     start_north : !!float 3688905.875
+     end_east : !!float 420428.79
+     end_north : !!float 3688910.1
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+#25 50500-50500
+   - task_type : !!str map
+     start_east : !!float 420425.366663
+     start_north : !!float 3688901.225
+     end_east : !!float 420425.966663
+     end_north : !!float 3688976.65
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+
+#26 goto 52
+   - task_type : !!str map
+     start_east : !!float 420428.541663
+     start_north : !!float 3688970.55
+     end_east : !!float 420441.841663
+     end_north : !!float 3688993.225
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool true
+
+#27 goto 67
+   - task_type : !!str map
+     start_east : !!float 420419.74
+     start_north : !!float 3688993.175
+     end_east : !!float 420447.54
+     end_north : !!float 3688970.975
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool true
+
+#28
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [225,227] []
+#29
+  # area 2_25-28
+   - task_type :   !!str dynamic
+     start_east :    !!float 420447.54
+     start_north:    !!float 3688987.825
+     start_yaw:    !!float -1.57
+     end_east :    !!float 420436.79
+     end_north:    !!float 3688892.325
+     end_yaw:    !!float 2.85
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+#30 goto 160
+   - task_type : !!str map
+     start_east : !!float 420446.84
+     start_north : !!float 3688902.175
+     end_east : !!float 420432.09
+     end_north : !!float 3688893.775
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool false
+
+#31 goto 166
+   - task_type : !!str map
+     start_east : !!float 420450.34
+     start_north : !!float 3688887.875
+     end_east : !!float 420427.99
+     end_north : !!float 3688910.575
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool false
+
+#32
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [223] []
+
+#33 area 2_21-24
+   - task_type :   !!str dynamic
+     start_east :    !!float 420427.94
+     start_north:    !!float 3688900.975
+     start_yaw:    !!float 1.57
+     end_east :    !!float 420441.79
+     end_north:    !!float 3688993.225
+     end_yaw:    !!float 0
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+#34 52-169
+   - task_type : !!str map
+     start_east : !!float 420419.64
+     start_north : !!float 3688993.275
+     end_east : !!float 420485.508328
+     end_north : !!float 3688976.9125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool true
+#loop2
+#35 51100-51100
+   - task_type : !!str map
+     start_east : !!float 420488.033328
+     start_north : !!float 3688986.6125
+     end_east : !!float 420486.683328
+     end_north : !!float 3688887.1125
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#36 51100-50903
+   - task_type : !!str map
+     start_east : !!float 420483.99
+     start_north : !!float 3688913.2
+     #start_east : !!float 420486.733328
+     #start_north : !!float 3688893.975
+     end_east : !!float 420468.133328
+     end_north : !!float 3688894.5125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#37 50903-50903
+   - task_type : !!str map
+     start_east : !!float 420472.34
+     start_north : !!float 3688882.925
+     end_east : !!float 420468.958328
+     end_north : !!float 3688988.4125
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#38 50903-51103
+   - task_type : !!str map
+     start_east : !!float 420469.033328
+     start_north : !!float 3688978.5375
+     end_east : !!float 420483.083328
+     end_north : !!float 3688977.4125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#39 51103-51103
+   - task_type : !!str map
+     start_east : !!float 420482.983328
+     start_north : !!float 3688986.2625
+     end_east : !!float 420481.783328
+     end_north : !!float 3688882.9625
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#40 51103-50900
+   - task_type : !!str map
+     start_east : !!float 420481.833328
+     start_north : !!float 3688895.5625
+     end_east : !!float 420466.29
+     end_north : !!float 3688900.8125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+#41 50900-50900
+   - task_type : !!str map
+     start_east : !!float 420462.833328
+     start_north : !!float 3688890.5125
+     end_east : !!float 420463.733328
+     end_north : !!float 3688978.4625
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+#42 goto 54
+   - task_type : !!str map
+     start_east : !!float 420466.233328
+     start_north : !!float 3688969.9625
+     end_east : !!float 420479.133328
+     end_north : !!float 3688994.1125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool true
+
+  #43 goto 69
+   - task_type : !!str map
+     start_east : !!float 420454.18
+     start_north : !!float 3688994.775
+     end_east : !!float 420485.43
+     end_north : !!float 3688972.575
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool true
+
+  #44
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [234,237] []
+  #45
+  # area 2_34-39
+   - task_type :   !!str dynamic
+     start_east :    !!float 420485.53
+     start_north:    !!float 3688986.725
+     start_yaw:    !!float -1.57
+     end_east :    !!float 420473.33
+     end_north:    !!float 3688881.225
+     end_yaw:    !!float 2.85
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+  #46 goto 168
+   - task_type : !!str map
+     start_east : !!float 420494.43
+     start_north : !!float 3688873.625
+     end_east : !!float 420465.53
+     end_north : !!float 3688901.975
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool true
+
+  #47
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [229,231] []
+
+  #48 area 2_21-24
+   - task_type :   !!str dynamic
+     start_east :    !!float 420465.43
+     start_north:    !!float 3688889.65
+     start_yaw:    !!float 1.57
+     end_east :    !!float 420476.98
+     end_north:    !!float 3688994.075
+     end_yaw:    !!float 0
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+  #49 54-173
+   - task_type : !!str map
+     start_east : !!float 420458.24
+     start_north : !!float 3688994.4625
+    #  end_east : !!float 420541.708328
+     end_east : !!float 420541.74687
+    #  end_north : !!float 3688981.0625
+     end_north : !!float 3688976.4
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 4.0
+     use_rel_ref : !!bool false
+#loop3
+#50 52100-52100-51700
+   - task_type : !!str map
+     start_east : !!float 420544.683328
+    #  start_east : !!float 420528.321
+     start_north : !!float 3688985.8625
+    #  start_north : !!float 3688990.85
+     end_east : !!float 420524.983328
+     end_north : !!float 3688877.1625
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+#51 52700-51303
+   - task_type : !!str map
+     start_east : !!float 420521.49
+     start_north : !!float 3688896.4
+     #start_east : !!float 420525.033328
+     #start_north : !!float 3688885.4625
+     end_east : !!float 420506.183328
+     end_north : !!float 3688883.2125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#52 51303-51303
+   - task_type : !!str map
+     start_east : !!float 420509.84
+     start_north : !!float 3688870.075
+     end_east : !!float 420506.883328
+     end_north : !!float 3688986.8125
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#53 51303-51501
+   - task_type : !!str map
+     start_east : !!float 420506.833328
+     start_north : !!float 3688973.8125
+     end_east : !!float 420520.658328
+     end_north : !!float 3688979.2125
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool false
+#54 51501-51703
+   - task_type : !!str map
+     start_east : !!float 420520.733328
+     start_north : !!float 3688987.0125
+     end_east : !!float 420519.333328
+     end_north : !!float 3688872.1125
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#55 51703-51300
+   - task_type : !!str map
+     start_east : !!float 420519.433328
+     start_north : !!float 3688882.3625
+     end_east : !!float 420504.54
+     end_north : !!float 3688885.05
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+#56 51300-51300
+   - task_type : !!str map
+     start_east : !!float 420509.64
+     start_north : !!float 3688869.475
+    #  end_east : !!float 420501.541663
+    #  end_north : !!float 3688980.075
+     end_east : !!float 420501.491663
+     end_north : !!float 3688971.9
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+     #can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+
+## 51300-51301-51302-52203
+
+#57 517-51301
+   - task_type : !!str map
+     start_east : !!float 420519.316663
+     start_north : !!float 3688874.85
+     end_east : !!float 420503.491663
+     end_north : !!float 3688978.2
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+#58 51302-52203
+   - task_type : !!str map
+     start_east : !!float 420505.241663
+     start_north : !!float 3688972.55
+     end_east : !!float 420539.433328
+     end_north : !!float 3688979.8625
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+##
+#59 52203-52203
+   - task_type : !!str map
+     start_east : !!float 420532.533328
+     start_north : !!float 3688990.575
+     end_east : !!float 420538.933328
+     end_north : !!float 3688944.2625
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+#60 52203-51901
+   - task_type : !!str map
+     start_east : !!float 420538.983328
+     start_north : !!float 3688964.4625
+     end_east : !!float 420525.683328
+     end_north : !!float 3688946.0625
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#61 51901-51901
+   - task_type : !!str map
+     start_east : !!float 420533.44
+     start_north : !!float 3688937.425
+     end_east : !!float 420525.783328
+     end_north : !!float 3688987.1125
+     stop_check : !!bool false
+     max_velo : !!float 1.25
+     execute_mode : !!int 2
+    #  can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+  ##area
+  #62 51901-52100(173)
+   - task_type : !!str map
+     start_east : !!float 420525.485411
+     start_north : !!float 3688983.74739
+     end_east : !!float 420544.535411
+     end_north : !!float 3688972.8224
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool false
+  #63
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [251] []
+  #64 173-174
+   - task_type : !!str dynamic
+     start_east : !!float 420541.535411
+     start_north : !!float 3688984.80729
+     start_yaw:    !!float -1.58
+     end_east : !!float 420528.975
+     end_north : !!float 3688935.575
+     end_yaw:    !!float -3.14
+     pose_to_pose_mode: !!int 4
+
+  ##goto 170
+  #65 174-172
+   - task_type : !!str map
+     start_east : !!float 420541.73
+     start_north : !!float 3688945.375
+     end_east : !!float 420522.48
+     end_north : !!float 3688918.825
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool false
+  
+  ##goto 170
+  #66 172-170
+   - task_type : !!str map
+     start_east : !!float 420521.975
+     start_north : !!float 3688874.925
+     end_east : !!float 420504.55
+     end_north : !!float 3688888.9
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5
+     use_rel_ref : !!bool true
+
+  #67
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [240,243] []
+  #68 170-56
+   - task_type : !!str dynamic
+     start_east : !!float 420503.58
+     start_north : !!float 3688877.125
+     start_yaw:    !!float 1.58
+     end_east : !!float 420517.13
+     end_north : !!float 3688992.425
+     end_yaw:    !!float 0
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+   #69 170-57
+   - task_type : !!str map
+     start_east : !!float 420504.310411
+     start_north : !!float 3688982.49739
+     end_east : !!float 420535.360411
+     end_north : !!float 3688992.1974
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+#70 57-173
+   - task_type : !!str map
+     start_east : !!float 420515.860411
+     start_north : !!float 3688992.51458
+     end_east : !!float 420541.81
+     end_north : !!float 3688942.175
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool true
+
+#71 57-171
+   - task_type : !!str map
+     start_east : !!float 420541.91
+     start_north : !!float 3688957.975
+     end_east : !!float 420522.81
+     end_north : !!float 3688949.475
+     stop_check : !!bool false
+     max_velo : !!float 0.8
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 5.0
+     use_rel_ref : !!bool true
+
+  #72
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/generate_areas.py True True [246,249] []
+  #73 171-56
+   - task_type : !!str dynamic
+     start_east : !!float 420522.71
+     start_north : !!float 3688942.575
+     start_yaw:    !!float 1.58
+     end_east : !!float 420535.36
+     end_north : !!float 3688992.1974
+     end_yaw:    !!float 0
+     use_rel_ref: !!bool true
+     pose_to_pose_mode: !!int 4
+
+  #74 57-120
+   - task_type : !!str map
+     start_east : !!float 420515.860411
+     start_north : !!float 3688992.51458
+     end_east : !!float 420556.19
+     end_north : !!float 3689070.175
+     stop_check : !!bool false
+     max_velo : !!float 1.0
+     execute_mode : !!int 2
+     can_escape_stuck : !!bool true
+     terminal_distance : !!float 8.0
+     use_rel_ref : !!bool false
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

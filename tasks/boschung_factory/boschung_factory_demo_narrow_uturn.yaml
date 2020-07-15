@@ -1,0 +1,949 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str boschung_factory
+/aw/planning/aw_planning/itinerary/route_id : 3
+/aw/planning/aw_planning/itinerary/tasks :
+
+  #s1-s20
+  - task_type :   !!str map
+    start_east :    !!float 341187.11
+    start_north:    !!float 5189385.625
+    end_east :    !!float 341203.31
+    end_north:    !!float 5189365.23
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  # s20-s2
+  - task_type :   !!str map
+    start_east :    !!float 341217.41
+    start_north:    !!float 5189352.63
+    end_east :    !!float 341201.01
+    end_north:    !!float 5189401.28
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  # s4003
+  - task_type :   !!str map
+    start_east :    !!float 341193.08
+    start_north:    !!float 5189393.88
+    end_east :    !!float 341242.38
+    end_north:    !!float 5189448.08
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341240.38
+    end_north:    !!float 5189447.13
+    end_yaw:      !!float -2.32
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+ 
+  # s4001
+  - task_type :   !!str map
+    start_east :    !!float 341239.93
+    start_north:    !!float 5189450.16
+    end_east :    !!float 341190.63
+    end_north:    !!float 5189396.08
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    #end_east :    !!float 341197.71
+    #end_north:    !!float 5189397.73
+    end_east :    !!float 341193.16
+    end_north:    !!float 5189395.16
+    end_yaw:      !!float 0.83
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.83
+    pose_to_pose_mode: !!int 3
+ 
+  # s4004
+  - task_type :   !!str map
+    start_east :    !!float 341194.58
+    start_north:    !!float 5189392.93
+    end_east :    !!float 341243.63
+    end_north:    !!float 5189447.18
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341240.38
+    end_north:    !!float 5189447.13
+    end_yaw:      !!float -2.32
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+ 
+  # s4002
+  - task_type :   !!str map
+    start_east :    !!float 341241.16
+    start_north:    !!float 5189449.08
+    end_east :    !!float 341192.18
+    end_north:    !!float 5189395.23
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    hdmap_type:   !!int 2
+    terminal_dist: !!float 3.0000
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+
+  - task_type :   !!str pose_to_pose
+    #end_east :    !!float 341197.71
+    #end_north:    !!float 5189397.73
+    end_east :    !!float 341193.16
+    end_north:    !!float 5189395.16
+    end_yaw:      !!float 0.83
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.83
+    pose_to_pose_mode: !!int 3
+
+  # parkingslots
+  - task_type :   !!str map
+    task_idx :    !!int 0
+    start_east :    !!float 341191.7950
+    start_north:    !!float 5189390.9150
+    end_east :    !!float 341199.1983
+    end_north:    !!float 5189399.2604
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 1,2
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 1
+    start_east :    !!float 341199.1983
+    start_north:    !!float 5189399.2604
+    end_east :    !!float 341198.6210
+    end_north:    !!float 5189406.5381
+    end_yaw:    !!float 2.4161
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 2
+    start_east :    !!float 341202.3617
+    start_north:    !!float 5189403.2204
+    end_east :    !!float 341196.2170
+    end_north:    !!float 5189408.6703
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2001
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 3
+    start_east :    !!float 341196.2170
+    start_north:    !!float 5189408.6703
+    end_east :    !!float 341197.5302
+    end_north:    !!float 5189397.3316
+    end_yaw:    !!float 0.8551
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 4
+    start_east :    !!float 341200.9699
+    start_north:    !!float 5189401.2980
+    end_east :    !!float 341200.3798
+    end_north:    !!float 5189408.4644
+    end_yaw:    !!float 2.4156
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 5
+    start_east :    !!float 341204.1190
+    start_north:    !!float 5189405.1450
+    end_east :    !!float 341197.9728
+    end_north:    !!float 5189410.6011
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2002
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 6
+    start_east :    !!float 341197.9728
+    start_north:    !!float 5189410.6011
+    end_east :    !!float 341198.8438
+    end_north:    !!float 5189398.8397
+    end_yaw:    !!float 0.8551
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 7
+    start_east :    !!float 341202.6198
+    start_north:    !!float 5189403.1601
+    end_east :    !!float 341202.1385
+    end_north:    !!float 5189410.3906
+    end_yaw:    !!float 2.4152
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 8
+    start_east :    !!float 341205.8763
+    start_north:    !!float 5189407.0696
+    end_east :    !!float 341199.7286
+    end_north:    !!float 5189412.5318
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2003
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 9
+    start_east :    !!float 341199.7286
+    start_north:    !!float 5189412.5318
+    end_east :    !!float 341200.1581
+    end_north:    !!float 5189400.3472
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 10
+    start_east :    !!float 341204.4307
+    start_north:    !!float 5189405.1628
+    end_east :    !!float 341203.8973
+    end_north:    !!float 5189412.3169
+    end_yaw:    !!float 2.4147
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 11
+    start_east :    !!float 341207.6336
+    start_north:    !!float 5189408.9942
+    end_east :    !!float 341201.4844
+    end_north:    !!float 5189414.4626
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2004
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 12
+    start_east :    !!float 341201.4844
+    start_north:    !!float 5189414.4626
+    end_east :    !!float 341203.3220
+    end_north:    !!float 5189403.9408
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 13
+    start_east :    !!float 341206.0403
+    start_north:    !!float 5189406.9430
+    end_east :    !!float 341205.6560
+    end_north:    !!float 5189414.2431
+    end_yaw:    !!float 2.4143
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 14
+    start_east :    !!float 341209.3909
+    start_north:    !!float 5189410.9188
+    end_east :    !!float 341203.2402
+    end_north:    !!float 5189416.3933
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2005
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 15
+    start_east :    !!float 341203.2402
+    start_north:    !!float 5189416.3933
+    end_east :    !!float 341204.6615
+    end_north:    !!float 5189405.4260
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 16
+    start_east :    !!float 341207.8511
+    start_north:    !!float 5189408.9457
+    end_east :    !!float 341207.4148
+    end_north:    !!float 5189416.1694
+    end_yaw:    !!float 2.4139
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 17
+    start_east :    !!float 341211.1482
+    start_north:    !!float 5189412.8435
+    end_east :    !!float 341204.9961
+    end_north:    !!float 5189418.3241
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2006
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 18
+    start_east :    !!float 341204.9961
+    start_north:    !!float 5189418.3241
+    end_east :    !!float 341206.0009
+    end_north:    !!float 5189406.9112
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 19
+    start_east :    !!float 341209.6620
+    start_north:    !!float 5189410.9484
+    end_east :    !!float 341209.1735
+    end_north:    !!float 5189418.0956
+    end_yaw:    !!float 2.4134
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 20
+    start_east :    !!float 341212.9055
+    start_north:    !!float 5189414.7681
+    end_east :    !!float 341206.7519
+    end_north:    !!float 5189420.2549
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2007
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 21
+    start_east :    !!float 341206.7519
+    start_north:    !!float 5189420.2549
+    end_east :    !!float 341207.3404
+    end_north:    !!float 5189408.3964
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 22
+    start_east :    !!float 341211.2716
+    start_north:    !!float 5189412.7286
+    end_east :    !!float 341210.9323
+    end_north:    !!float 5189420.0219
+    end_yaw:    !!float 2.4130
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 23
+    start_east :    !!float 341214.6628
+    start_north:    !!float 5189416.6927
+    end_east :    !!float 341208.5077
+    end_north:    !!float 5189422.1856
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2008
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 24
+    start_east :    !!float 341208.5077
+    start_north:    !!float 5189422.1856
+    end_east :    !!float 341210.0195
+    end_north:    !!float 5189411.3667
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 25
+    start_east :    !!float 341213.0825
+    start_north:    !!float 5189414.7313
+    end_east :    !!float 341212.6910
+    end_north:    !!float 5189421.9481
+    end_yaw:    !!float 2.4125
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 26
+    start_east :    !!float 341216.4201
+    start_north:    !!float 5189418.6173
+    end_east :    !!float 341210.2635
+    end_north:    !!float 5189424.1164
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2009
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 27
+    start_east :    !!float 341210.2635
+    start_north:    !!float 5189424.1164
+    end_east :    !!float 341211.3584
+    end_north:    !!float 5189412.8523
+    end_yaw:    !!float 0.8357
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 28
+    start_east :    !!float 341214.8200
+    start_north:    !!float 5189416.6477
+    end_east :    !!float 341214.4498
+    end_north:    !!float 5189423.8744
+    end_yaw:    !!float 2.4121
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 29
+    start_east :    !!float 341218.1774
+    start_north:    !!float 5189420.5420
+    end_east :    !!float 341212.0193
+    end_north:    !!float 5189426.0472
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2010
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 30
+    start_east :    !!float 341212.0193
+    start_north:    !!float 5189426.0472
+    end_east :    !!float 341212.7338
+    end_north:    !!float 5189414.3724
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 31
+    start_east :    !!float 341216.6423
+    start_north:    !!float 5189418.6400
+    end_east :    !!float 341216.2085
+    end_north:    !!float 5189425.8006
+    end_yaw:    !!float 2.4117
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 32
+    start_east :    !!float 341219.9347
+    start_north:    !!float 5189422.4666
+    end_east :    !!float 341213.7751
+    end_north:    !!float 5189427.9779
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2011
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 33
+    start_east :    !!float 341213.7751
+    start_north:    !!float 5189427.9779
+    end_east :    !!float 341214.4150
+    end_north:    !!float 5189416.2050
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 34
+    start_east :    !!float 341218.2621
+    start_north:    !!float 5189420.4109
+    end_east :    !!float 341217.9673
+    end_north:    !!float 5189427.7269
+    end_yaw:    !!float 2.4113
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 35
+    start_east :    !!float 341221.6920
+    start_north:    !!float 5189424.3913
+    end_east :    !!float 341215.5310
+    end_north:    !!float 5189429.9087
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2012
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 36
+    start_east :    !!float 341215.5310
+    start_north:    !!float 5189429.9087
+    end_east :    !!float 341217.0195
+    end_north:    !!float 5189419.0404
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 37
+    start_east :    !!float 341220.0844
+    start_north:    !!float 5189422.4032
+    end_east :    !!float 341219.7260
+    end_north:    !!float 5189429.6531
+    end_yaw:    !!float 2.4108
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 38
+    start_east :    !!float 341223.4493
+    start_north:    !!float 5189426.3159
+    end_east :    !!float 341217.2868
+    end_north:    !!float 5189431.8395
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2013
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 39
+    start_east :    !!float 341217.2868
+    start_north:    !!float 5189431.8395
+    end_east :    !!float 341218.3724
+    end_north:    !!float 5189420.5133
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 40
+    start_east :    !!float 341221.9067
+    start_north:    !!float 5189424.3955
+    end_east :    !!float 341221.4848
+    end_north:    !!float 5189431.5794
+    end_yaw:    !!float 2.4104
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 41
+    start_east :    !!float 341225.2066
+    start_north:    !!float 5189428.2406
+    end_east :    !!float 341219.0426
+    end_north:    !!float 5189433.7702
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2014
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 42
+    start_east :    !!float 341219.0426
+    start_north:    !!float 5189433.7702
+    end_east :    !!float 341219.7254
+    end_north:    !!float 5189421.9862
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 43
+    start_east :    !!float 341223.5265
+    start_north:    !!float 5189426.1664
+    end_east :    !!float 341223.2435
+    end_north:    !!float 5189433.5056
+    end_yaw:    !!float 2.4100
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 44
+    start_east :    !!float 341226.9640
+    start_north:    !!float 5189430.1652
+    end_east :    !!float 341220.7984
+    end_north:    !!float 5189435.7010
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2015
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 45
+    start_east :    !!float 341220.7984
+    start_north:    !!float 5189435.7010
+    end_east :    !!float 341222.4313
+    end_north:    !!float 5189424.9320
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 46
+    start_east :    !!float 341225.3489
+    start_north:    !!float 5189428.1587
+    end_east :    !!float 341225.0023
+    end_north:    !!float 5189435.4319
+    end_yaw:    !!float 2.4095
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 47
+    start_east :    !!float 341228.7213
+    start_north:    !!float 5189432.0899
+    end_east :    !!float 341222.5542
+    end_north:    !!float 5189437.6318
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2016
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 48
+    start_east :    !!float 341222.5542
+    start_north:    !!float 5189437.6318
+    end_east :    !!float 341223.7846
+    end_north:    !!float 5189426.4047
+    end_yaw:    !!float 0.8299
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 49
+    start_east :    !!float 341227.1369
+    start_north:    !!float 5189430.1146
+    end_east :    !!float 341226.7610
+    end_north:    !!float 5189437.3581
+    end_yaw:    !!float 2.4091
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 50
+    start_east :    !!float 341230.4786
+    start_north:    !!float 5189434.0145
+    end_east :    !!float 341224.3101
+    end_north:    !!float 5189439.5625
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2017
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 51
+    start_east :    !!float 341224.3101
+    start_north:    !!float 5189439.5625
+    end_east :    !!float 341225.1338
+    end_north:    !!float 5189427.8810
+    end_yaw:    !!float 0.8308
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 52
+    start_east :    !!float 341228.9575
+    start_north:    !!float 5189432.1084
+    end_east :    !!float 341228.5198
+    end_north:    !!float 5189439.2844
+    end_yaw:    !!float 2.4087
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 53
+    start_east :    !!float 341232.2359
+    start_north:    !!float 5189435.9392
+    end_east :    !!float 341226.0659
+    end_north:    !!float 5189441.4933
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2018
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 54
+    start_east :    !!float 341226.0659
+    start_north:    !!float 5189441.4933
+    end_east :    !!float 341226.5300
+    end_north:    !!float 5189429.4500
+    end_yaw:    !!float 0.8308
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 55
+    start_east :    !!float 341230.5759
+    start_north:    !!float 5189433.8807
+    end_east :    !!float 341230.2785
+    end_north:    !!float 5189441.2106
+    end_yaw:    !!float 2.4083
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 56
+    start_east :    !!float 341233.9933
+    start_north:    !!float 5189437.8639
+    end_east :    !!float 341227.8217
+    end_north:    !!float 5189443.4241
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2019
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 57
+    start_east :    !!float 341227.8217
+    start_north:    !!float 5189443.4241
+    end_east :    !!float 341229.3305
+    end_north:    !!float 5189432.5126
+    end_yaw:    !!float 0.8308
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 58
+    start_east :    !!float 341232.3966
+    start_north:    !!float 5189435.8744
+    end_east :    !!float 341232.0373
+    end_north:    !!float 5189443.1369
+    end_yaw:    !!float 2.4078
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 59
+    start_east :    !!float 341235.7506
+    start_north:    !!float 5189439.7885
+    end_east :    !!float 341229.5775
+    end_north:    !!float 5189445.3549
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 2.0000
+    can_terminate_ahead: !!bool true
+    can_escape_stuck: !!bool true
+    plan_stop_fallback: !!float 0.0000
+    max_velo: !!float 0.5000
+    hdmap_type: !!int 3
+    section_list: !!str 2020
+  - task_type :   !!str pose_to_pose
+    task_idx :    !!int 60
+    start_east :    !!float 341229.5775
+    start_north:    !!float 5189445.3549
+    end_east :    !!float 341230.6799
+    end_north:    !!float 5189433.9887
+    end_yaw:    !!float 0.8308
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 
+  - task_type :   !!str map
+    task_idx :    !!int 61
+    start_east :    !!float 341227.9810
+    start_north:    !!float 5189431.0365
+    end_east :    !!float 341244.9950
+    end_north:    !!float 5189449.7150
+    stop_check:   !!bool true
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+    terminal_dist: !!float 5.0000
+    section_list: !!str 5,6
+
+ 
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

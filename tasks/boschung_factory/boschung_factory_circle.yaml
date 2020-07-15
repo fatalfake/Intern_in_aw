@@ -1,0 +1,74 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str boschung_factory
+/aw/planning/aw_planning/itinerary/route_id : 1
+/aw/planning/aw_planning/itinerary/tasks :
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341197.49500122
+    end_north:    !!float 5189361.35499880
+    end_yaw:      !!float 2.4
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+
+  #s21-s2
+  - task_type :   !!str map
+    start_east :    !!float 341202.54500122
+    start_north:    !!float 5189356.85499880
+    end_east :    !!float 341200.11
+    end_north:    !!float 5189400.425
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  #s1-s20
+  - task_type :   !!str map
+    start_east :    !!float 341187.11
+    start_north:    !!float 5189385.625
+    end_east :    !!float 341202.54500122
+    end_north:    !!float 5189356.85499880
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341200.69500122
+    end_north:    !!float 5189353.70499880
+    end_yaw:      !!float -0.6
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 3
+
+  # s121-s117
+  - task_type :   !!str map
+    start_east :    !!float 341189.69500122
+    start_north:    !!float 5189363.55499880
+    end_east :    !!float 341249.77
+    end_north:    !!float 5189359.95
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  # s117-s120
+  - task_type :   !!str map
+    start_east :    !!float 341236.07
+    start_north:    !!float 5189345.35
+    end_east :    !!float 341203.54500122
+    end_north:    !!float 5189351.30499880
+    stop_check :  !!bool false
+    max_velo  :   !!float 1.0
+    execute_mode: !!int 2
+    use_rel_ref:  !!bool false
+
+  - task_type :   !!str pose_to_pose
+    end_east :    !!float 341196.19500122
+    end_north:    !!float 5189350.10499880
+    end_yaw:      !!float 0.97
+    stop_check :  !!bool true
+    max_velo  :   !!float 0.5
+    pose_to_pose_mode: !!int 2
+ 
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool true
+/aw/planning/aw_planning/itinerary/repeat_start_index : !!int 0

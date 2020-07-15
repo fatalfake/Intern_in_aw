@@ -1,0 +1,78 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_qidi
+/aw/planning/aw_planning/itinerary/route_id : !!str 9
+/aw/planning/aw_planning/itinerary/tasks :
+   #- task_type :   !!str script
+     #script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334792.000529
+     end_north :   !!float 3435809.12017
+     end_yaw :     !!float 1.30096633004
+     pose_to_pose_mode: !!int 2
+   #- task_type :   !!str script
+     #script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_on.py
+   - task_type :   !!str map
+     start_east :  !!float 334792.39465
+     start_north:  !!float 3435808.0623
+     end_east :    !!float 334880.875
+     end_north:    !!float 3435726.5
+     center_type:  !!int 2
+     center_offset: !!float -1.0
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :    !!str map
+     start_east :  !!float 334880.875
+     start_north:  !!float 3435726.5
+     end_east :    !!float 334793.825
+     end_north:    !!float 3435811.875
+     stop_check :  !!bool true
+     center_type:  !!int 2
+     center_offset: !!float -1.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   #- task_type :   !!str script
+     #script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/wash_off.py
+   - task_type :   !!str pose_to_pose
+     end_east :    !!float 334771.609159
+     end_north :   !!float 3435797.4296
+     end_yaw :     !!float 6.01209614641
+     pose_to_pose_mode: !!int 2
+   #- task_type :   !!str script
+     #script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jingda/blink.py
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 1
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+
+#   - task_type :   !!str parking
+#     end_east :    !!float 334783.4
+#     end_north :   !!float 3435781.77
+#     end_yaw :     !!float 4.4789
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jinda/wash_on.py
+#   - task_type :   !!str map
+#     start_east :  !!float 334783.4
+#     start_north:  !!float 3435781.77
+#     end_east :    !!float 334877.875
+#     end_north:    !!float 3435723.5
+#     center_type:  !!int 2
+#     center_offset: !!float -1.0
+#     stop_check :  !!bool false
+#     rel_point_x:    !!float 2.2
+#     rel_point_y:    !!float 0.8
+#     rel_border_dis: !!float -0.25
+#   - task_type :   !!str map
+#     start_east :  !!float 334877.875
+#     start_north:  !!float 3435723.5
+#     end_east :    !!float 334783.4
+#     end_north:    !!float 3435781.77
+#     center_type:  !!int 2
+#     center_offset: !!float -1.0
+#     rel_point_x:    !!float 2.2
+#     rel_point_y:    !!float 0.8
+#     rel_border_dis: !!float -0.25
+#   - task_type :   !!str script
+#     script_name:  !!str /home/autowise/autowise/ros/vehicle/aw_vehicle/script/jinda/wash_off.py
+#   - task_type :   !!str parking
+#     end_east :    !!float 334771.609159
+#     end_north :   !!float 3435797.4296
+#     end_yaw :     !!float 6.01209614641

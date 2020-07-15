@@ -1,0 +1,22 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_exam_2020
+/aw/planning/aw_planning/itinerary/route_id : !!str 8
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+  #  - task_type : !!str map
+  #    start_east : !!float 324711.056665
+  #    start_north : !!float 3461724.405
+
+   - task_type : !!str map
+     start_east : !!float 324710.728333
+     start_north : !!float 3461713.09
+     end_east : !!float 324704.278333
+     end_north : !!float 3461571.44
+     stop_check : !!bool false
+     max_velo : !!float 2.0
+     execute_mode : !!int 2
+     use_rel_ref : !!bool false
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

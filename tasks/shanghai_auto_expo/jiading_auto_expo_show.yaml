@@ -1,0 +1,53 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_auto_expo
+/aw/planning/aw_planning/itinerary/route_id : !!str 4
+/aw/planning/aw_planning/itinerary/tasks :
+   - task_type :   !!str script
+     script_name:  !!str script/start/check_key.py shangyan_start
+   # s213 - s209
+   - task_type :   !!str map
+     start_east :    !!float 325100.9
+     start_north :   !!float 3462265.02
+     end_east :    !!float 325081.50000
+     end_north:    !!float 3462223.15000
+     stop_check :  !!bool true
+     max_velo  :   !!float 2.0
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     lane_expanse: !!float 3.0
+   ## wash-on
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+   # s213 - s205
+   - task_type :   !!str map
+     start_east :    !!float 325100.9
+     start_north :   !!float 3462265.02
+     end_east :    !!float 325092.95000
+     end_north:    !!float 3462226.95000
+     stop_check :  !!bool false
+     max_velo  :   !!float 1
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+   ## wash-off
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+   # s204 - s205
+   - task_type :   !!str map
+     start_east :    !!float 325116.72500
+     start_north:    !!float 3462233.47500
+     end_east :    !!float 325116.88750
+     end_north:    !!float 3462261.37500
+     stop_check :  !!bool false
+     max_velo  :   !!float 1.5
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+   - task_type :   !!str parking
+     end_east :    !!float 325100.9
+     end_north :   !!float 3462265.02
+     end_yaw :     !!float 5.203
+     max_velo :    !!float 1.0
+     check_free_dist : !!float 4.0
+   - task_type :   !!str script
+     script_name:  !!str script/start/stop_key.py shangyan_start
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false

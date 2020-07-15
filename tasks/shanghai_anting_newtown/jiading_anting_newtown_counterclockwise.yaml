@@ -1,0 +1,63 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str jiading_anting_newtown
+/aw/planning/aw_planning/itinerary/route_id : !!str 2
+/aw/planning/aw_planning/itinerary/is_struct_map : !!bool true
+/aw/planning/aw_planning/itinerary/tasks :
+
+
+#   - task_type :   !!str script
+#     script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+    #s4 - s24r
+   - task_type :   !!str map
+     start_east :    !!float 327639.425
+     start_north :   !!float 3461988.025
+     end_east :    !!float 327238.725
+     end_north:    !!float 3461670.625
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+
+
+    #s23r - s50r
+   - task_type :   !!str map
+     start_east :    !!float 327263.475
+     start_north :   !!float 3461668.025
+     end_east :    !!float 326349.075
+     end_north:    !!float 3462197.675
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+
+
+    #s50r - s69r
+   - task_type :   !!str map
+     start_east :    !!float 326359.725
+     start_north :   !!float 3462170.925
+     end_east :    !!float 325970.025
+     end_north:    !!float 3462559.375
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+
+
+    #s68r - s89r
+   - task_type :   !!str map
+     start_east :    !!float 326003.325
+     start_north :   !!float 3462555.025
+     end_east :    !!float 325027.625
+     end_north:    !!float 3462356.525
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false                                                  
+     max_velo:     !!float 2.0
+  
+#   - task_type :   !!str script
+#     script_name:  !!str $(rospack find aw_vehicle)/script/yutong/wash_switch.py
+
+
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
