@@ -27,6 +27,10 @@
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_demo_narrow_uturn.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_demo_no_online_mapping.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_east.yaml
+/opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south.yaml
+/opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_clockwise.yaml
+/opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_counter_clockwise.yaml
+/opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_with_parking.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_songjiang_test/songjiang_repeated.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_demo/suzhou_demo_short_2.yaml
