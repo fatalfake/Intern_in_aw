@@ -3,13 +3,15 @@ export LANG=C
 
 #Add registry cert.
 export LC_ALL=C
-export DOMAIN_NAME=registry.autowise.ai
-openssl s_client -connect $DOMAIN_NAME:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM | sudo tee /usr/local/share/ca-certificates/$DOMAIN_NAME.crt
-sudo update-ca-certificates
+# export DOMAIN_NAME=registry.autowise.ai
+# openssl s_client -connect $DOMAIN_NAME:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM | sudo tee /usr/local/share/ca-certificates/$DOMAIN_NAME.crt
+# sudo update-ca-certificates
 
-echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
+# echo "${HOME}/.coredump/core.%t.%e.%p" | sudo tee /proc/sys/kernel/core_pattern
 
-mkdir -p $HOME/.coredump
+# mkdir -p $HOME/.coredump
+
+docker pull registry.autowise.ai/awcar:latest
 
 container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
 

@@ -62,7 +62,7 @@ for list in `find $path -type f`;do
                     # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
                     xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
                     #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
-                    sleep 20
+                    sleep 30
                     # source ./devel/setup.sh
                     source ~/.autowise/setup.sh
                     roslaunch aw_global_planning route_points_generator.launch
@@ -88,7 +88,7 @@ for list in `find $path -type f`;do
                 rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
                 # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
                 xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
-                sleep 20
+                sleep 30
                 # source ./devel/setup.sh
                 source ~/.autowise/setup.sh
                 roslaunch aw_global_planning route_points_generator.launch
