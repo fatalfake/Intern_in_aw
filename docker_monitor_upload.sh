@@ -44,4 +44,4 @@ container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
 sleep 5
 
 echo "Done."
-# docker exec -it ${container} bash -c "export PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/opt/ros/kinetic/bin:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/home/autowise/hadoop-3.1.1/bin:/home/autowise/hadoop-3.1.1/sbin:/home/autowise/bin:/home/autowise/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:/usr/bin:/usr/sbin:/bin:/sbin; update_autowise_debs_and_models.sh; cd qyc; ./monitor.sh" 
+docker exec -it ${container} bash -c "export PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/opt/ros/kinetic/bin:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/home/autowise/hadoop-3.1.1/bin:/home/autowise/hadoop-3.1.1/sbin:/home/autowise/bin:/home/autowise/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:/usr/bin:/usr/sbin:/bin:/sbin; update_autowise_debs_and_models.sh; cd qyc; ./monitor.sh" 

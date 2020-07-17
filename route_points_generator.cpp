@@ -197,7 +197,7 @@ namespace aw
                 if (task_id == p2p_count)
                 {
                     p2p_count += 1;
-                    data.PushBack(task_json, allocator);
+                    // data.PushBack(task_json, allocator);
                     continue;
                 }
                 /**add_end**/
@@ -211,6 +211,7 @@ namespace aw
                 points.PushBack(point_end, allocator);
                 task_json.AddMember("points", points, allocator);
                 task_json.AddMember("type", "p2p", allocator);
+                data.PushBack(task_json, allocator);
             }
             else if (tasks_ptr.type == aw_idl::PlanningTask::STRUCTED_MAP)
             {
@@ -229,6 +230,7 @@ namespace aw
                 }
                 task_json.AddMember("points", points, allocator);
                 task_json.AddMember("type", "map", allocator);
+                data.PushBack(task_json, allocator);
             }
             data.PushBack(task_json, allocator);
         }
