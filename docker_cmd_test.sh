@@ -26,7 +26,7 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
-container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
+container=`docker ps | grep registry.autowise.ai/awcar | head -n 1 | cut -d ' ' -f1`
 
 if [[ ! -n ${container} ]]; 
 then 
@@ -43,7 +43,7 @@ fi
 
 sleep 5
 
-container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
+container=`docker ps | grep registry.autowise.ai/awcar | head -n 1 | cut -d ' ' -f1`
 
 docker exec -it ${container} bash -c "export PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:\
 /opt/ros/kinetic/bin:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:\
@@ -52,7 +52,7 @@ docker exec -it ${container} bash -c "export PATH=/opt/ros/kinetic/share/euslisp
 /usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:\
 /usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:\
 /usr/bin:/usr/sbin:/bin:/sbin; \
-export PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin/:/usr/local/bin:/usr/local/lib/python2.7/dist-packages; \
+export PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages; \
 export ROS_ROOT=/opt/ros/kinetic/share/ros; \
 export ROS_MASTER_URI=http://localhost:11311; \
 export ROS_PYTHON_VERSION=2; \
@@ -65,7 +65,7 @@ export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:\
 /opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib; \
 source /opt/ros/kinetic/setup.bash; \
 source ~/.autowise/setup.sh; \
-cd autowise_test_new; cd log_based_simu; \
+cd autowise_test_newer; cd log_based_simu; \
 sort ./config/regression_caselist -o ./config/regression_caselist; \
 python regression.py; \
 

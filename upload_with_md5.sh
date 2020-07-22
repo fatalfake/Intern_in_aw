@@ -9,7 +9,7 @@ function send_file(){
     str=$RANDOM
     sign=`echo -n awupload$str| md5sum | awk '{print $1}'`
     # curl 连接超时时间10秒 请求超时时间5秒 超时后最多重试3次
-    info=`curl -H "Expect:" -F "file=@$filename" --connect-timeout 10 --max-time 5 --retry 3 https://monitor.autowise.tech/vehicle-pose/upload-route\?token=$sign\&str=$str`
+    info=`curl -H "Expect:" -F "file=@$list" --connect-timeout 10 --max-time 5 --retry 3 https://monitor.autowise.tech/vehicle-pose/upload-route\?token=$sign\&str=$str`
 
     #对响应码进行判断
     if [ "$info" == "success" ];then
@@ -83,7 +83,7 @@ for list in `find $path -type f`;do
         fi
     fi
     # 如果文件数量大，可以把sleep的时间间隔设置小点。
-    sleep 0.2
+    sleep 0.5
 done
 
 IFS=$SAVEIFS

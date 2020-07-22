@@ -11,21 +11,25 @@ export LC_ALL=C
 
 # mkdir -p $HOME/.coredump
 
+
 docker pull registry.autowise.ai/awcar:latest
 
-container=`docker ps | grep registry.autowise.ai/awcar | cut -d ' ' -f1`
+export display=`echo $DISPLAY`
+container=`docker ps | grep registry.autowise.ai/awcar | head -n 1 | cut -d ' ' -f1`
 
 if [[ ! -n ${container} ]]; 
 then 
+    xterm -e bash -c '
     docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-    -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
-    -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ \
     -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
+    -e "DISPLAY=$display" \
+    -v ~:/home/autowise/ \
     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
     --network host --privileged \
-    -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
-    registry.autowise.ai/awcar:latest /bin/bash
+    registry.autowise.ai/awcar:latest /bin/bash' &
 fi
+
+sleep 5
 
 # docker run -ti --rm -e "TERM=xterm-256color" "$@" \
 # -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
