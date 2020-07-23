@@ -1,8 +1,8 @@
 #!/bin/bash
 export LANG=C
 
-export PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/opt/ros/kinetic/bin:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/home/autowise/hadoop-3.1.1/bin:/home/autowise/hadoop-3.1.1/sbin:/home/autowise/bin:/home/autowise/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
-export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib
+# export PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/opt/ros/kinetic/bin:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/bin:/home/autowise/hadoop-3.1.1/bin:/home/autowise/hadoop-3.1.1/sbin:/home/autowise/bin:/home/autowise/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/sbin:/sur/local/bin:/usr/bin:/usr/sbin:/bin:/sbin
+# export LD_LIBRARY_PATH=/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib:/opt/ros/kinetic/lib:/opt/ros/kinetic/lib/x86_64-linux-gnu:/opt/ros/kinetic/share/euslisp/jskeus/eus//Linux64/lib
 
 source /opt/ros/kinetic/setup.sh
 
@@ -11,13 +11,11 @@ md5_path=./task_to_json_md5.sum
 path=/opt/ros/kinetic/share/aw_launch/config/conf/tasks
 
 source ~/.autowise/setup.sh
-# gnome-terminal -x bash -c "roscore"
-# xterm -e bash -c 'roscore' &
+bash -c 'roscore' &
+sleep 3
 
 # 判断MD5基准校验文件是否存在，不存在则创建此文件,并修改权限只有root用户或者指定用户有读写权限
 [ ! -f $md5_path ] && touch $md5_path && chmod 600 $md5_path
-# read -p "请输入你需要MD5检验文件的目录,必须以\"/\"开始: " path
-# if ! echo $path | grep -q "^/";then echo "不是以\"/\"开始";exit 1;fi
 
 echo "#################################################"
 # 如果所给需要md5校验的目录不存在，或者目录存在但目录下没有一个文件，则返回错误并提示用户
@@ -34,6 +32,19 @@ for i in `cat ${md5_path} | awk '{print $2}'`;do
         sed -i "${v2}/d" ${md5_path}
     fi
 done
+
+function set_env_and_launch(){
+    export PLANNING_TASK=${list}
+    echo 'Task file is: '${PLANNING_TASK}
+    project_name=`echo ${list} | cut -d / -f 10`
+    echo 'Project name is: '${project_name}
+    rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
+    bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
+    sleep 60
+    source ~/.autowise/setup.sh
+    roslaunch aw_global_planning route_points_generator.launch
+    echo 'Task complete.'
+}
 
 for list in `find $path -type f`;do
     new_md5_arg1=`md5sum $list | awk '{print $1}'`
@@ -53,20 +64,7 @@ for list in `find $path -type f`;do
                 grep ${list} ./blacklist >> /dev/null
                 if [ $? -ne 0 ];
                 then 
-                    export PLANNING_TASK=${list}
-                    echo 'Task file is: '${PLANNING_TASK}
-                    project_name=`echo ${list} | cut -d / -f 10`
-                    echo 'Project name is: '${project_name}
-                    rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
-                    xterm -e bash -c 'roscore' &
-                    # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-                    xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
-                    #必须等待较长一段时间，否则hdmap会出错，未来可能会等更长时间
-                    sleep 60
-                    # source ./devel/setup.sh
-                    source ~/.autowise/setup.sh
-                    roslaunch aw_global_planning route_points_generator.launch
-                    echo 'Task complete.'
+                    set_env_and_launch
                 fi
             fi
         else
@@ -81,18 +79,7 @@ for list in `find $path -type f`;do
             grep ${list} ./blacklist >> /dev/null
             if [ $? -ne 0 ];
             then 
-                export PLANNING_TASK=${list}
-                echo 'Task file is: '${PLANNING_TASK}
-                project_name=`echo ${list} | cut -d / -f 10`
-                echo 'Project name is: '${project_name}
-                rosrun aw_launch aw_config.py --cfg buss2 ${project_name}
-                # gnome-terminal -x bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch"
-                xterm -e bash -c "source ~/.autowise/setup.sh;roslaunch aw_hdmap hdmap_runtime_env.launch" &
-                sleep 60
-                # source ./devel/setup.sh
-                source ~/.autowise/setup.sh
-                roslaunch aw_global_planning route_points_generator.launch
-                echo 'Task complete.'
+                set_env_and_launch
             fi
         fi
     fi
@@ -146,12 +133,9 @@ function send_file(){
 # 定义MD5文件保存的路径
 md5_path=./json_md5_log.sum
 path=/opt/ros/kinetic/share/aw_global_planning/data
-# path=~/桌面/newdir/data
 
 # 判断MD5基准校验文件是否存在，不存在则创建此文件,并修改权限只有root用户或者指定用户有读写权限
 [ ! -f $md5_path ] && touch $md5_path && chmod 600 $md5_path
-# read -p "请输入你需要MD5检验文件的目录,必须以\"/\"开始: " path
-# if ! echo $path | grep -q "^/";then echo "不是以\"/\"开始";exit 1;fi
 
 echo "#################################################"
 # 如果所给需要md5校验的目录不存在，或者目录存在但目录下没有一个文件，则返回错误并提示用户
@@ -181,7 +165,7 @@ for list in `find $path -type f`;do
             v3=${list//\//\\/}
             sed -i "${v3}/d" ${md5_path}
             md5sum ${list} >> ${md5_path}
-            # 执行JSON生成
+            # 上传文件
             if echo ${list} | grep -q '\.json' 
             then
                 send_file "${list}"
