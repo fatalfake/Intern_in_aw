@@ -400,7 +400,7 @@ class RegressionManager(object):
         self.caselist = None
         self.subcaselists = None
         self.get_caselist()
-        self.get_caselist_devided_by_four()
+        # self.get_caselist_divided_by_cpu_cores()
         self.regression_result = True
 
 
@@ -514,33 +514,28 @@ class RegressionManager(object):
                 caselist.append(line.strip("\n").strip())
         self.caselist = caselist
     
-    def get_caselist_devided_by_four(self):
-        """
-        read caselist
-        split it into four subcaselists
-        """
-        subcaselists = []
-        templist1 = []
-        templist2 = []
-        templist3 = []
-        templist4 = []
-        with open(os.path.join("config",self.casefile),"r") as f:
-            i = 0
-            for line in f:
-                if i%4==0:
-                    templist1.append(line.strip("\n").strip())
-                elif i%4==1:
-                    templist2.append(line.strip("\n").strip())
-                elif i%4==2:
-                    templist3.append(line.strip("\n").strip())
-                else:
-                    templist4.append(line.strip("\n").strip())
-                i = i+1
-        subcaselists.append(templist1)
-        subcaselists.append(templist2)
-        subcaselists.append(templist3)
-        subcaselists.append(templist4)
-        self.subcaselists = subcaselists
+    # def get_caselist_divided_by_cpu_cores(self):
+    #     """
+    #     read caselist
+    #     split it into four subcaselists
+    #     """
+    #     subcaselists = []
+    #     templist = []
+    #     num_cores = int(multiprocessing.cpu_count())
+    #     print("This computer has " + str(num_cores) + " cores")
+    #     with open(os.path.join("config",self.casefile),"r") as f:
+    #         lines = f.readlines()
+    #         ceiling = len(lines)
+    #         i = 0
+    #         for line in lines:
+    #             i = i+1
+    #             templist.append(line.strip("\n").strip())
+    #             if len(templist)==num_cores:
+    #                 subcaselists.append(templist)
+    #                 templist = []
+    #             elif i==ceiling:
+    #                 subcaselists.append(templist)
+    #     self.subcaselists = subcaselists
 
     def run_case(self, case_dir, vehicle, ctrl, stdout, stderr):
         """
@@ -613,78 +608,80 @@ class RegressionManager(object):
             ###roscore stop
             roscore.terminate()
     
-    def run_subregression(self, vehicle=None):
+    # def run_subregression(self, vehicle=None):
+    #     """
+    #     run subregression cases
+    #     """
+    #     try:
+    #         print("Pull latest docker image")
+    #         os.system("docker pull registry.autowise.ai/awcar:latest")
+    #         num_cores = int(multiprocessing.cpu_count())
+    #         print("This computer has " + str(num_cores) + " cores")
+    #         for subcaselist in self.subcaselists:    
+    #             base_port = 11311
+    #             p = multiprocessing.Pool(3)
+    #             for case in subcaselist:
+    #                 run_id = self.run_id
+    #                 port = str(base_port)
+    #                 base_port = base_port+1
+    #                 case_dir = os.path.join(self.case_base, case)
+    #                 if not os.path.exists(case_dir):
+    #                     print "Case not found :%s" % case_dir
+    #                     continue
+    #                 print "Begin to run case: %s" % case_dir
+    #                 # p1 = multiprocessing.Process(target = self.run_single_case_in_docker, args = (case_dir, port))
+    #                 # p.apply_async(self.run_single_case_in_docker, (case_dir, port,))
+    #                 p.apply_async(run_single_case_in_docker, args=(run_id, case_dir, port,))
+    #                 # p1.start()
+    #                 # self.run_single_case_in_docker(case_dir)
+    #                 # 在docker里面playcase？
+    #                 # p1.join()
+    #             print 'Waiting for all subprocesses done...'
+    #             p.close()
+    #             p.join()
+    #             print 'All subprocesses done.'
+    #     except Exception as e:
+    #         print e
+    #     finally:
+    #         ###roscore stop
+    #         roscore.terminate()
+    
+    def run_regression_parallelly(self, vehicle=None):
         """
-        run subregression cases
+        run regression cases parallelly
         """
         try:
-            i = 0
             print("Pull latest docker image")
             os.system("docker pull registry.autowise.ai/awcar:latest")
-            for subcaselist in self.subcaselists:
-                base_port = 11311
-                print("This is subcaselist No.%d" %i)
-                for case in subcaselist:
-                    port = str(base_port)
-                    base_port = base_port+1
-                    case_dir = os.path.join(self.case_base, case)
-                    if not os.path.exists(case_dir):
-                        print "Case not found :%s" % case_dir
-                        continue
-                    print "Begin to run case: %s" % case_dir
-                    p1 = multiprocessing.Process(target = self.run_single_case_in_docker, args = (case_dir, port))
-                    p1.start()
-                    # self.run_single_case_in_docker(case_dir)
-                    # 在docker里面playcase？
-                    # p1.join()
-                i = i+1
+            num_cores = int(multiprocessing.cpu_count())
+            print("This computer has " + str(num_cores) + " cores")
+            p = multiprocessing.Pool(2)
+            base_port = 11311
+            for case in self.caselist:    
+                run_id = self.run_id
+                port = str(base_port)
+                base_port = base_port+1
+                case_dir = os.path.join(self.case_base, case)
+                if not os.path.exists(case_dir):
+                    print "Case not found :%s" % case_dir
+                    continue
+                print "Begin to run case: %s" % case_dir
+                # p1 = multiprocessing.Process(target = self.run_single_case_in_docker, args = (case_dir, port))
+                # p.apply_async(self.run_single_case_in_docker, (case_dir, port,))
+                p.apply_async(run_single_case_in_docker, args=(run_id, case_dir, port,))
+                # p1.start()
+                # self.run_single_case_in_docker(case_dir)
+                # 在docker里面playcase？
+                # p1.join()
+            print 'Waiting for all subprocesses done...'
+            p.close()
+            p.join()
+            print 'All subprocesses done.'
         except Exception as e:
             print e
         finally:
             ###roscore stop
             roscore.terminate()
-
-    def run_single_case_in_docker(self, case_dir, port):
-        run_id = self.run_id
-        print("child process "+ case_dir + " pid: " + str(os.getpid()))
-        print "run_id is %s" %run_id
-        print "case_dir is %s" %case_dir
-        os.system('export display=`echo $DISPLAY`; \
-        xterm -e bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-        -e "DISPLAY=$display" \
-        -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages;" \
-        -v /home/autowise/:/home/autowise/ \
-        -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-        --network host --privileged \
-        registry.autowise.ai/awcar:latest /bin/bash -c "source /opt/ros/kinetic/setup.bash;\
-        source ~/.autowise/setup.sh;\
-        sudo apt-get install ros-kinetic-autowise-tools; \
-        cd /home/autowise/autowise_test_newer/log_based_simu; ls;\
-        python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" \' ' %(case_dir, port, run_id))
-
-        print case_dir + " finish"
-
-        # roscd rosgraph; ls; sleep 3000"\' ')
-        # python new_playcase.py %s --exit --run_id=%d; sleep 300" \' ' %(case_dir,run_id))
-
-    # def run_single_case_in_docker(self, case_dir):
-    #     run_id = self.run_id
-    #     print("child process "+ case_dir + " pid: " + str(os.getpid()))
-    #     print "run_id is %s" %run_id
-    #     print "case_dir is %s" %case_dir
-    #     os.system('export display=`echo $DISPLAY`; \
-    #     xterm -e bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-    #     -e "DISPLAY=$display" \
-    #     -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages;" \
-    #     -v /home/autowise/:/home/autowise/ \
-    #     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-    #     --network host --privileged \
-    #     registry.autowise.ai/awcar:latest /bin/bash \' ')
-        
-    #     print case_dir + " finish"
-
-    #     # sleep 3000"\' ')
-    #     # python new_playcase.py %s --exit --run_id=%d; sleep 300" \' ' %(case_dir,run_id))
         
 
     def update_conf(self):
@@ -712,6 +709,24 @@ def regression_args_parsing():
     args = parser.parse_args()
     return args
 
+def run_single_case_in_docker(run_id, case_dir, port):
+    print("child process "+ case_dir + " pid: " + str(os.getpid()))
+    print "run_id is %s" %run_id
+    print "case_dir is %s" %case_dir
+    os.system('export display=`echo $DISPLAY`; \
+    xterm -e bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
+    -e "DISPLAY=$display" \
+    -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages;" \
+    -v /home/autowise/:/home/autowise/ \
+    -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
+    --network host --privileged \
+    registry.autowise.ai/awcar:latest /bin/bash -c "source /opt/ros/kinetic/setup.bash;\
+    source ~/.autowise/setup.sh;\
+    sudo apt-get install ros-kinetic-autowise-tools; \
+    cd /home/autowise/autowise_test_newer/log_based_simu; ls;\
+    python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" \' ' %(case_dir, port, run_id))
+
+    print case_dir + " finish"
 
 #test_report_func()
 
@@ -743,7 +758,7 @@ if __name__ == "__main__":
 
     
     # run_manager.run_regression(vehicle)
-    run_manager.run_subregression(vehicle)
+    run_manager.run_regression_parallelly(vehicle)
     # update id in config file
     run_manager.update_conf()
 

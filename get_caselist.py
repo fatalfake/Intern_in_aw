@@ -65,6 +65,27 @@ def get_caselist_by_group(caselist):
     print(caselist_by_group)
     print("*************")
 
+def get_caselist_divided_by_four():
+        """
+        read caselist
+        split it into four subcaselists
+        """
+        subcaselists = []
+        templist = []
+        filename = "./config/regression_caselist"
+        with open(filename, "r") as f:
+            lines = f.readlines()
+            ceiling = len(lines)
+            i = 0
+            for line in lines:
+                i = i+1
+                templist.append(line.strip("\n").strip())
+                if len(templist)==4:
+                    subcaselists.append(templist)
+                    templist = []
+                elif i==ceiling:
+                    subcaselists.append(templist)
+        return subcaselists
 
 
 if __name__ == "__main__":
@@ -73,3 +94,5 @@ if __name__ == "__main__":
     print(get_caselist())
     print("Caselist_by_group is:")
     get_caselist_by_group(get_caselist())
+    print("Caselist_divided_by_four is")
+    print(get_caselist_divided_by_four())

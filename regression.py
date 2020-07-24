@@ -285,75 +285,74 @@ DETAIL OF THE CASE
                         "right_cases":[],
                         "untreaded_cases":[]}
         db_indication_result={}
-        for group in self.run_manager.caselist:
-            for case in group:
+        for case in self.run_manager.caselist:
 
-                case_dir = os.path.join("cases", case)
-                result_dir = os.path.join("cases", case, "result")
-                result_file = "%s/running_%s.json" % (result_dir,
-                                                    self.run_manager.run_id)
-                case_parts = case.split("_")
+            case_dir = os.path.join("cases", case)
+            result_dir = os.path.join("cases", case, "result")
+            result_file = "%s/running_%s.json" % (result_dir,
+                                                self.run_manager.run_id)
+            case_parts = case.split("_")
 
-                # 默认的case result
-                case_result = [case, "unkown", "未执行",
-                        "0", "Failed", "False", "unknown",
-                        "unknown", "unknown", "详细", case_detail]
-                # 获取evaluation的结果
-                evaluation_result = self.get_evaluation_result(case_dir)
-                db_indication_result[case] = evaluation_result
-                is_timeout = None
-                arrived = None
-                collided = None
-                if "timeout" in evaluation_result:
-                    is_timeout = evaluation_result["timeout"]
-                if "run_time" in evaluation_result:
-                    case_result[report_table_title_schema.index("execution_time")] = evaluation_result["run_time"]
-                if "arrived" in evaluation_result:
-                    arrived = evaluation_result["arrived"]
-                    case_result[report_table_title_schema.index("arrived")] = arrived
-                if "collided" in evaluation_result:
-                    collided = evaluation_result["collided"]
-                    case_result[report_table_title_schema.index("collided")] = collided
-                if "min_dist" in evaluation_result:
-                    case_result[report_table_title_schema.index("min_dist")] = evaluation_result["min_dist"]
-                if "quantile_5" in evaluation_result:
-                    case_result[report_table_title_schema.index("quantile_5")] = evaluation_result["quantile_5"]
-                if "quantile_10" in evaluation_result:
-                    case_result[report_table_title_schema.index("quantile_10")] = evaluation_result["quantile_10"]
-
-
-                # 获取case 描述, 放入详细信息中
-                if len(case_parts) >=2 :
-                    case_key = case_parts[1]
-                    case_detail = self.case_detail(case_key)
-                    case_result[report_table_title_schema.index("detail") + 1] = case_detail
+            # 默认的case result
+            case_result = [case, "unkown", "未执行",
+                    "0", "Failed", "False", "unknown",
+                    "unknown", "unknown", "详细", case_detail]
+            # 获取evaluation的结果
+            evaluation_result = self.get_evaluation_result(case_dir)
+            db_indication_result[case] = evaluation_result
+            is_timeout = None
+            arrived = None
+            collided = None
+            if "timeout" in evaluation_result:
+                is_timeout = evaluation_result["timeout"]
+            if "run_time" in evaluation_result:
+                case_result[report_table_title_schema.index("execution_time")] = evaluation_result["run_time"]
+            if "arrived" in evaluation_result:
+                arrived = evaluation_result["arrived"]
+                case_result[report_table_title_schema.index("arrived")] = arrived
+            if "collided" in evaluation_result:
+                collided = evaluation_result["collided"]
+                case_result[report_table_title_schema.index("collided")] = collided
+            if "min_dist" in evaluation_result:
+                case_result[report_table_title_schema.index("min_dist")] = evaluation_result["min_dist"]
+            if "quantile_5" in evaluation_result:
+                case_result[report_table_title_schema.index("quantile_5")] = evaluation_result["quantile_5"]
+            if "quantile_10" in evaluation_result:
+                case_result[report_table_title_schema.index("quantile_10")] = evaluation_result["quantile_10"]
 
 
-                timeout_setting = None
-                # 未找到测试结果文件
-                if not os.path.exists(result_file):
-                    result_info[case] = "run file not found"
+            # 获取case 描述, 放入详细信息中
+            if len(case_parts) >=2 :
+                case_key = case_parts[1]
+                case_detail = self.case_detail(case_key)
+                case_result[report_table_title_schema.index("detail") + 1] = case_detail
+
+
+            timeout_setting = None
+            # 未找到测试结果文件
+            if not os.path.exists(result_file):
+                result_info[case] = "run file not found"
+            else:
+                ## 获取 timeout 的设置时间
+                with open(result_file, "r") as f:
+                    json_str = f.readline()
+                    run_result = json.loads(json_str)
+                    if "setting" in run_result and "timeout" in run_result["setting"]:
+                        timeout_setting =  run_result["setting"]["timeout"]
+                        case_result[report_table_title_schema.index("timeout_setting")] = timeout_setting
+
+            report_cases["all_cases"].append(case_result)
+            if is_timeout is None or arrived is None or collided is None:
+                report_cases["untreaded_cases"].append(case_result)
+                self.regression_result = False
+            else:
+                if not is_timeout and arrived == "Success" and collided == "False":
+                    case_result[report_table_title_schema.index("execution_result")] = "成功"
+                    report_cases["right_cases"].append(case_result)
                 else:
-                    ## 获取 timeout 的设置时间
-                    with open(result_file, "r") as f:
-                        json_str = f.readline()
-                        run_result = json.loads(json_str)
-                        if "setting" in run_result and "timeout" in run_result["setting"]:
-                            timeout_setting =  run_result["setting"]["timeout"]
-                            case_result[report_table_title_schema.index("timeout_setting")] = timeout_setting
-
-                report_cases["all_cases"].append(case_result)
-                if is_timeout is None or arrived is None or collided is None:
-                    report_cases["untreaded_cases"].append(case_result)
+                    case_result[report_table_title_schema.index("execution_result")] =  "失败"
+                    report_cases["error_cases"].append(case_result)
                     self.regression_result = False
-                else:
-                    if not is_timeout and arrived == "Success" and collided == "False":
-                        case_result[report_table_title_schema.index("execution_result")] = "成功"
-                        report_cases["right_cases"].append(case_result)
-                    else:
-                        case_result[report_table_title_schema.index("execution_result")] =  "失败"
-                        report_cases["error_cases"].append(case_result)
-                        self.regression_result = False
 
         # 保存evaluation的结果到数据库
         if save_result:
@@ -510,42 +509,7 @@ class RegressionManager(object):
         with open(os.path.join("config",self.casefile),"r") as f:
             for line in f:
                 caselist.append(line.strip("\n").strip())
-        caselist_by_group = []
-        group_id = 0
-        temp = []
-        for i in range(len(caselist)):
-            cur_nonius = 5
-            while caselist[i][cur_nonius] != '-':
-                cur_nonius = cur_nonius+1
-            cur_prefix = caselist[i][5:cur_nonius]
-            if i == 0:
-                temp.append(caselist[i])
-                if(len(caselist)==1):
-                    caselist_by_group.append(temp)
-            if i == len(caselist)-1:
-                if len(temp) == 0:
-                    temp.append(caselist[i])
-                    caselist_by_group.append(temp) 
-                else:
-                    caselist_by_group.append(temp)
-                break
-            next_nonius = 5
-            while(caselist[i+1][next_nonius] != '-'):
-                next_nonius = next_nonius+1
-            next_prefix = caselist[i+1][5:next_nonius]
-            if cur_prefix == next_prefix :
-                if len(temp) == 0:
-                    temp.append(caselist[i])
-                temp.append(caselist[i+1])
-            else :
-                group_id = group_id + 1
-                if len(temp) == 0:
-                    temp.append(caselist[i])
-                caselist_by_group.append(temp)
-                temp = []
-        self.caselist = caselist_by_group
-        
-        
+        self.caselist = caselist
 
     def run_case(self, case_dir, vehicle, ctrl, stdout, stderr):
         """
@@ -603,16 +567,15 @@ class RegressionManager(object):
         """
         try:
             ### run regression case
-            for group in self.caselist:
-                for case in group:
-                    case_dir = os.path.join(self.case_base, case)
-                    if not os.path.exists(case_dir):
-                        print "Case not found :%s" % case_dir
-                        continue
-                    print "Begin to run case: %s" % case_dir
-                    ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
-                                autoexit=True, casename=case_dir, timeout=None,runid=self.run_id, enable_keyboard=False)
-                    self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
+            for case in self.caselist:
+                case_dir = os.path.join(self.case_base, case)
+                if not os.path.exists(case_dir):
+                    print "Case not found :%s" % case_dir
+                    continue
+                print "Begin to run case: %s" % case_dir
+                ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
+                              autoexit=True, casename=case_dir, timeout=None,runid=self.run_id, enable_keyboard=False)
+                self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
 
         except Exception as e:
             print e
