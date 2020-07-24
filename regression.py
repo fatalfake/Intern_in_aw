@@ -538,10 +538,10 @@ class RegressionManager(object):
             rospy.loginfo("shuting down already")
 
         rosmap.run()
-        rospy.sleep(3)
+        rospy.sleep(5)
         ## launch evaluation ahead in case something missed at beginning
         rosevaluation.run()
-        rospy.sleep(3)
+        rospy.sleep(5)
         rossim.run()
 
         try:

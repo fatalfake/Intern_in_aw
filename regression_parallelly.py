@@ -665,7 +665,6 @@ class RegressionManager(object):
                 if not os.path.exists(case_dir):
                     print "Case not found :%s" % case_dir
                     continue
-                print "Begin to run case: %s" % case_dir
                 # p1 = multiprocessing.Process(target = self.run_single_case_in_docker, args = (case_dir, port))
                 # p.apply_async(self.run_single_case_in_docker, (case_dir, port,))
                 p.apply_async(run_single_case_in_docker, args=(run_id, case_dir, port,))
@@ -714,7 +713,7 @@ def run_single_case_in_docker(run_id, case_dir, port):
     print "run_id is %s" %run_id
     print "case_dir is %s" %case_dir
     os.system('export display=`echo $DISPLAY`; \
-    xterm -e bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
+    bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
     -e "DISPLAY=$display" \
     -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages;" \
     -v /home/autowise/:/home/autowise/ \
