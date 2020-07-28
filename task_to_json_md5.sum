@@ -124,7 +124,6 @@ ad76447e0baefb2e1fda0af15c8c2d91  /opt/ros/kinetic/share/aw_launch/config/conf/t
 9482f9d1fd4aa73f5e3a8b621f4c0b14  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/pheonix_walmart/pheonix_walmart_area3.yaml
 c3d8be952c76399c5328f6561c77dab3  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/pheonix_walmart/pheonix_walmart_area2_all.yaml
 b6ff0a5758f126148ed9a44a56cd8bf4  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiongan_demo/xiongan_demo_show2.yaml
-c040b3ed58e05ee387098fa708246d95  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiongan_demo/xiongan_demo_show.yaml
 3d6f66bcaf41ce4b0d90f1ac2c5a973b  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/pheonix_walmart/pheonix_walmart_area1_6.yaml
 3d87b918f23817d2ea72fa7c504a5ec5  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/pheonix_walmart/pheonix_walmart_night1.yaml
 1328c508b12b41f8e9a163bc09444971  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_keyuan/keyuan_yutong_middle.yaml
@@ -149,3 +148,4 @@ e58c9b9f995f20a10c1b2a070d5780c0  /opt/ros/kinetic/share/aw_launch/config/conf/t
 9c0902345d4de10e872cb9527641390b  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_all/xiangrong_road.yaml
 e9ddf67b3399b4166ded37c1d9cb10c9  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_all/xigongtian_road_fast.yaml
 22cff818723407b1fcc089f8425a1dd6  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_all/beitiancheng_road.yaml
+28f0c97c527395969bb9497019ca9c9d  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/xiongan_demo/xiongan_demo_show.yaml
