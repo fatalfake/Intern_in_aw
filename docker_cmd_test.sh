@@ -26,32 +26,26 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
-container=`docker ps | grep registry.autowise.ai/awcar | head -n 1 | cut -d ' ' -f1`
+container=`docker ps | grep regression_test_qyc | head -n 1 | cut -d ' ' -f1`
 
 if [[ ! -n ${container} ]]; 
 then 
-    xterm -e bash -c '
-    docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-    -e "DISPLAY=:0" -e "QT_X11_NO_MITSHM=1" \
-    -v /tmp/.X11-unix:/tmp/.X11-unix -v ~:/home/autowise/ \
+    bash -c '
+    docker run -ti --rm --name regression_test_qyc\
     -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
-    -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-    --network host --privileged \
+    -v ~:/home/autowise/ \
     -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
-    registry.autowise.ai/awcar:latest /bin/bash' &
+    -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
+    --network host --privileged=true \
+    registry.autowise.ai/awcar:latest bash -c "source /opt/ros/kinetic/setup.bash;\
+    source ~/.autowise/setup.sh;\
+    sudo apt-get install ros-kinetic-autowise-tools; \
+    update_autowise_debs_and_models.sh; \
+    cd autowise_test_newerer/log_based_simu; python regression_withlog.py"'
 fi
 
-sleep 5
 
-container=`docker ps | grep registry.autowise.ai/awcar | head -n 1 | cut -d ' ' -f1`
-
-docker exec -it ${container} bash -c "source /opt/ros/kinetic/setup.bash;\
-source ~/.autowise/setup.sh;\
-sudo apt-get install ros-kinetic-autowise-tools; \
-cd autowise_test_new; cd log_based_simu; \
-python regression_withlog.py; \
-
-echo =======================END=============================;" 
+echo '=======================END=============================' 
 
 
 # ./savecase.py -s ${start_sec} -e ${end_sec} ${bag_path} ${case_dir}; \

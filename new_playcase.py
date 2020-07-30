@@ -18,7 +18,6 @@ import rosnode
 from rosparam import upload_params
 from yaml import load
 
-
 def args_parsing():
     parser = argparse.ArgumentParser(prog="simu",
                                      description="A tool for simulating test cases.")
@@ -42,7 +41,6 @@ def args_parsing():
 
 
 if __name__ == "__main__":
-    os.system("source ~/.autowise/setup.sh; source /opt/ros/kinetic/setup.sh")
     logging.basicConfig(
         format='%(asctime)s:%(levelname)s:%(message)s', level=logging.DEBUG)
     args = args_parsing()
@@ -50,9 +48,11 @@ if __name__ == "__main__":
     vehicle = args.vehicleid
     ros_port = args.port
     run_id = args.run_id
-    # default port
-    if ros_port is None:
-        ros_port = "11311"
+    SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
+    RESULT_FILE = "result.yaml"
+    SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
+    RESULT_FILE = os.path.join(case_dir, RESULT_FILE)
+    logf = open(SIMU_LOG_FILE, 'a')
 
     if not os.path.exists('log'):
         os.mkdir('log')
@@ -66,7 +66,7 @@ if __name__ == "__main__":
                                   autoexit=args.exit, casename=case_dir, timeout=args.timeout, runid=run_id, enable_keyboard=False)
 
     run_manager = RegressionManager(ros_port)
-    run_manager.run_case(case_dir,vehicle, ctrl, sys.stdout, sys.stderr)
+    run_manager.run_case(case_dir,vehicle, ctrl, logf, logf)
     roscore.terminate()
 
 
