@@ -20,7 +20,9 @@ then
     source ~/.autowise/setup.sh;\
     sudo apt-get install ros-kinetic-autowise-tools; \
     update_autowise_debs_and_models.sh; \
-    cd autowise_test_newerer/log_based_simu; python regression_withlog.py"'
+    cd autowise_test_newerer/log_based_simu; \
+    ./install_dependencies.sh; \
+    python regression_parallelly.py"'
 fi
 
 
