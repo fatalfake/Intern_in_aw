@@ -731,16 +731,24 @@ def regression_args_parsing():
 
 
 def run_single_case(run_id, case_dir, port, vehicle, record=False):
+    SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
+    SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
+    logf = open(SIMU_LOG_FILE, 'w')
+
     print "child process " + case_dir + " pid: " + str(os.getpid())
     print "run_id is %s" % run_id
     print "case_dir is %s" % case_dir
     if record == False:
-        command = "cd /home/autowise/autowise_test_new/log_based_simu; python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" % (
+        command = "cd /home/autowise/autowise_test_newer/log_based_simu; python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" % (
             case_dir, port, run_id)
     else:
-        command = "cd /home/autowise/autowise_test_new/log_based_simu; python new_playcase.py %s --exit --record --port=%s --run_id=%d; sleep 3" % (
+        command = "cd /home/autowise/autowise_test_newer/log_based_simu; python new_playcase.py %s --exit --record --port=%s --run_id=%d; sleep 3" % (
             case_dir, port, run_id)
     s = subprocess.Popen(command, shell=True)
+    # s = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    # for line in s.stdout:
+    #     sys.stdout.write(line)
+    #     logf.write(line)
     s.wait()
     # command = 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
     # -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages" \

@@ -59,7 +59,7 @@ if __name__ == "__main__":
     RESULT_FILE = "result.yaml"
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
     RESULT_FILE = os.path.join(case_dir, RESULT_FILE)
-    logf = open(SIMU_LOG_FILE, 'a')
+    logf = open(SIMU_LOG_FILE, 'w')
 
     if not os.path.exists('log'):
         os.mkdir('log')
@@ -74,4 +74,5 @@ if __name__ == "__main__":
 
     run_manager = RegressionManager(ros_port, vehicle, args.record)
     run_manager.run_case(case_dir, vehicle, ctrl, logf, logf)
+    # run_manager.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
     roscore.terminate()
