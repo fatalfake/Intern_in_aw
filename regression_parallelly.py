@@ -305,7 +305,7 @@ DETAIL OF THE CASE
                            "unknown", "unknown", "详细", case_detail]
             # 获取evaluation的结果
             evaluation_result = self.get_evaluation_result(case_dir)
-            db_indication_result[case] = evaluation_result
+            db_indication_result[case_dir] = evaluation_result
             is_timeout = None
             arrived = None
             collided = None
