@@ -38,6 +38,8 @@ def args_parsing():
                         help='Indicating not checking task_idx when running.')
     parser.add_argument("--vehicleid", type=str,
                         help="Run the case by specific vehicle, eg arts16_3")
+    parser.add_argument("--version", type=str,
+                        help="The current version of ros-kinetic-autowise-autowise")
     parser.add_argument(
         "--port", type=str, help="Run ros on specific port, eg 11311, default 11311")
     parser.add_argument("--run_id", type=int,
@@ -55,6 +57,7 @@ if __name__ == "__main__":
     vehicle = args.vehicleid
     ros_port = args.port
     run_id = args.run_id
+    version = args.version
     SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
     RESULT_FILE = "result.yaml"
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
@@ -73,6 +76,6 @@ if __name__ == "__main__":
                           autoexit=args.exit, casename=case_dir, timeout=args.timeout, runid=run_id, enable_keyboard=False)
 
     run_manager = RegressionManager(ros_port, vehicle, args.record)
-    run_manager.run_case(case_dir, vehicle, ctrl, logf, logf)
+    run_manager.run_case(case_dir, vehicle, version, ctrl, logf, logf)
     # run_manager.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
     roscore.terminate()

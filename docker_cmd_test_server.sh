@@ -4,24 +4,28 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
-container=`docker ps | grep regression_test_qyc | head -n 1 | cut -d ' ' -f1`
+regressionpath=/home/autowise/autowise_test_newerer/log_based_simu
+
+container=`docker ps | grep regression_test | head -n 1 | cut -d ' ' -f1`
 
 if [[ ! -n ${container} ]]; 
 then 
-    bash -c '
-    docker run -ti --rm --name regression_test_qyc\
+    bash -c "
+    docker run -ti --rm --name regression_test\
     -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
     -v ~:/home/autowise/ \
     -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
     --network host --privileged=true \
-    registry.autowise.ai/awcar:latest bash -c "source /opt/ros/kinetic/setup.bash;\
+    registry.autowise.ai/awcar:latest bash -c \"source /opt/ros/kinetic/setup.bash;\
     source ~/.autowise/setup.sh;\
     sudo apt-get install ros-kinetic-autowise-tools; \
-    update_autowise_debs_and_models.sh; \
-    cd ~/qyc/autowise_test_new/log_based_simu; \
+    update_autowise_debs_and_models.sh -l; \
+    cd ${regressionpath}; \
     ./install_dependencies.sh; \
-    python regression_withlog.py;" '
+    python regression_parallelly.py;\" "
 fi
+
+# 怎么完成每周保留bag的功能？
 
 echo '=======================END=============================' 

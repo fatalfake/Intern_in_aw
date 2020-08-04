@@ -68,7 +68,9 @@ class TestResult(object):
         p = subprocess.Popen(
             "dpkg -l|grep ros-kinetic-autowise-autowise|awk '{print $3}'", stdout=subprocess.PIPE, shell=True, env=os.environ)
         version = p.stdout.read()
+        print "%s" %('=' *30)
         print version
+        print "%s" %('=' *30)
         os.system("dpkg -l |grep autowise")
         versions = version.split("\n")
 
@@ -557,36 +559,15 @@ class RegressionManager(object):
             for line in f:
                 caselist.append(line.strip("\n").strip())
         self.caselist = caselist
+    
 
-    # def get_caselist_divided_by_cpu_cores(self):
-    #     """
-    #     read caselist
-    #     split it into four subcaselists
-    #     """
-    #     subcaselists = []
-    #     templist = []
-    #     num_cores = int(multiprocessing.cpu_count())
-    #     print "This computer has " + str(num_cores) + " cores"
-    #     with open(os.path.join("config",self.casefile),"r") as f:
-    #         lines = f.readlines()
-    #         ceiling = len(lines)
-    #         i = 0
-    #         for line in lines:
-    #             i = i+1
-    #             templist.append(line.strip("\n").strip())
-    #             if len(templist)==num_cores:
-    #                 subcaselists.append(templist)
-    #                 templist = []
-    #             elif i==ceiling:
-    #                 subcaselists.append(templist)
-    #     self.subcaselists = subcaselists
-
-    def run_case(self, case_dir, vehicle, ctrl, stdout, stderr):
+    def run_case(self, case_dir, vehicle, version, ctrl, stdout, stderr, ):
         """
         run specific case
         specify the stdout and stderr
         privides running conf
         """
+
         if not os.path.exists(case_dir):
             logging.error("%s not found in cases" % case_dir)
             return
@@ -594,13 +575,22 @@ class RegressionManager(object):
             logging.info(" %s Begin to run %s %s" %
                          ("=" * 10, case_dir, "=" * 10))
         # load environment and param
+        
 
         rosmap_cmd = "roslaunch  aw_hdmap hdmap_runtime_env.launch"
         rosevaluation_cmd = "roslaunch aw_evaluation start_evaluation.launch"
         rossim_cmd = "roslaunch launch/run_case_simulation_by_env.launch"
         casename = os.path.basename(case_dir)
-        rosrecord_cmd = "rosbag record /aw/planning_info -o %s/%s" % (
-            self.record_dir, casename)
+        splitcasenamelist = casename.split('_')
+        lowercasenamelist = splitcasenamelist[1].split('-')
+        lowercasename = lowercasenamelist[0].lower() + '_' + lowercasenamelist[1]
+
+        print "%s" %('=' *30)
+        print version
+        print "%s" %('=' *30)
+        
+        rosrecord_cmd = "rosbag record -a -o %s/%s_%s_%s" % (
+            self.record_dir, version, lowercasename, "regression_test")
         self.__loadparam_main(case_dir, vehicle)
         env = os.environ
         rosmap = AWProcess(rosmap_cmd, None, stdout, stderr, env)
@@ -638,37 +628,41 @@ class RegressionManager(object):
             rosmap.terminate()
             rosevaluation.terminate()
 
-    def run_regression(self, vehicle=None):
-        """
-        run regression cases list in config
-        """
-        try:
-            # run regression case
-            for case in self.caselist:
-                case_dir = os.path.join(self.case_base, case)
-                if not os.path.exists(case_dir):
-                    print "Case not found :%s" % case_dir
-                    continue
-                print "Begin to run case: %s" % case_dir
-                ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
-                                      autoexit=True, casename=case_dir, timeout=None, runid=self.run_id, enable_keyboard=False)
-                self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
+    # def run_regression(self, vehicle=None):
+    #     """
+    #     run regression cases list in config
+    #     """
+    #     try:
+    #         # run regression case
+    #         for case in self.caselist:
+    #             case_dir = os.path.join(self.case_base, case)
+    #             if not os.path.exists(case_dir):
+    #                 print "Case not found :%s" % case_dir
+    #                 continue
+    #             print "Begin to run case: %s" % case_dir
+    #             ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
+    #                                   autoexit=True, casename=case_dir, timeout=None, runid=self.run_id, enable_keyboard=False)
+    #             self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
 
-        except Exception as e:
-            print e
-        # finally:
-            # roscore stop
-            # roscore.terminate()
+    #     except Exception as e:
+    #         print e
 
     def run_regression_parallelly(self, vehicle=None):
         """
         run regression cases parallelly
         """
+        subp = subprocess.Popen(
+            "dpkg -l | grep ros-kinetic-autowise-autowise | awk '{print $3}'", stdout=subprocess.PIPE, shell=True, env=os.environ)
+        versionraw = subp.stdout.read()
+        versionlist = versionraw.split("\n")[0].split('.')
+        versiontail = versionlist[4][0:2] + '_' + versionlist[4][2:]
+        version = versionlist[0] + '_' + versionlist[1] + '_' + versionlist[2] + '_' + versionlist[3] + '_' + versiontail
+        print "%s" %('=' *30)
+        print version
+        print "%s" %('=' *30)
         try:
-            # print "Pull latest docker image"
-            # os.system("docker pull registry.autowise.ai/awcar:latest")
-            num_cores = int(multiprocessing.cpu_count())
-            print "This computer has " + str(num_cores) + " cores"
+            # num_cores = int(multiprocessing.cpu_count())
+            # print "This computer has " + str(num_cores) + " cores"
             p = multiprocessing.Pool(2)
             base_port = int(self.ros_port) + 1
             for case in self.caselist:
@@ -679,23 +673,14 @@ class RegressionManager(object):
                 if not os.path.exists(case_dir):
                     print "Case not found :%s" % case_dir
                     continue
-                # p1 = multiprocessing.Process(target = self.run_single_case_in_docker, args = (case_dir, port))
-                # p.apply_async(self.run_single_case_in_docker, (case_dir, port,))
                 p.apply_async(run_single_case, args=(
-                    run_id, case_dir, port, vehicle, record))
-                # p1.start()
-                # self.run_single_case_in_docker(case_dir)
-                # 在docker里面playcase？
-                # p1.join()
+                    run_id, case_dir, port, vehicle, version, record))
             print 'Waiting for all subprocesses done...'
             p.close()
             p.join()
             print 'All subprocesses done.'
         except Exception as e:
             print e
-        # finally:
-            # roscore stop
-            # roscore.terminate()
 
     def update_conf(self):
         self.conf.write_conf(
@@ -705,14 +690,6 @@ class RegressionManager(object):
 def shutdown_fn():
     rospy.loginfo("node is shutting down")
 
-
-def test_report_func():
-    rospy.init_node("runtimectrl", disable_signals=True)
-    result = TestResult()
-    #print result.case_detail("JIADING-186")
-    # result.result_collect("123","345",123123)
-    print result.get_evaluation_result("cases/test_JIADING-196")
-    sys.exit(0)
 
 
 def regression_args_parsing():
@@ -730,72 +707,31 @@ def regression_args_parsing():
     return args
 
 
-def run_single_case(run_id, case_dir, port, vehicle, record=False):
+def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
     SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
-    logf = open(SIMU_LOG_FILE, 'w')
+    # logf = open(SIMU_LOG_FILE, 'w')
 
     print "child process " + case_dir + " pid: " + str(os.getpid())
     print "run_id is %s" % run_id
     print "case_dir is %s" % case_dir
     if record == False:
-        command = "cd /home/autowise/autowise_test_newer/log_based_simu; python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" % (
-            case_dir, port, run_id)
+        command = "python new_playcase.py %s --exit --port=%s --version=%s --run_id=%d; sleep 3" % (
+            case_dir, port, version, run_id)
     else:
-        command = "cd /home/autowise/autowise_test_newer/log_based_simu; python new_playcase.py %s --exit --record --port=%s --run_id=%d; sleep 3" % (
-            case_dir, port, run_id)
+        command = "python new_playcase.py %s --exit --record --port=%s --version=%s --run_id=%d; sleep 3" % (
+            case_dir, port, version, run_id)
     s = subprocess.Popen(command, shell=True)
     # s = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     # for line in s.stdout:
     #     sys.stdout.write(line)
     #     logf.write(line)
     s.wait()
-    # command = 'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-    # -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages" \
-    # -v /home/autowise/:/home/autowise/ \
-    # -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-    # --network host --privileged \
-    # registry.autowise.ai/awcar:latest /bin/bash -c "source /opt/ros/kinetic/setup.bash;\
-    # source ~/.autowise/setup.sh;\
-    # sudo apt-get install ros-kinetic-autowise-tools; \
-    # cd /home/autowise/autowise_test_newer/log_based_simu;\
-    # python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" ' %(case_dir, port, run_id)
+    s.terminate()
+    
 
-    # os.system('export display=`echo $DISPLAY`; \
-    # bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-    # -e "DISPLAY=$display" \
-    # -e "PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages" \
-    # -v /home/autowise/:/home/autowise/ \
-    # -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-    # --network host --privileged \
-    # registry.autowise.ai/awcar:latest /bin/bash -c "source /opt/ros/kinetic/setup.bash;\
-    # source ~/.autowise/setup.sh;\
-    # sudo apt-get install ros-kinetic-autowise-tools; \
-    # cd /home/autowise/autowise_test_newer/log_based_simu;\
-    # python new_playcase.py %s --exit --port=%s --run_id=%d; sleep 3" \' ' %(case_dir, port, run_id))
 
-    print case_dir + " finish"
-
-# def run_single_case_in_docker(run_id, case_dir, port):
-#     print("child process "+ case_dir + " pid: " + str(os.getpid()))
-#     print "run_id is %s" %run_id
-#     print "case_dir is %s" %case_dir
-#     os.system('export display=`echo $DISPLAY`; \
-#     bash -c \'docker run -ti --rm -e "TERM=xterm-256color" "$@" \
-#     -e "DISPLAY=$display" \
-#     -v /home/autowise/:/home/autowise/ \
-#     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
-#     --network host --privileged \
-#     registry.autowise.ai/awcar:latest /bin/bash -c "source /opt/ros/kinetic/setup.bash;\
-#     source ~/.autowise/setup.sh;\
-#     sudo apt-get install ros-kinetic-autowise-tools; \
-#     export PYTHONPATH=$PYTHONPATH:/opt/ros/kinetic/bin:/opt/ros/kinetic/share:/usr/local/bin:/usr/local/lib/python2.7/dist-packages; \
-#     source ~/.bashrc; \
-#     echo $PYTHONPATH; sleep 3; \
-#     cd /home/autowise/autowise_test_newer/log_based_simu; ls;\
-#     sleep 3" \' ')
-
-# test_report_func()
+    print "%s %s finish %s" %('='*20, case_dir, '='*20) 
 
 
 if __name__ == "__main__":
@@ -809,24 +745,13 @@ if __name__ == "__main__":
     start_time_str = time.strftime(
         '%Y-%m-%d %H:%M:%S', time.localtime(start_time))
 
-    # start roscore
-    # if not os.path.exists('log'):
-    #     os.mkdir('log')
     if ros_port is None:
         ros_port = "11311"
-    # os.environ["ROS_MASTER_URI"]="http://127.0.0.1:"+ros_port
-    # roscore = AWRoscore('log', os.environ, ros_port)
-    # roscore.run()
-    # roscore.init_check()
-    # ###init node
-    # rospy.init_node("runtimectrl", disable_signals=True)
 
     rospy.on_shutdown(shutdown_fn)
 
     # begin to run regression
     run_manager = RegressionManager(ros_port, vehicle, record)
-
-    # run_manager.run_regression(vehicle)
     run_manager.run_regression_parallelly(vehicle)
     # update id in config file
     run_manager.update_conf()
@@ -842,6 +767,3 @@ if __name__ == "__main__":
 
     if result.regression_exit_code == False:
         sys.exit(-1)
-
-    # stop roscore
-    # roscore.terminate()

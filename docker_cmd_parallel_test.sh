@@ -5,12 +5,12 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
-container=`docker ps | grep regression_test_qyc | head -n 1 | cut -d ' ' -f1`
+container=`docker ps | grep regression_test | head -n 1 | cut -d ' ' -f1`
 
 if [[ ! -n ${container} ]]; 
 then 
     bash -c '
-    docker run -ti --rm --name regression_test_qyc\
+    docker run -ti --rm --name regression_test\
     -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
     -v ~:/home/autowise/ \
     -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
