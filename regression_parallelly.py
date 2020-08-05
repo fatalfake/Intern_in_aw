@@ -628,6 +628,15 @@ class RegressionManager(object):
             rosmap.terminate()
             rosevaluation.terminate()
 
+    def upload_bags(self, current_time):
+        """
+        upload regression bags once a week
+        """
+        record_dir = self.record_dir
+        if current_time == "Time, for example, Wed 04:00:00":
+            # DO SOMETHING
+            print "Upload from %s done" %record_dir
+
     # def run_regression(self, vehicle=None):
     #     """
     #     run regression cases list in config
@@ -643,7 +652,7 @@ class RegressionManager(object):
     #             ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
     #                                   autoexit=True, casename=case_dir, timeout=None, runid=self.run_id, enable_keyboard=False)
     #             self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
-
+    # 
     #     except Exception as e:
     #         print e
 
@@ -744,6 +753,8 @@ if __name__ == "__main__":
     start_time = time.time()
     start_time_str = time.strftime(
         '%Y-%m-%d %H:%M:%S', time.localtime(start_time))
+    upload_time_str = time.strftime("%a %H:%M", time.localtime(start_time))
+
 
     if ros_port is None:
         ros_port = "11311"
@@ -755,6 +766,8 @@ if __name__ == "__main__":
     run_manager.run_regression_parallelly(vehicle)
     # update id in config file
     run_manager.update_conf()
+
+    run_manager.upload_bags(upload_time_str)
 
     end_time = time.time()
     end_time_str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(end_time))
