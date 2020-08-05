@@ -589,7 +589,7 @@ class RegressionManager(object):
         print version
         print "%s" %('=' *30)
         
-        rosrecord_cmd = "rosbag record -a -o %s/%s_%s_%s" % (
+        rosrecord_cmd = "rosbag record -a -O %s/%s_%s_%s.bag" % (
             self.record_dir, version, lowercasename, "regression_test")
         self.__loadparam_main(case_dir, vehicle)
         env = os.environ
@@ -623,10 +623,13 @@ class RegressionManager(object):
             rospy.sleep(3)
         finally:
             print ColorStrBuilder.notice("Cleaning up...")
-            rosnode.kill_nodes(['/hdmap_node', '/hdmap'])
             rossim.terminate()
             rosmap.terminate()
             rosevaluation.terminate()
+            rosnode.kill_nodes(['/hdmap_node','/hdmap','/evaluation_node'])
+            if self.record_bag:
+                rosrecord.terminate()
+
 
     def upload_bags(self, current_time):
         """
