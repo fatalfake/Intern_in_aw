@@ -643,7 +643,7 @@ class RegressionManager(object):
         version_date = version_list[0] + version_list[1] + version_list[2] 
         version_tail = version_list[4][0:2] + '_' + version_list[4][2:]
         version = version_list[0] + '_' + version_list[1] + '_' + version_list[2] + '_' + version_list[3] + '_' + version_tail
-        record_target_dir = "/home/autowise/data/regression_bags/%s" %version_date
+        record_target_dir = "/home/autowise/data/regression_test/%s" %version_date
         
         # if not os.path.exists(record_target_dir):
         #     os.makedirs(record_target_dir)
