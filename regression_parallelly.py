@@ -802,7 +802,8 @@ if __name__ == "__main__":
     # update id in config file
     run_manager.update_conf()
 
-    run_manager.upload_bags(upload_time_str)
+    if record:
+        run_manager.upload_bags(upload_time_str)
 
     end_time = time.time()
     end_time_str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(end_time))
