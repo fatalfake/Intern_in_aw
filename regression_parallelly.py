@@ -635,10 +635,38 @@ class RegressionManager(object):
         """
         upload regression bags once a week
         """
-        record_dir = self.record_dir
-        if current_time == "Time, for example, Wed 04:00:00":
+        record_source_dir = self.record_dir
+        ver_p = subprocess.Popen(
+            "dpkg -l | grep ros-kinetic-autowise-autowise | awk '{print $3}'", stdout=subprocess.PIPE, shell=True, env=os.environ)
+        version_raw = ver_p.stdout.read()
+        version_list = version_raw.split("\n")[0].split('.')
+        version_date = version_list[0] + version_list[1] + version_list[2] 
+        version_tail = version_list[4][0:2] + '_' + version_list[4][2:]
+        version = version_list[0] + '_' + version_list[1] + '_' + version_list[2] + '_' + version_list[3] + '_' + version_tail
+        record_target_dir = "/home/autowise/data/regression_bags/%s" %version_date
+        
+        # if not os.path.exists(record_target_dir):
+        #     os.makedirs(record_target_dir)
+        # cmd1 = "find %s -type f -name \"%s*\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
+        # s1 = subprocess.Popen(cmd1, shell=True)
+        # s1.wait()
+        # cmd2 = "for file in `ls %s`; do touch /%s/${file}.todo; done" %(record_target_dir, record_target_dir)
+        # # cmd2 = "for file in `ls %s`; do echo ${file}; done" %record_target_dir
+        # s2 = subprocess.Popen(cmd2, shell=True)
+        # s2.wait()
+        # print "Upload from %s done" %record_target_dir
+
+        if current_time == "Time, for example, Wed 04:00":
             # DO SOMETHING
-            print "Upload from %s done" %record_dir
+            if not os.path.exists(record_target_dir):
+                os.makedirs(record_target_dir)
+            cmd1 = "find %s -type f -name \"%s*\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
+            s1 = subprocess.Popen(cmd1, shell=True)
+            s1.wait()
+            cmd2 = "for file in `ls %s`; do touch /%s/${file}.todo; done" %(record_target_dir, record_target_dir)
+            s2 = subprocess.Popen(cmd2, shell=True)
+            s2.wait()
+            print "Upload from %s done" %record_target_dir
 
     # def run_regression(self, vehicle=None):
     #     """
@@ -733,16 +761,20 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
     else:
         command = "python new_playcase.py %s --exit --record --port=%s --version=%s --run_id=%d; sleep 3" % (
             case_dir, port, version, run_id)
-    s = subprocess.Popen(command, shell=True)
-    # s = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    # for line in s.stdout:
-    #     sys.stdout.write(line)
-    #     logf.write(line)
-    s.wait()
-    s.terminate()
+
+    try:
+        s = subprocess.Popen(command, shell=True)
+        # s = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        # for line in s.stdout:
+        #     sys.stdout.write(line)
+        #     logf.write(line)
+        s.wait()
+        # s.terminate()
+    except KeyboardInterrupt:
+        print 'Keyboard interruption.'
+    finally:
+        s.terminate()
     
-
-
     print "%s %s finish %s" %('='*20, case_dir, '='*20) 
 
 
