@@ -708,7 +708,7 @@ class RegressionManager(object):
             for case in self.caselist:
                 run_id = self.run_id
                 port = str(base_port)
-                base_port = base_port+1
+                base_port = base_port + 5
                 case_dir = os.path.join(self.case_base, case)
                 if not os.path.exists(case_dir):
                     print "Case not found :%s" % case_dir
@@ -774,8 +774,8 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
         print 'Keyboard interruption.'
     finally:
         s.terminate()
+        print "%s %s finish %s" %('='*20, case_dir, '='*20) 
     
-    print "%s %s finish %s" %('='*20, case_dir, '='*20) 
 
 
 if __name__ == "__main__":
