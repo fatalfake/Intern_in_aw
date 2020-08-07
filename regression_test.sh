@@ -18,9 +18,14 @@ then
     registry.autowise.ai/awcar:latest bash -c \"source /opt/ros/kinetic/setup.bash;\
     source ~/.autowise/setup.sh;\
     sudo apt-get install ros-kinetic-autowise-tools; \
+    cd /home/autowise/jenkins/workspace/aw_autowise_test_branch/log_based_simu/; \
     ./install_dependencies.sh; \
     export kRobotTypeHejia18T=hejia; \
-    python regression_parallelly.py; --save --record\" "
+    python regression_parallelly.py --save --record\" "
+    if [ $?==-1 ];then
+        echo "This means something failed"
+        exit -1
+    fi
 fi
 
 echo '=======================END=============================' 
