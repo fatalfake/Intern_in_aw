@@ -4,6 +4,7 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
+regressionpath=/home/autowise/autowise_t/log_based_simu
 
 container=`docker ps | grep regression_test | head -n 1 | cut -d ' ' -f1`
 
@@ -18,10 +19,10 @@ then
     registry.autowise.ai/awcar:latest bash -c \"source /opt/ros/kinetic/setup.bash;\
     source ~/.autowise/setup.sh;\
     sudo apt-get install ros-kinetic-autowise-tools; \
-    cd /home/autowise/jenkins/workspace/aw_autowise_test_branch/log_based_simu/; \
+    cd ${regressionpath}; \
     ./install_dependencies.sh; \
     export kRobotTypeHejia18T=hejia; \
-    python regression_parallelly.py --save --record\" "
+    python regression_parallelly.py;\" "
     if [ $? -ne 0 ];then
         echo "This means something failed"
         exit -1
