@@ -69,12 +69,7 @@ if __name__ == "__main__":
     os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + ros_port
     roscore = AWRoscore('log', os.environ, ros_port)
     
-    try:
-        roscore.run()
-    except Exception:
-        ros_port = ros_port + 1
-        roscore = AWRoscore('log', os.environ, ros_port)
-        roscore.run()
+    roscore.run()
     
     rospy.sleep(3)
     roscore.init_check()

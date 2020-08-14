@@ -585,9 +585,6 @@ class RegressionManager(object):
         lowercasenamelist = splitcasenamelist[1].split('-')
         lowercasename = lowercasenamelist[0].lower() + '_' + lowercasenamelist[1]
 
-        print "%s" %('=' *30)
-        print version
-        print "%s" %('=' *30)
         
         rosrecord_cmd = "rosbag record -a -O %s/%s_%s_%s.bag" % (
             self.record_dir, version, lowercasename, "regression_test")
@@ -644,17 +641,6 @@ class RegressionManager(object):
         version_tail = version_list[4][0:2] + '_' + version_list[4][2:]
         version = version_list[0] + '_' + version_list[1] + '_' + version_list[2] + '_' + version_list[3] + '_' + version_tail
         record_target_dir = "/home/autowise/data/regression_test/%s" %version_date
-        
-        # if not os.path.exists(record_target_dir):
-        #     os.makedirs(record_target_dir)
-        # cmd1 = "find %s -type f -name \"%s*\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
-        # s1 = subprocess.Popen(cmd1, shell=True)
-        # s1.wait()
-        # cmd2 = "for file in `ls %s`; do touch /%s/${file}.todo; done" %(record_target_dir, record_target_dir)
-        # # cmd2 = "for file in `ls %s`; do echo ${file}; done" %record_target_dir
-        # s2 = subprocess.Popen(cmd2, shell=True)
-        # s2.wait()
-        # print "Upload from %s done" %record_target_dir
 
         if current_time == "Time, for example, Wed 04:00":
             # DO SOMETHING
@@ -668,24 +654,6 @@ class RegressionManager(object):
             s2.wait()
             print "Upload from %s done" %record_target_dir
 
-    # def run_regression(self, vehicle=None):
-    #     """
-    #     run regression cases list in config
-    #     """
-    #     try:
-    #         # run regression case
-    #         for case in self.caselist:
-    #             case_dir = os.path.join(self.case_base, case)
-    #             if not os.path.exists(case_dir):
-    #                 print "Case not found :%s" % case_dir
-    #                 continue
-    #             print "Begin to run case: %s" % case_dir
-    #             ctrl = RuntimeManager(autopause=False, outputpath=None, dtask=True,
-    #                                   autoexit=True, casename=case_dir, timeout=None, runid=self.run_id, enable_keyboard=False)
-    #             self.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
-    # 
-    #     except Exception as e:
-    #         print e
 
     def run_regression_parallelly(self, vehicle=None):
         """
@@ -697,12 +665,8 @@ class RegressionManager(object):
         versionlist = versionraw.split("\n")[0].split('.')
         versiontail = versionlist[4][0:2] + '_' + versionlist[4][2:]
         version = versionlist[0] + '_' + versionlist[1] + '_' + versionlist[2] + '_' + versionlist[3] + '_' + versiontail
-        print "%s" %('=' *30)
-        print version
-        print "%s" %('=' *30)
+
         try:
-            # num_cores = int(multiprocessing.cpu_count())
-            # print "This computer has " + str(num_cores) + " cores"
             p = multiprocessing.Pool(2)
             base_port = int(self.ros_port) + 1
             for case in self.caselist:
@@ -750,11 +714,14 @@ def regression_args_parsing():
 def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
     SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
-    # logf = open(SIMU_LOG_FILE, 'w')
-
-    print "child process " + case_dir + " pid: " + str(os.getpid())
-    print "run_id is %s" % run_id
-    print "case_dir is %s" % case_dir
+    # logf = open(SIMU_LOG_FILE, 'w')            
+    
+    check_record_cmd = "netstat -lntp | grep record | grep 127.0.0.1:%s" %port
+    check_record_process = subprocess.Popen(check_record_cmd, stdout=subprocess.PIPE, shell=True)
+    check_record_info = check_record_process.stdout.read()
+    if len(check_record_info)!=0:            
+        port = str(int(port) + 1)
+    
     if record == False:
         command = "python new_playcase.py %s --exit --port=%s --version=%s --run_id=%d; sleep 3" % (
             case_dir, port, version, run_id)
