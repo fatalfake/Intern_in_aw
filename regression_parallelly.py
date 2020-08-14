@@ -716,7 +716,7 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
     # logf = open(SIMU_LOG_FILE, 'w')            
     
-    check_port_cmd = "netstat -lntp | grep 127.0.0.1:"
+    check_port_cmd = "netstat -lnp | grep 127.0.0.1:"
     check_port_process = subprocess.Popen(check_port_cmd, stdout=subprocess.PIPE, shell=True)
     check_port_info = check_port_process.stdout.read()
     check_port_info_lines = check_port_info.split('\n')
@@ -728,7 +728,11 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
         j = re.split(r"[ ]+", i)
         l = j[3].split(':')[1]
         forbid_port_list.append(l)
+        k = j[4].split(':')[1]
+        if k != '*':
+            forbid_port_list.append(k)
 
+    forbid_port_list = list(set(forbid_port_list))
     forbid_port_list.sort()
     if port in forbid_port_list:
         while True:
