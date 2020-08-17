@@ -1,0 +1,3 @@
+rosrun aw_bag play /data/suzhou_xiangcheng_demo/20200802/2020_08_02_09_39_55_yutong_3_suzhou_xiangcheng_demo_1 --topics /aw/planning_info /aw_cam00/image_raw/compressed /aw_cam03/image_raw/compressed /aw_cam04/image_raw/compressed /aw_cam05/image_raw/compressed
+
+

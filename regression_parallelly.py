@@ -23,6 +23,7 @@ from rosparam import upload_params
 import multiprocessing
 import yaml
 import time
+import datetime
 import subprocess
 import rospy
 import rosparam
@@ -630,7 +631,7 @@ class RegressionManager(object):
 
     def upload_bags(self, current_time):
         """
-        upload regression bags once a week
+        upload regression bags at the first successful regression everyweek
         """
         record_source_dir = self.record_dir
         ver_p = subprocess.Popen(
@@ -642,7 +643,15 @@ class RegressionManager(object):
         version = version_list[0] + '_' + version_list[1] + '_' + version_list[2] + '_' + version_list[3] + '_' + version_tail
         record_target_dir = "/home/autowise/data/regression_test/%s" %version_date
 
-        if current_time == "Time, for example, Wed 04:00":
+        cmd = "cd /home/autowise/data/regression_test/; read -r -a arr <<< `ls`; echo ${arr[-1]}"
+        find_latest_updated_folder = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
+        latest_updated_version = find_latest_updated_folder.stdout.read().strip()
+
+        latest_updated_date = datetime.datetime.strptime(latest_updated_version,"%Y%m%d").date()
+        current_version_date = datetime.datetime.strptime(version_date,"%Y%m%d").date()
+        gap = current_version_date - latest_updated_date
+
+        if gap.days >= 7:
             # DO SOMETHING
             if not os.path.exists(record_target_dir):
                 os.makedirs(record_target_dir)
@@ -787,9 +796,6 @@ if __name__ == "__main__":
     # update id in config file
     run_manager.update_conf()
 
-    if record:
-        run_manager.upload_bags(upload_time_str)
-
     end_time = time.time()
     end_time_str = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(end_time))
     last = end_time-start_time
@@ -801,3 +807,6 @@ if __name__ == "__main__":
 
     if result.regression_exit_code == False:
         sys.exit(-1)
+    else:
+        if record:
+            run_manager.upload_bags(upload_time_str)
