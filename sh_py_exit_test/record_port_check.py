@@ -31,10 +31,18 @@ forbid_port_list.append('200')
 forbid_port_list.sort()
 print int(forbid_port_list[0])
 
-ppp = "100"
+print forbid_port_list
+
+ppp = "631"
 # ppp = 100
 if ppp in forbid_port_list:
     print "YES"
+    while True:
+        ppp = str(int(ppp)+1)
+        if ppp not in forbid_port_list:
+            break
+
+print ppp
 
 if ppp not in forbid_port_list:
     print "NO"

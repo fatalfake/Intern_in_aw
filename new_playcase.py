@@ -69,10 +69,11 @@ if __name__ == "__main__":
     os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + ros_port
     roscore = AWRoscore('log', os.environ, ros_port)
     
-    roscore.run()
-    
-    rospy.sleep(3)
-    roscore.init_check()
+    while True:
+        roscore.run()
+        rospy.sleep(3)
+        if roscore.init_check():
+            break
 
     rospy.init_node("runtimectrl", disable_signals=True)
     ctrl = RuntimeManager(autopause=args.pause, outputpath=args.output, dtask=args.difftasks,
