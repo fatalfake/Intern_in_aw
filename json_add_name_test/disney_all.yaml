@@ -1,0 +1,584 @@
+/aw/planning/aw_planning/itinerary/park_id : !!str shanghai_disney
+/aw/planning/aw_planning/itinerary/route_id : !!str 1
+/aw/planning/aw_planning/maneuver/dp_center_factor : !!float 0.5
+/aw/planning/aw_planning/itinerary/tasks :
+    #- task_type :   !!str script
+    #script_name:  !!str script/start/check_key.py disney_start
+# start
+   - task_type :   !!str map
+     start_east :  !!float 371758.04
+     start_north:  !!float 3446198.418
+     end_east :    !!float 371734.66
+     end_north:    !!float 3446204.58
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 0.5
+     lane_expanse: !!float 1.0
+     center_type:   !!int 0
+     center_offset: !!float 0.5
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_on.sh
+   - task_type :   !!str map
+     start_east :  !!float 371758.04
+     start_north:  !!float 3446198.418
+     end_east :    !!float 371770.15
+     end_north:    !!float 3446174.55
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 2.0
+     lane_expanse: !!float 0.2
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371758.04
+     start_north:  !!float 3446198.418
+     end_east :    !!float 371776.1875
+     end_north:    !!float 3446145.6125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 2
+   - task_type :   !!str map
+     start_east :  !!float 371770.15
+     start_north:  !!float 3446174.55
+     end_east :    !!float 371869.425
+     end_north:    !!float 3446068.4125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371776.1875
+     start_north:  !!float 3446145.6125
+     end_east :    !!float 371906.7
+     end_north:    !!float 3446059.6625
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.55
+     center_type : 1
+     center_offset : 1.05
+# straight
+   - task_type :   !!str map
+     start_east :  !!float 371869.425
+     start_north:  !!float 3446068.4125
+     end_east :    !!float 371772.825
+     end_north:    !!float 3446169.975
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.15
+     center_type : 1
+     center_offset : 0.95
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371906.7
+     start_north:  !!float 3446059.6625
+     end_east :    !!float 371755.325
+     end_north:    !!float 3446150.725
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 1
+   - task_type :   !!str map
+     start_east :  !!float 371777.175
+     start_north:  !!float 3446166.1875
+     end_east :    !!float 371881.6375
+     end_north:    !!float 3446044.7625
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# first outer circle, southeast
+   - task_type :   !!str map
+     start_east :  !!float 371755.325
+     start_north:  !!float 3446150.725
+     end_east :    !!float 371911.05
+     end_north:    !!float 3446064.7
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_border_dis : !!float -0.35
+     center_type : 2
+     center_offset : -1.15
+# 4
+   - task_type :   !!str map
+     start_east :  !!float 371887.65
+     start_north:  !!float 3446038.9
+     end_east :    !!float 371782.1
+     end_north:    !!float 3446171.85
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# out circle
+   - task_type :   !!str map
+     start_east :  !!float 371911.05
+     start_north:  !!float 3446064.7
+     end_east :    !!float 371721.325
+     end_north:    !!float 3446148.225
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# new circle
+   - task_type :   !!str map
+     start_east :  !!float 371782.1
+     start_north:  !!float 3446171.85
+     end_east :    !!float 371721.025
+     end_north:    !!float 3446119.125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 2
+   - task_type :   !!str map
+     start_east :  !!float 371721.325
+     start_north:  !!float 3446148.225
+     end_east :    !!float 371819.975
+     end_north:    !!float 3446036.575
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371721.025
+     start_north:  !!float 3446119.125
+     end_east :    !!float 371849.05
+     end_north:    !!float 3446034.75
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.55
+     center_type : 1
+     center_offset : 1.05
+# straight
+   - task_type :   !!str map
+     start_east :  !!float 371819.975
+     start_north:  !!float 3446036.575
+     end_east :    !!float 371721.825
+     end_north:    !!float 3446139.475
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.15
+     center_type : 1
+     center_offset : 0.95
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371849.05
+     start_north:  !!float 3446034.75
+     end_east :    !!float 371704.55
+     end_north:    !!float 3446121.75
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 1
+   - task_type :   !!str map
+     start_east :  !!float 371725.125
+     start_north:  !!float 3446136.675
+     end_east :    !!float 371823.375
+     end_north:    !!float 3446020.225
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# second outer circle, sourtheast
+   - task_type :   !!str map
+     start_east :  !!float 371704.55
+     start_north:  !!float 3446121.75
+     end_east :    !!float 371861.675
+     end_north:    !!float 3446035.125
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_border_dis : !!float -0.35
+     center_type : 2
+     center_offset : -1.15
+# 4
+   - task_type :   !!str map
+     start_east :  !!float 371823.375
+     start_north:  !!float 3446020.225
+     end_east :    !!float 371733.35
+     end_north:    !!float 3446139.05
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# out circle
+   - task_type :   !!str map
+     start_east :  !!float 371861.675
+     start_north:  !!float 3446035.125
+     end_east :    !!float 371667.5
+     end_north:    !!float 3446118.5
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# new circle
+   - task_type :   !!str map
+     start_east :  !!float 371733.35
+     start_north:  !!float 3446139.05
+     end_east :    !!float 371666.025
+     end_north:    !!float 3446091.575
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 2
+   - task_type :   !!str map
+     start_east :  !!float 371667.5
+     start_north:  !!float 3446118.5
+     end_east :    !!float 371759.175
+     end_north:    !!float 3446014.412
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+#idx=23
+   - task_type :   !!str map
+     start_east :  !!float 371666.025
+     start_north:  !!float 3446091.575
+     end_east :    !!float 371790.3
+     end_north:    !!float 3445977.2
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1
+     lane_expanse: !!float 0.2
+# circle idx=24
+   - task_type :   !!str map
+     start_east :  !!float 371666.025
+     start_north:  !!float 3446091.575
+     end_east :    !!float 371800.45
+     end_north:    !!float 3446002.05
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.55
+     center_type : 1
+     center_offset : 1.05
+# straight
+   - task_type :   !!str map
+     start_east :  !!float 371759.17
+     start_north:  !!float 3446014.41
+     end_east :    !!float 371667.525
+     end_north:    !!float 3446111.575
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+     rel_point_x : !!float 2.2
+     rel_point_y : !!float -0.8
+     rel_border_dis : !!float 0.15
+     center_type : 1
+     center_offset : 0.95
+# circle
+   - task_type :   !!str map
+     start_east :  !!float 371800.45
+     start_north:  !!float 3446002.05
+     end_east :    !!float 371651.05
+     end_north:    !!float 3446094.3
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# 1
+   - task_type :   !!str map
+     start_east :  !!float 371670.825
+     start_north:  !!float 3446108.775
+     end_east :    !!float 371780.55
+     end_north:    !!float 3445982.75
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+# third outer circle, southeast
+   - task_type :   !!str map
+     start_east :  !!float 371651.05
+     start_north:  !!float 3446094.3
+     end_east :    !!float 371811.75
+     end_north:    !!float 3446003.75
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.7
+     lane_expanse: !!float 0.2
+     rel_border_dis : !!float -0.35
+     center_type : 2
+     center_offset : -1.15
+# 4
+   - task_type :   !!str map
+     start_east :  !!float 371780.55
+     start_north:  !!float 3445982.75
+     end_east :    !!float 371688.25
+     end_north:    !!float 3446103.4
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+#out circle
+   - task_type :   !!str map
+     start_east :  !!float 371811.75
+     start_north:  !!float 3446003.75
+     end_east :    !!float 371586.375
+     end_north:    !!float 3446053.4375
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.3
+     lane_expanse: !!float 0.2
+   - task_type :   !!str map
+     start_east :  !!float 371591.95
+     start_north:  !!float 3446086.8625
+     end_east :    !!float 371617.4
+     end_north:    !!float 3446099.2
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool true
+     max_velo:     !!float 0.8
+     lane_expanse: !!float 0.2
+# end
+   - task_type :   !!str map
+     start_east :  !!float 371688.25
+     start_north:  !!float 3446103.4
+     end_east :    !!float 371734.75000
+     end_north:    !!float 3446218.65000
+     stop_check :  !!bool false
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 2.0
+     lane_expanse: !!float 0.2
+   - task_type :   !!str map
+     start_east :  !!float 371688.25
+     start_north:  !!float 3446103.4
+     end_east :    !!float 371720.85
+     end_north:    !!float 3446203.18
+     stop_check :  !!bool true
+     execute_mode: !!int 2
+     use_rel_ref:  !!bool false
+     max_velo:     !!float 1.0
+     lane_expanse: !!float 0.8
+     center_type:   !!int 0
+     center_offset: !!float -0.3
+   - task_type :   !!str script
+     script_name:  !!str $(rospack find aw_planning)/script/wash/wash_off.sh
+
+   - task_type :   !!str parking
+     end_east :  !!float 371740.529
+     end_north:  !!float 3446201.04
+     end_yaw :     !!float 2.4
+     max_velo:  !!float 0.5
+
+   - task_type :   !!str parking
+     end_east :  !!float 371757.179
+     end_north:  !!float 3446197.568
+     end_yaw :     !!float -2.23
+     max_velo:  !!float 0.5
+
+     #- task_type :   !!str script
+     #script_name:  !!str script/start/stop_key.py disney_start
+/aw/planning/aw_planning/itinerary/task_index : !!int 0
+/aw/planning/aw_planning/itinerary/repeated : !!bool false
+
+#wash type: 0,default; 1,wash-on; 2,wash-off;
+/aw/planning/sepcial_section:
+    - section_id:                   !!int 120
+      wash_type:                    !!int 1
+    - section_id:                   !!int 121
+      wash_type:                    !!int 1
+    - section_id:                   !!int 120121
+      wash_type:                    !!int 2
+    - section_id:                   !!int 123
+      wash_type:                    !!int 1
+    - section_id:                   !!int 124
+      wash_type:                    !!int 1
+    - section_id:                   !!int 123124
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 130
+      wash_type:                    !!int 1
+    - section_id:                   !!int 131
+      wash_type:                    !!int 1
+    - section_id:                   !!int 130131
+      wash_type:                    !!int 2
+    - section_id:                   !!int 133
+      wash_type:                    !!int 1
+    - section_id:                   !!int 134
+      wash_type:                    !!int 1
+    - section_id:                   !!int 133134
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 140
+      wash_type:                    !!int 1
+    - section_id:                   !!int 141
+      wash_type:                    !!int 1
+    - section_id:                   !!int 140141
+      wash_type:                    !!int 2
+    - section_id:                   !!int 143
+      wash_type:                    !!int 1
+    - section_id:                   !!int 144
+      wash_type:                    !!int 1
+    - section_id:                   !!int 143144
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 150
+      wash_type:                    !!int 1
+    - section_id:                   !!int 151
+      wash_type:                    !!int 1
+    - section_id:                   !!int 150151
+      wash_type:                    !!int 2
+    - section_id:                   !!int 153
+      wash_type:                    !!int 1
+    - section_id:                   !!int 154
+      wash_type:                    !!int 1
+    - section_id:                   !!int 153154
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 160
+      wash_type:                    !!int 1
+    - section_id:                   !!int 161
+      wash_type:                    !!int 1
+    - section_id:                   !!int 160161
+      wash_type:                    !!int 2
+    - section_id:                   !!int 163
+      wash_type:                    !!int 1
+    - section_id:                   !!int 164
+      wash_type:                    !!int 1
+    - section_id:                   !!int 163164
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 170
+      wash_type:                    !!int 1
+    - section_id:                   !!int 171
+      wash_type:                    !!int 1
+    - section_id:                   !!int 170171
+      wash_type:                    !!int 2
+    - section_id:                   !!int 173
+      wash_type:                    !!int 1
+    - section_id:                   !!int 174
+      wash_type:                    !!int 1
+    - section_id:                   !!int 173174
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 180
+      wash_type:                    !!int 1
+    - section_id:                   !!int 181
+      wash_type:                    !!int 1
+    - section_id:                   !!int 180181
+      wash_type:                    !!int 2
+    - section_id:                   !!int 183
+      wash_type:                    !!int 1
+    - section_id:                   !!int 184
+      wash_type:                    !!int 1
+    - section_id:                   !!int 183184
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 190
+      wash_type:                    !!int 1
+    - section_id:                   !!int 191
+      wash_type:                    !!int 1
+    - section_id:                   !!int 190191
+      wash_type:                    !!int 2
+    - section_id:                   !!int 193
+      wash_type:                    !!int 1
+    - section_id:                   !!int 194
+      wash_type:                    !!int 1
+    - section_id:                   !!int 193194
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 200
+      wash_type:                    !!int 1
+    - section_id:                   !!int 201
+      wash_type:                    !!int 1
+    - section_id:                   !!int 200201
+      wash_type:                    !!int 2
+    - section_id:                   !!int 203
+      wash_type:                    !!int 1
+    - section_id:                   !!int 204
+      wash_type:                    !!int 1
+    - section_id:                   !!int 203204
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 210
+      wash_type:                    !!int 1
+    - section_id:                   !!int 211
+      wash_type:                    !!int 1
+    - section_id:                   !!int 210211
+      wash_type:                    !!int 2
+    - section_id:                   !!int 213
+      wash_type:                    !!int 1
+    - section_id:                   !!int 214
+      wash_type:                    !!int 1
+    - section_id:                   !!int 213214
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 220
+      wash_type:                    !!int 1
+    - section_id:                   !!int 221
+      wash_type:                    !!int 1
+    - section_id:                   !!int 220221
+      wash_type:                    !!int 2
+    - section_id:                   !!int 222
+      wash_type:                    !!int 1
+    - section_id:                   !!int 221222
+      wash_type:                    !!int 2
+####################################################
+    - section_id:                   !!int 230
+      wash_type:                    !!int 1
+    - section_id:                   !!int 231
+      wash_type:                    !!int 1
+    - section_id:                   !!int 230231
+      wash_type:                    !!int 2
+    - section_id:                   !!int 232
+      wash_type:                    !!int 2
+#    - section_id:                   !!int 222
+#      wash_type:                    !!int 1

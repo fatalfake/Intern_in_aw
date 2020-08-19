@@ -37,6 +37,8 @@ for i in `cat ${md5_path} | awk '{print $2}'`;do
     fi
 done
 
+target_path=/opt/ros/kinetic/share/aw_global_planning/data
+
 function set_env_and_launch(){
     export PLANNING_TASK=${list}
     echo 'Task file is: '${PLANNING_TASK}
@@ -50,6 +52,16 @@ function set_env_and_launch(){
     # source ./devel/setup.sh
     source ~/.autowise/setup.sh
     roslaunch aw_global_planning route_points_generator.launch
+    if [ -f "${target_path}/fake.json" ]; then
+        rm ${target_path}/fake.json
+    fi
+    park_id=`grep -E -o "park_id : !!str.+" ${list} | cut -d ' ' -f4`
+    route_id=`grep -E -o "route_id : !!str.+" ${list} | cut -d ' ' -f4`
+    jsonname=${park_id}_${route_id}
+    # echo ${jsonname}
+    # echo -e "\033[32m${jsonname}.json\033[0m"
+    sed -i "s/\"route_id\":\"[0-9]\+\"}/\"route_id\":\"${route_id}\",\"task_filename\":\"${jsonname}.json\"}/" ${target_path}/${jsonname}.json
+    sed -i 's/{"index":[0-9]\+},//g; s/,{"index":[0-9]\+}//g' ${target_path}/${jsonname}.json
     echo 'Task complete.'
 }
 
@@ -66,11 +78,10 @@ for list in `find $path -type f`;do
             sed -i "${v3}/d" ${md5_path}
             md5sum ${list} >> ${md5_path}
             # 执行JSON生成
-            if echo ${list} | grep -q '\.yaml' 
-            then
+            if [ "${list##*.}"x = "yaml"x ];then
                 grep ${list} ./blacklist >> /dev/null
                 if [ $? -ne 0 ];
-                then 
+                then
                     set_env_and_launch
                 fi
             fi
@@ -81,8 +92,7 @@ for list in `find $path -type f`;do
         new_file_md5=`md5sum ${list}`
         md5sum ${list} >> ${md5_path}
         echo -e "[Detection time：`date +"%Y-%m-%d %T.%N"`]  [File：$list] \033[31m[MD5 check result：Added]\033[0m" 2>&1 
-        if echo ${list} | grep -q '\.yaml' 
-        then
+        if [ "${list##*.}"x = "yaml"x ];then
             grep ${list} ./blacklist >> /dev/null
             if [ $? -ne 0 ];
             then 
@@ -94,7 +104,6 @@ for list in `find $path -type f`;do
     sleep 0.2
 done
 
-rm_emptyindex_path=/opt/ros/kinetic/share/aw_global_planning/data
 
 function send_file(){
     echo "上传文件 $1"
@@ -111,7 +120,7 @@ function send_file(){
     fi
 }
 
-function rm_emptyindex(){
+function upload(){
     if [ ! -n "$1" ] ;then
         echo "请指定目录！"
         exit
@@ -119,12 +128,12 @@ function rm_emptyindex(){
     for file in `ls $1`; do
 	#如果是目录，进入此目录后再次调用
         if [ -d $1"/"$file ];then
-            rm_emptyindex $1"/"$file
+            upload $1"/"$file
 	#不是目录SSS
         else
             if [ "${file##*.}"x = "json"x ];then
                 todo_file="$1/$file"
-                sed -i 's/{"index":[0-9]\+},//g; s/,{"index":[0-9]\+}//g' ${todo_file}
+                # sed -i 's/{"index":[0-9]\+},//g; s/,{"index":[0-9]\+}//g' ${todo_file}
                 send_file ${todo_file}
                 sleep 0.5s
             fi
@@ -132,4 +141,4 @@ function rm_emptyindex(){
     done
 }
 
-rm_emptyindex "${rm_emptyindex_path}"
+upload "${target_path}"
