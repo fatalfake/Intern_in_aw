@@ -81,4 +81,5 @@
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_zhonghuan/end-138.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_lingang/shanghai_lingang_show.yaml
 /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_zhonghuan_wujiaochang/shanghai_zhonghuan_wujiaochang_demo.yaml
+/opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng/fake.yaml
 

@@ -18,10 +18,8 @@ if [ -f "${target_path}/fake.json" ]; then
     rm ${target_path}/fake.json
 fi
 
-ls ${target_path}
-
-jsonfile=`ls ${target_path} | grep ${jsonname}.json`
+jsonfile=`ls -t ${target_path} | grep ${jsonname} | head -n 1`
 
 echo -e "\033[32m${jsonfile}\033[0m"
 
-sed -i "s/\"route_id\":\"[0-9]\+\"}/\"route_id\":\"${route_id}\",\"task_filename\":\"${jsonname}.json\"}/" ${jsonfile}
+# sed -i "s/\"route_id\":\"[0-9]\+\"}/\"route_id\":\"${route_id}\",\"task_filename\":\"${jsonname}.json\"}/" ${jsonfile}

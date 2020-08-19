@@ -31,6 +31,7 @@ then
     -v /opt/ros/kinetic/share/aw_global_planning/launch:/opt/ros/kinetic/share/aw_global_planning/launch \
     -v ~:/home/autowise/ \
     -v /opt/ros/kinetic/share/aw_models:/opt/ros/kinetic/share/aw_models \
+    -v /opt/ros/kinetic/share/aw_global_planning/data:/opt/ros/kinetic/share/aw_global_planning/data \
     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
     --network host --privileged=true \
     registry.autowise.ai/awcar:latest bash -c "cd qyc; ./monitor_offline.sh"'
