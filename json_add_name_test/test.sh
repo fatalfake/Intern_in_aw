@@ -22,4 +22,10 @@ jsonfile=`ls -t ${target_path} | grep ${jsonname} | head -n 1`
 
 echo -e "\033[32m${jsonfile}\033[0m"
 
+list=${target_path}/${jsonfile}
+
+task_id=`basename ${list}`
+
+echo -e "\033[32m${task_id}\033[0m"
+
 # sed -i "s/\"route_id\":\"[0-9]\+\"}/\"route_id\":\"${route_id}\",\"task_filename\":\"${jsonname}.json\"}/" ${jsonfile}

@@ -57,7 +57,7 @@ function set_env_and_launch(){
     route_id=`grep -E -o "route_id : !!str.+" ${list} | cut -d ' ' -f4`
     jsonname=${park_id}_${route_id}
     jsonfile=`ls -t ${target_path} | grep ${jsonname} | head -n 1`
-    sed -i "s%\"route_id\":\"[0-9]\+\"}%\"route_id\":\"${route_id}\",\"task_filename\":\"${list}\"}%g" ${target_path}/${jsonfile}
+    sed -i "s%\"route_id\":\"[0-9]\+\"}%\"route_id\":\"${route_id}\",\"task_id\":\"${list}\"}%g" ${target_path}/${jsonfile}
     sed -i 's/{"index":[0-9]\+},//g; s/,{"index":[0-9]\+}//g' ${target_path}/${jsonfile}
     echo 'Task complete.'
 }

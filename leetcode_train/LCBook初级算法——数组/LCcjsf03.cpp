@@ -77,6 +77,49 @@ public:
     }
 };
 
+/***
+ * 关于数组反转的其他做法：
+ * 做法1：
+ *  思路是：新建一个数组b，从后往前遍历数组a，把遍历到的元素加到数组b的后面。
+    时间复杂度是O（n），需要遍历n次。
+    空间复杂度是O（n），因为要开辟与输入的数组一样大的空间。
+ *  vector<int> reverseArray(vector<int> a) {
+        vector<int> b;
+        for(vector<int>::iterator x = a.end()-1; x >= a.begin(); x--)
+            b.push_back(*x);
+        return b;
+    }
+
+
+    做法2：
+    思路是：第一项和最后一项互换；第二项与倒数第二项互换；第三项与倒数第三项互换；以此类推，直到换到中间。
+    时间复杂度是O（n），因为对于有n个元素的数组a，需要交换n/2次。
+    空间复杂度是O（1），因为只开辟了2个int的空间。
+
+    vector<int> reverseArray(vector<int> a) {
+        int temp = 0;
+        int n = a.size();
+        for (int i = 0; i < n/2; ++i) {
+            temp = a[n-i-1];
+            a[n-i-1] = a[i];
+            a[i] = temp;
+        }
+        return a;
+    }
+
+    做法3：这是一个神奇的思路，用的是C++11标准中，vector新的初始化方式。
+    直接返回一个新的vector，初始化的内容就是数组a从右到左的值。
+    vector<int> reverseArray(vector<int> a){
+        return {a.rbegin(), a.rend()};
+    }
+
+    做法4：STL库函数
+    vector<int> reverseArray(vector<int> a){
+        reverse(a.begin(),a.end());
+        return a;
+    }
+***/
+
 int main()
 {
     vector<int> b;
