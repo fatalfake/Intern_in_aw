@@ -31,7 +31,7 @@ public:
     }
 };
 
-//思路2:双指针法
+//思路2:双指针法:下标j指向的永远是当前得到的无重复部分的最后一位，然后我们不关心下标j与下标i之间的内容
 int removeDuplicates(vector<int>& nums) {
 	if (nums.size() < 2) return nums.size();
 	int j = 0;

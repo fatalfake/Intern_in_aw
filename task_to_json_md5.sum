@@ -113,9 +113,7 @@ b95c137046c54fd0ae56bf5e7219cbf6  /opt/ros/kinetic/share/aw_launch/config/conf/t
 811f4dc1dbc7c2c603c5249d400ffc42  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_counter_clockwise.yaml
 fc919268ad7d6943dbdec816dffee04d  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_clockwise.yaml
 024f10c216efe5da18a755accee202b1  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south_with_parking.yaml
-86b18255a3c371dc6429363a4bfdb98d  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_full.yaml
 8b1c0fea72fd01b273b44fc5ee53e9cc  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_demo_narrow_uturn.yaml
-6bd0fc95ce3bedb62ad22f553cd45f52  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_full_with_garage.yaml
 3f82c255ed7aa149dfe3c2cd9f020e92  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_east.yaml
 2fdf458ec585503114e0941d927e8852  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_demo2.yaml
 e20356055971038b2506a45b4a4a3d1d  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_south.yaml
@@ -152,3 +150,5 @@ fad58d6ec9de55d2948897e702752cdd  /opt/ros/kinetic/share/aw_launch/config/conf/t
 ea57b1eb6f42b2a0221418d5fa878d96  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_keyuan/straight_keyuan_1.yaml
 9b1535a3bebd6d46ae5c1b7dc31c59a0  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/shanghai_waic_2019.ymal/waic_r_3_repeated.yaml
 db26cf16eff19603d49c3243e529e6f9  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/beijing_chaoyang/chaoyang_park_full_clockwise.yaml
+1a7af560ca1b6a4916e3dc73989a0c2a  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_full.yaml
+71ff43918e20910e6203eb563740ddf3  /opt/ros/kinetic/share/aw_launch/config/conf/tasks/boschung_factory/boschung_factory_full_with_garage.yaml
