@@ -11,7 +11,6 @@ blacklist_file=$dirpath/blacklist
 path=/opt/ros/kinetic/share/aw_launch/config/conf/tasks
 
 
-wget -O $md5_path http://hq00-office.autowise.tech:18082/scripts/route_generate/task_to_json_md5.sum
 
 
 
@@ -53,8 +52,8 @@ function set_env_and_launch(){
     if [ -f "${target_path}/fake.json" ]; then
         rm ${target_path}/fake.json
     fi
-    park_id=`grep -E -o "park_id.+" ${list} | rev | cut -d ' ' -f1 | rev`
-    route_id=`grep -E -o "route_id.+" ${list} | rev | cut -d ' ' -f1 | rev`
+    park_id=`grep -E -o "park_id : !!str.+" ${list} | cut -d ' ' -f4`
+    route_id=`grep -E -o "route_id : !!str.+" ${list} | cut -d ' ' -f4`
     jsonname=${park_id}_${route_id}
     jsonfile=`ls -t ${target_path} | grep ${jsonname} | head -n 1`
     task_id=`basename ${list} | cut -d '.' -f1`
