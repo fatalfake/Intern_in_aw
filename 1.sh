@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # list=/opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_all/litai_road.yaml
 
 # list=/opt/ros/kinetic/share/aw_launch/config/conf/tasks/suzhou_xiangcheng_all/litai_road_bicycle.yaml

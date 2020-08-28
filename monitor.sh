@@ -41,6 +41,7 @@ done
 target_path=/opt/ros/kinetic/share/aw_global_planning/data
 
 function set_env_and_launch(){
+    sed -i 's/\r//g' ${list}
     export PLANNING_TASK=${list}
     echo 'Task file is: '${PLANNING_TASK}
     project_name=`echo ${list} | cut -d / -f 10`
