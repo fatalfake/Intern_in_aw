@@ -3,6 +3,7 @@
 #include <queue>
 #include <algorithm>
 #include <unordered_map>
+#include <memory.h>
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483648
@@ -29,10 +30,43 @@ using namespace std;
 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
 ***/
 
+//1 排序法
 class Solution {
 public:
     bool isAnagram(string s, string t) {
+        if(s.size()!=t.size()) return false;
+        vector<char> s_vec;
+        vector<char> t_vec;
+        for(char c:s){
+            s_vec.push_back(c);
+        }
+        for(char c:t){
+            t_vec.push_back(c);
+        }
+        sort(s_vec.begin(), s_vec.end());
+        sort(t_vec.begin(), t_vec.end());
+        for(int i=0;i<s_vec.size();i++){
+            if(s_vec[i]!=t_vec[i]) return false;
+        }
+        return true;
+    }
+};
 
+//2 哈希法
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int hash[128];
+        memset(hash, 0, sizeof(int) * 128);
+        for (char c : s) {
+            hash[c - '0'] ++;
+        }
+        for (char c : t) {
+            hash[c - '0'] --;
+            if(hash[c - '0']<0)
+                return false;
+        }
+        return true;
     }
 };
 
