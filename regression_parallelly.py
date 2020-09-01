@@ -562,7 +562,7 @@ class RegressionManager(object):
         self.caselist = caselist
     
 
-    def run_case(self, case_dir, vehicle, version, ctrl, stdout, stderr, ):
+    def run_case(self, case_dir, port, vehicle, version, ctrl, stdout, stderr, ):
         """
         run specific case
         specify the stdout and stderr
@@ -577,10 +577,10 @@ class RegressionManager(object):
                          ("=" * 10, case_dir, "=" * 10))
         # load environment and param
         
-
-        rosmap_cmd = "roslaunch  aw_hdmap hdmap_runtime_env.launch"
-        rosevaluation_cmd = "roslaunch aw_evaluation start_evaluation.launch"
-        rossim_cmd = "roslaunch launch/run_case_simulation_by_env.launch"
+        
+        rosmap_cmd = "roslaunch -p %s aw_hdmap hdmap_runtime_env.launch" %port
+        rosevaluation_cmd = "roslaunch -p %s aw_evaluation start_evaluation.launch" %port
+        rossim_cmd = "roslaunch -p %s launch/run_case_simulation_by_env.launch" %port
         casename = os.path.basename(case_dir)
         splitcasenamelist = casename.split('_')
         lowercasenamelist = splitcasenamelist[1].split('-')
@@ -590,6 +590,7 @@ class RegressionManager(object):
         rosrecord_cmd = "rosbag record -a -O %s/%s_%s_%s.bag" % (
             self.record_dir, version, lowercasename, "regression_test")
         self.__loadparam_main(case_dir, vehicle)
+        os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + port
         env = os.environ
         rosmap = AWProcess(rosmap_cmd, None, stdout, stderr, env)
         rossim = AWProcess(rossim_cmd, None, stdout, stderr, env)
@@ -600,7 +601,7 @@ class RegressionManager(object):
             rospy.loginfo("shuting down already")
 
         rosmap.run()
-        rospy.sleep(3)
+        rospy.sleep(10)
         # launch evaluation ahead in case something missed at beginning
         rosevaluation.run()
         rospy.sleep(3)
