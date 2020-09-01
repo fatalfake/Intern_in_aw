@@ -16,19 +16,27 @@ print s, type(s)
 date_p = datetime.datetime.strptime(s,"%Y%m%d").date()
 print date_p, type(date_p)
 
-s1 = "20200908"
+s1 = "20191231"
 
 date_p1 = datetime.datetime.strptime(s1,"%Y%m%d").date()
 print date_p1, type(date_p1)
 
-s2 = "20200911"
+s2 = "20200101"
 
 date_p2 = datetime.datetime.strptime(s2,"%Y%m%d").date()
 print date_p2, type(date_p2)
 
 gap = date_p2-date_p1
 
-if gap.days >= 3:
-    print gap, "More than 3 days"
+
+date_p1_calendar = date_p1.isocalendar()
+date_p2_calendar = date_p2.isocalendar()
+
+print date_p1_calendar
+print date_p2_calendar
+
+
+if date_p1_calendar[1] < date_p2_calendar[1] or date_p2_calendar[0] < date_p2_calendar[0]:
+    print gap, "Should upload"
 else:
-    print gap
+    print gap, "No need to upload"

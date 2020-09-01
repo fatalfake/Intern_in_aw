@@ -650,9 +650,12 @@ class RegressionManager(object):
 
         latest_updated_date = datetime.datetime.strptime(latest_updated_version,"%Y%m%d").date()
         current_version_date = datetime.datetime.strptime(version_date,"%Y%m%d").date()
-        gap = current_version_date - latest_updated_date
+        # gap = current_version_date - latest_updated_date
 
-        if gap.days >= 7:
+        latest_updated_calendar = latest_updated_date.isocalendar()
+        current_version_calendar = current_version_date.isocalendar()
+
+        if latest_updated_calendar[0] < current_version_calendar[0] or latest_updated_calendar[1] < current_version_calendar[1]:
             # DO SOMETHING
             if not os.path.exists(record_target_dir):
                 os.makedirs(record_target_dir)
