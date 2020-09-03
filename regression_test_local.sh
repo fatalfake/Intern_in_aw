@@ -27,7 +27,7 @@ then
     cd ${regressionpath}; \
     ./install_dependencies.sh; \
     export kRobotTypeHejia18T=hejia; \
-    python regression_parallelly.py;\" "
+    python regression_parallelly.py --record;\" "
     if [ $? -ne 0 ];then
         echo "This means something failed"
         exit -1

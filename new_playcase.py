@@ -69,9 +69,16 @@ if __name__ == "__main__":
     os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + ros_port
     roscore = AWRoscore('log', os.environ, ros_port)
     
+    if vehicle is None:
+        cmd = "grep -o -E \"vehicle_id:.*\" %s/planning.yaml | awk '{print $2}'" %case_dir
+        sub_p = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
+        v_id = sub_p.stdout.read().strip()
+        print v_id
+
     while True:
         roscore.run()
         rospy.sleep(3)
+        os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + ros_port
         if roscore.init_check():
             break
 
@@ -80,6 +87,6 @@ if __name__ == "__main__":
                           autoexit=args.exit, casename=case_dir, timeout=args.timeout, runid=run_id, enable_keyboard=False)
 
     run_manager = RegressionManager(ros_port, vehicle, args.record)
-    run_manager.run_case(case_dir, vehicle, version, ctrl, logf, logf)
+    run_manager.run_case(case_dir, ros_port, vehicle, version, v_id, ctrl, logf, logf)
     # run_manager.run_case(case_dir, vehicle, ctrl, sys.stdout, sys.stderr)
     roscore.terminate()

@@ -562,7 +562,7 @@ class RegressionManager(object):
         self.caselist = caselist
     
 
-    def run_case(self, case_dir, port, vehicle, version, ctrl, stdout, stderr, ):
+    def run_case(self, case_dir, port, vehicle, version, v_id, ctrl, stdout, stderr, ):
         """
         run specific case
         specify the stdout and stderr
@@ -587,8 +587,8 @@ class RegressionManager(object):
         lowercasename = lowercasenamelist[0].lower() + '_' + lowercasenamelist[1]
 
         
-        rosrecord_cmd = "rosbag record -a -O %s/%s_%s_%s.bag" % (
-            self.record_dir, version, lowercasename, "regression_test")
+        rosrecord_cmd = "rosbag record -a -O %s/%s_%s_%s_%s.bag" % (
+            self.record_dir, version, lowercasename, v_id, "regression_test")
         self.__loadparam_main(case_dir, vehicle)
         os.environ["ROS_MASTER_URI"] = "http://127.0.0.1:" + port
         env = os.environ
@@ -630,7 +630,7 @@ class RegressionManager(object):
                 rosrecord.terminate()
 
 
-    def upload_bags(self, current_time):
+    def upload_bags(self):
         """
         upload regression bags at the first successful regression everyweek
         """
@@ -642,11 +642,19 @@ class RegressionManager(object):
         version_date = version_list[0] + version_list[1] + version_list[2] 
         version_tail = version_list[4][0:2] + '_' + version_list[4][2:]
         version = version_list[0] + '_' + version_list[1] + '_' + version_list[2] + '_' + version_list[3] + '_' + version_tail
-        record_target_dir = "/home/autowise/data/regression_test/%s" %version_date
+        record_target_dir = "/bag_data/regression_bag/%s" %version_date
+        # record_target_dir = "/home/autowise/data/regression_test/%s" %version_date
 
-        cmd = "cd /home/autowise/data/regression_test/; read -r -a arr <<< `ls`; echo ${arr[-1]}"
+        cmd = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;read -r -a arr <<< `hadoop fs -ls /bag_data/regression_bag | awk '{print $8}' | awk -F/ '{print $4}'`; echo ${arr[-1]}"
         find_latest_updated_folder = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
         latest_updated_version = find_latest_updated_folder.stdout.read().strip()
+
+        print "*"*20
+        print "\033[32mLast VERSION: %s \033[0m" %latest_updated_version
+        print "*"*20
+        # cmd = "cd /home/autowise/data/regression_test/; read -r -a arr <<< `ls`; echo ${arr[-1]}"
+        # find_latest_updated_folder = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
+        # latest_updated_version = find_latest_updated_folder.stdout.read().strip()
 
         latest_updated_date = datetime.datetime.strptime(latest_updated_version,"%Y%m%d").date()
         current_version_date = datetime.datetime.strptime(version_date,"%Y%m%d").date()
@@ -657,15 +665,26 @@ class RegressionManager(object):
 
         if latest_updated_calendar[0] < current_version_calendar[0] or latest_updated_calendar[1] < current_version_calendar[1]:
             # DO SOMETHING
-            if not os.path.exists(record_target_dir):
-                os.makedirs(record_target_dir)
-            cmd1 = "find %s -type f -name \"%s*\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
+            # if not os.path.exists(record_target_dir):
+            #     os.makedirs(record_target_dir)
+            cmd0 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;hadoop fs -ls %s" %record_target_dir
+            s0 = subprocess.Popen(cmd0, shell=True)
+            s0.communicate()
+            return_code = s0.returncode
+            if return_code != 0:
+                cmd3 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;hadoop fs -mkdir %s" %record_target_dir
+                s3 = subprocess.Popen(cmd3, shell=True)
+                s3.communicate()
+            print "\033[32mCompressing... \033[0m"
+            cmd1 = "for file in `ls %s | grep %s`; do pigz -9 -p 1 -k %s/${file}; done" %(record_source_dir, version, record_source_dir)
             s1 = subprocess.Popen(cmd1, shell=True)
-            s1.wait()
-            cmd2 = "for file in `ls %s`; do touch /%s/${file}.todo; done" %(record_target_dir, record_target_dir)
+            s1.communicate()
+            print "\033[32mUploading... \033[0m"
+            # cmd2 = "find %s -type f -name \"%s*.gz\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
+            cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version, record_target_dir)
             s2 = subprocess.Popen(cmd2, shell=True)
-            s2.wait()
-            print "Upload from %s done" %record_target_dir
+            s2.communicate()
+            print "\033[32mUpload to %s done \033[0m" %record_target_dir
 
 
     def run_regression_parallelly(self, vehicle=None):
@@ -688,14 +707,14 @@ class RegressionManager(object):
                 base_port = base_port + 5
                 case_dir = os.path.join(self.case_base, case)
                 if not os.path.exists(case_dir):
-                    print "Case not found :%s" % case_dir
+                    print "Case not found :%s " %case_dir
                     continue
                 p.apply_async(run_single_case, args=(
                     run_id, case_dir, port, vehicle, version, record))
-            print 'Waiting for all subprocesses done...'
+            print "Waiting for all subprocesses done..."
             p.close()
             p.join()
-            print 'All subprocesses done.'
+            print "All subprocesses done. "
         except Exception as e:
             print e
 
@@ -766,7 +785,7 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
         # for line in s.stdout:
         #     sys.stdout.write(line)
         #     logf.write(line)
-        s.wait()
+        s.communicate()
         # s.terminate()
     except KeyboardInterrupt:
         print 'Keyboard interruption.'
@@ -786,7 +805,6 @@ if __name__ == "__main__":
     start_time = time.time()
     start_time_str = time.strftime(
         '%Y-%m-%d %H:%M:%S', time.localtime(start_time))
-    upload_time_str = time.strftime("%a %H:%M", time.localtime(start_time))
 
 
     if ros_port is None:
@@ -813,4 +831,4 @@ if __name__ == "__main__":
         sys.exit(-1)
     else:
         if record:
-            run_manager.upload_bags(upload_time_str)
+            run_manager.upload_bags()
