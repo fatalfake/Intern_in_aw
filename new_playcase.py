@@ -70,7 +70,7 @@ if __name__ == "__main__":
     roscore = AWRoscore('log', os.environ, ros_port)
     
     if vehicle is None:
-        cmd = "grep -o -E \"vehicle_id:.*\" %s/planning.yaml | awk '{print $2}'" %case_dir
+        cmd = "grep -o -E \"vehicle_id:.*\" %s/planning.yaml | awk '{print $2}' | sed \"s/,//\" " %case_dir
         sub_p = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
         v_id = sub_p.stdout.read().strip()
         print v_id

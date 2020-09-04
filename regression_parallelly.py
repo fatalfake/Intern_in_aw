@@ -676,12 +676,14 @@ class RegressionManager(object):
                 s3 = subprocess.Popen(cmd3, shell=True)
                 s3.communicate()
             print "\033[32mCompressing... \033[0m"
-            cmd1 = "for file in `ls %s | grep %s`; do pigz -9 -p 1 -k %s/${file}; done" %(record_source_dir, version, record_source_dir)
+            # cmd1 = "for file in `ls %s | grep %s`; do pigz -9 -p 1 -k %s/${file}; done" %(record_source_dir, version, record_source_dir)
+            cmd1 =  "cd %s; find . -name \"%s*\" | xargs tar cvf - | pigz -9 -p 1 -k > %s_regression_test.tar.gz" %(record_source_dir, version_date, version)
             s1 = subprocess.Popen(cmd1, shell=True)
             s1.communicate()
             print "\033[32mUploading... \033[0m"
             # cmd2 = "find %s -type f -name \"%s*.gz\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
-            cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version, record_target_dir)
+            # cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version, record_target_dir)
+            cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.tar.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version_date, record_target_dir)
             s2 = subprocess.Popen(cmd2, shell=True)
             s2.communicate()
             print "\033[32mUpload to %s done \033[0m" %record_target_dir

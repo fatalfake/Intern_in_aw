@@ -26,3 +26,9 @@ s3.communicate()
 s3code = s3.returncode
 
 print s3code
+
+cmd3 = "cd /home/autowise/qyc/pigz_hadoop_test; find . -name \"LC*\" | xargs tar cvf - | pigz -9 -p 1 -k > test.tar.gz"
+
+s4 = subprocess.Popen(cmd3, shell=True)
+
+s4.communicate()

@@ -4,10 +4,7 @@ export LC_ALL=C
 
 docker pull registry.autowise.ai/awcar:latest
 
-
-container=`docker ps | grep regression_test | head -n 1 | cut -d ' ' -f1`
-
-docker kill ${container}
+docker kill regression_test
 
 cd /home/autowise/qyc/models
 
