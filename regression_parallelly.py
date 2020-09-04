@@ -677,7 +677,7 @@ class RegressionManager(object):
                 s3.communicate()
             print "\033[32mCompressing... \033[0m"
             # cmd1 = "for file in `ls %s | grep %s`; do pigz -9 -p 1 -k %s/${file}; done" %(record_source_dir, version, record_source_dir)
-            cmd1 =  "cd %s; find . -name \"%s*\" | xargs tar cvf - | pigz -9 -p 1 -k > %s_regression_test.tar.gz" %(record_source_dir, version_date, version)
+            cmd1 =  "cd %s; find . -name \"%s*\" | xargs tar cvf - | pigz -9 -p 1 -k > %s_regression_test.tar.gz" %(record_source_dir, version, version_date + version_tail)
             s1 = subprocess.Popen(cmd1, shell=True)
             s1.communicate()
             print "\033[32mUploading... \033[0m"
