@@ -73,7 +73,7 @@ if __name__ == "__main__":
         cmd = "grep -o -E \"vehicle_id:.*\" %s/planning.yaml | awk '{print $2}' | sed \"s/,//\" " %case_dir
         sub_p = subprocess.Popen(cmd, executable='/bin/bash', stdout=subprocess.PIPE, shell=True)
         v_id = sub_p.stdout.read().strip()
-        print v_id
+        # print v_id
 
     while True:
         roscore.run()

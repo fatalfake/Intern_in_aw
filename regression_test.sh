@@ -19,7 +19,6 @@ then
     -v ~:/home/autowise/ \
     -v /usr/lib/jvm/java-8-oracle:/usr/lib/jvm/java-8-oracle \
     -v /home/autowise/qyc/models/aw_models:/opt/ros/kinetic/share/aw_models \
-    -v /home/autowise/data/regression_test/:/home/autowise/data/regression_test/ \
     -w /home/autowise/ --ulimit core=-1 --security-opt seccomp=unconfined \
     --network host --privileged=true \
     registry.autowise.ai/awcar:latest bash -c \"source /opt/ros/kinetic/setup.bash;\

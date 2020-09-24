@@ -677,13 +677,13 @@ class RegressionManager(object):
                 s3.communicate()
             print "\033[32mCompressing... \033[0m"
             # cmd1 = "for file in `ls %s | grep %s`; do pigz -9 -p 1 -k %s/${file}; done" %(record_source_dir, version, record_source_dir)
-            cmd1 =  "cd %s; find . -name \"%s*\" | xargs tar cvf - | pigz -9 -p 1 -k > %s_regression_test.tar.gz" %(record_source_dir, version, version_date + version_tail)
+            cmd1 =  "cd %s; find . -name \"%s*\" | xargs tar cvf - | pigz -9 -p 1 -k > %s_regression_test.tar.gz" %(record_source_dir, version, version_date + '_' + version_list[3] + '_' + version_tail)
             s1 = subprocess.Popen(cmd1, shell=True)
             s1.communicate()
             print "\033[32mUploading... \033[0m"
             # cmd2 = "find %s -type f -name \"%s*.gz\" -exec cp -b {} %s \";\" " %(record_source_dir, version, record_target_dir)
             # cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version, record_target_dir)
-            cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.tar.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version_date, record_target_dir)
+            cmd2 = "export HADOOP_HOME=/home/autowise/hadoop-3.1.1;export PATH=$HADOOP_HOME/bin:$PATH;find %s -type f -name \"%s*.tar.gz\" -exec hadoop fs -put {} %s \";\" " %(record_source_dir, version_date + '_' + version_list[3] + '_' + version_tail, record_target_dir)
             s2 = subprocess.Popen(cmd2, shell=True)
             s2.communicate()
             print "\033[32mUpload to %s done \033[0m" %record_target_dir
@@ -706,7 +706,32 @@ class RegressionManager(object):
             for case in self.caselist:
                 run_id = self.run_id
                 port = str(base_port)
-                base_port = base_port + 5
+                
+                check_port_cmd = "netstat -lnp | grep 127.0.0.1:"
+                check_port_process = subprocess.Popen(check_port_cmd, stdout=subprocess.PIPE, shell=True)
+                check_port_info = check_port_process.stdout.read()
+                check_port_info_lines = check_port_info.split('\n')
+                check_port_info_lines.remove(check_port_info_lines[-1])
+
+                forbid_port_list = []
+
+                for i in check_port_info_lines:
+                    j = re.split(r"[ ]+", i)
+                    l = j[3].split(':')[1]
+                    forbid_port_list.append(l)
+                    k = j[4].split(':')[1]
+                    if k != '*':
+                        forbid_port_list.append(k)
+
+                forbid_port_list = list(set(forbid_port_list))
+                forbid_port_list.sort()
+                if port in forbid_port_list:
+                    while True:
+                        port = str(int(port) + 1)
+                        if port not in forbid_port_list:
+                            break
+                
+                base_port = base_port + 1
                 case_dir = os.path.join(self.case_base, case)
                 if not os.path.exists(case_dir):
                     print "Case not found :%s " %case_dir
@@ -749,30 +774,6 @@ def run_single_case(run_id, case_dir, port, vehicle, version, record=False):
     SIMU_LOG_FILE = "simu_when%d.log" % int(run_id)
     SIMU_LOG_FILE = os.path.join(case_dir, SIMU_LOG_FILE)
     # logf = open(SIMU_LOG_FILE, 'w')            
-    
-    check_port_cmd = "netstat -lnp | grep 127.0.0.1:"
-    check_port_process = subprocess.Popen(check_port_cmd, stdout=subprocess.PIPE, shell=True)
-    check_port_info = check_port_process.stdout.read()
-    check_port_info_lines = check_port_info.split('\n')
-    check_port_info_lines.remove(check_port_info_lines[-1])
-
-    forbid_port_list = []
-
-    for i in check_port_info_lines:
-        j = re.split(r"[ ]+", i)
-        l = j[3].split(':')[1]
-        forbid_port_list.append(l)
-        k = j[4].split(':')[1]
-        if k != '*':
-            forbid_port_list.append(k)
-
-    forbid_port_list = list(set(forbid_port_list))
-    forbid_port_list.sort()
-    if port in forbid_port_list:
-        while True:
-            port = str(int(port) + 1)
-            if port not in forbid_port_list:
-                break
     
     if record == False:
         command = "python new_playcase.py %s --exit --port=%s --version=%s --run_id=%d; sleep 3" % (
