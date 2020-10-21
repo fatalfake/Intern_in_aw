@@ -1,0 +1,16 @@
+#!/bin/bash
+day=$1
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as beijing_distance from task_execution  where begin_timestamp>'$day' and park_id in ('beijing_huanbao_park','beijing_haidian_jiaxiao') group by year(begin_timestamp),week(begin_timestamp,1);" > a
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as disney_distance from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_disney') group by year(begin_timestamp),week(begin_timestamp,1);" > b
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as auto_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_auto_expo') group by year(begin_timestamp),week(begin_timestamp,1);" > c 
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as innovation_distance from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_innovation_port') group by year(begin_timestamp),week(begin_timestamp,1);" > d 
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as boschung_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('boschung_factory') group by year(begin_timestamp),week(begin_timestamp,1);" >  e
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as walmart_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('pheonix_walmart') group by year(begin_timestamp),week(begin_timestamp,1);" >  f
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as guangzhou_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('guangzhou_longhu','guangzhou_longhu_all','guangzhou_longhu_park') group by year(begin_timestamp),week(begin_timestamp,1);" >  g
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as anting_distance from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_anting_newtown') group by year(begin_timestamp),week(begin_timestamp,1);" >  h
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as songjiang_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('hanghai_songjiang_test','shanghai_songjiang_xinfeng','shanghai_tuspark') group by year(begin_timestamp),week(begin_timestamp,1);" >  i
+mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), sum(distance)/1000 as suzhou_distance  from task_execution  where begin_timestamp>'$day' and park_id in ('suzhou_station_square','suzhou_xiangcheng_all','suzhou_xiangcheng_demo','suzhou_demo_park') group by year(begin_timestamp),week(begin_timestamp,1);" > j 
+
+
+
+python union.py a b c d e f g h i j |sort > result.distance
