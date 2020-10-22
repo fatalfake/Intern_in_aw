@@ -1,5 +1,11 @@
 #!/bin/bash
-day=$1
+thismonday=`date -d "last monday" +"%Y-%m-%d %H:%M:%S"`
+# echo ${thismonday}
+# date -d "${thismonday}" +%V
+fourteenweeksago=`date -d "${thismonday} 14 weeks ago" +"%Y-%m-%d %H:%M:%S"`
+# echo ${fourteenweeksago}
+# date -d "${fourteenweeksago} " +%V
+day=$fourteenweeksago
 mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), year(begin_timestamp),sum(timestampdiff(MINUTE,begin_timestamp,end_timestamp))/60 as beijing_duration, sum(distance)/1000 as beijing_distance,  count(distinct(vehicle_id)) as beijing_vehicles from task_execution  where begin_timestamp>'$day' and park_id in ('beijing_huanbao_park','beijing_haidian_jiaxiao') group by year(begin_timestamp),week(begin_timestamp,1);" > a
 mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), year(begin_timestamp),sum(timestampdiff(MINUTE,begin_timestamp,end_timestamp))/60 as disney_duration, sum(distance)/1000 as disney_distance,  count(distinct(vehicle_id)) as disney_vehicles from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_disney') group by year(begin_timestamp),week(begin_timestamp,1);" > b
 mysql -uaw_monitor -hszjjh-webserver.szjjh.autowise.ai -p123Qwe aw_monitor_system -e "select week(begin_timestamp,1), year(begin_timestamp),sum(timestampdiff(MINUTE,begin_timestamp,end_timestamp))/60 as auto_duration, sum(distance)/1000 as auto_distance,  count(distinct(vehicle_id)) as auto_vehicles from task_execution  where begin_timestamp>'$day' and park_id in ('shanghai_auto_expo') group by year(begin_timestamp),week(begin_timestamp,1);" > c 
