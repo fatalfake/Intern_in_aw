@@ -14,7 +14,7 @@ def get_this_monday():
     this_monday = today.strftime('%Y%m%d')
     return this_monday
 
-print get_this_monday()
+print (get_this_monday())
 
 def get_start_date():
 
@@ -29,5 +29,5 @@ def get_start_date():
 
     return start_date
 
-print get_start_date().strftime('%Y-%m-%d %H:%M:%S')
+print (get_start_date().strftime('%Y-%m-%d %H:%M:%S'))
 
