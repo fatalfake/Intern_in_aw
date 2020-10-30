@@ -1,0 +1,2 @@
+from pyecharts.globals import WarningType
+WarningType.ShowWarning = False
