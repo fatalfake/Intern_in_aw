@@ -1,0 +1,3 @@
+/home/autowise/qyc/aw_simulation_obstacle_new/CMakeFiles/edit_cache.dir
+/home/autowise/qyc/aw_simulation_obstacle_new/CMakeFiles/rebuild_cache.dir
+/home/autowise/qyc/aw_simulation_obstacle_new/CMakeFiles/obstacle_restorer_node.dir
