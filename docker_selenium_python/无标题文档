@@ -1,0 +1,4 @@
+docker build . -t snapshot_selenium_python:v1
+
+docker run -ti --rm --name snapshot_generate -v /home/autowise/qyc/script_new/:/home --network host --privileged=true snapshot_selenium_python:v1 bash -c "python week_operation_data_update_pyecharts.py; rm -r newuser; rm render.html"
+

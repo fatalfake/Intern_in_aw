@@ -408,21 +408,21 @@ if __name__ == "__main__":
     page = Page()
     line1 = draw_chart1(x_data_temp, y_data_vehicle, "每周投入车辆（单位：辆）", "投入车辆数")
     page.add(line1)
-    make_snapshot(snapshot, line1.render(), "line1.png")
+    make_snapshot(snapshot, line1.render(), "每周投入车辆.png")
 
     line2 = draw_chart1(x_data_temp, y_data_duration,
                         "每周总测试时间（单位：小时）", "测试小时数")
     page.add(line2)
-    make_snapshot(snapshot, line2.render(), "line2.png")
+    make_snapshot(snapshot, line2.render(), "每周总测试时间.png")
 
     line3 = draw_chart1(x_data_temp, y_data_distance, "每周总测试里程（单位：公里）", "公里")
     page.add(line3)
-    make_snapshot(snapshot, line3.render(), "line3.png")
+    make_snapshot(snapshot, line3.render(), "每周总测试里程.png")
 
     line4 = draw_chart1(x_data_temp, y_data_duration_avg,
                         "每周平均每台车每天测试时长（单位：小时）", "每周平均每台车每天测试时长")
     page.add(line4)
-    make_snapshot(snapshot, line4.render(), "line4.png")
+    make_snapshot(snapshot, line4.render(), "每周平均每台车每天测试时长.png")
 
     y_axis = ["接管次数", "停止次数", "测试时间", "测试里程", "投入车辆数", "平均每台车每天测试时长"]
     unit = ["次", "次", "小时", "公里", "辆", "小时"]
@@ -431,11 +431,11 @@ if __name__ == "__main__":
     line5 = draw_chart2(
         x_data_temp, y_data_static[2], y_data_static[3], y_axis[2], y_axis[3], unit[2], unit[3], title1)
     page.add(line5)
-    make_snapshot(snapshot, line5.render(), "line5.png")
+    make_snapshot(snapshot, line5.render(), "周测试时间-里程汇总.png")
 
     line6 = draw_chart2(
         x_data_temp, y_data_static[4], y_data_static[5], y_axis[4], y_axis[5], unit[4], unit[5], title2)
     page.add(line6)
-    make_snapshot(snapshot, line6.render(), "line6.png")
+    make_snapshot(snapshot, line6.render(), "投入车辆-平均每台车每天测试时长.png")
 
     page.render("result.html")
