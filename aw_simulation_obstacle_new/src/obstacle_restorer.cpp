@@ -219,73 +219,73 @@ namespace aw
                 std::stack<aw_idl::LocalizedPose> loc_data_temp = loc_data_;
                 std::vector<double> loc_data_temp_x;
                 std::vector<double> loc_data_temp_y;
-        for(int i=0;i<(min(5, loc_data_temp.size());i++){
+                for(int i=0;i<(min(5, loc_data_temp.size());i++){
                     aw_idl::LocalizedPose localized_pose_temp = loc_data_temp.top();
                     loca_data_temp.pop();
                     loc_data_temp_x.push_back(localized_pose_temp.utm_east);
                     loc_data_temp_y.push_back(localized_pose_temp.utm_north);
-        }
+                }
 
-        double A=0.0, B=0.0, C=0.0, D=0.0, E= 0.0, F = 0.0;
-        for (int i=0; i<loc_data_temp_x.size(); i++){
-                    A += loc_data_temp_x[i] * loc_data_temp_x[i];
-                    B += loc_data_temp_x[i];
-                    C += loc_data_temp_x[i] * loc_data_temp_y[i];
-                    D += loc_data_temp_y[i];
-        }
-        double loc_data_a, loc_data_b, test_denominator = 0.0;
-        if(test_denominator = (loc_data_temp_x.size()*A -B*B) ){
-                    loc_data_a = (loc_data_temp_x.size() * C - B * D) / test_denominator;
-                    loc_data_b = (A * D - B * C) / test_denominator;
-        }else{
-                    loc_data_a = 1;
-                    loc_data_b = 0;
-        }
-        // y = loc_data_a * x+loc_data_b
-        double robot_utm_east_temp =  localized_pose.utm_east;
-        double robot_utm_north_temp = robot_utm_east_temp*loc_data_a + loc_data_b;
-        
-        double robot_utm_east_temp1 = robot_utm_east+10;
-        double robot_utm_north_temp1 = robot_utm_east_temp1*loc_data_a + loc_data_b;
+                double A=0.0, B=0.0, C=0.0, D=0.0, E= 0.0, F = 0.0;
+                for (int i=0; i<loc_data_temp_x.size(); i++){
+                            A += loc_data_temp_x[i] * loc_data_temp_x[i];
+                            B += loc_data_temp_x[i];
+                            C += loc_data_temp_x[i] * loc_data_temp_y[i];
+                            D += loc_data_temp_y[i];
+                }
+                double loc_data_a, loc_data_b, test_denominator = 0.0;
+                if(test_denominator = (loc_data_temp_x.size()*A -B*B) ){
+                            loc_data_a = (loc_data_temp_x.size() * C - B * D) / test_denominator;
+                            loc_data_b = (A * D - B * C) / test_denominator;
+                }else{
+                            loc_data_a = 1;
+                            loc_data_b = 0;
+                }
+                // y = loc_data_a * x+loc_data_b
+                double robot_utm_east_temp =  localized_pose.utm_east;
+                double robot_utm_north_temp = robot_utm_east_temp*loc_data_a + loc_data_b;
+                
+                double robot_utm_east_temp1 = robot_utm_east+10;
+                double robot_utm_north_temp1 = robot_utm_east_temp1*loc_data_a + loc_data_b;
 
-        //线段1 是(robot_utm_east_temp, robot_utm_north_temp)， (robot_utm_east_temp1, robot_utm_north_temp1)
+                //线段1 是(robot_utm_east_temp, robot_utm_north_temp)， (robot_utm_east_temp1, robot_utm_north_temp1)
 
-        while (it->second.current_pos < it->second.total_size 
-               && time_passed > state_list->dynamic_obstacle_state(it->second.current_pos).nsecs()) {
-                    time_passed -= state_list->dynamic_obstacle_state(it->second.current_pos).nsecs();
-                    it->second.fusion_map_stamp += state_list->dynamic_obstacle_state(it->second.current_pos).nsecs(); // 障碍物的时间
-                    if (not 在未来某个时期相撞)
-                        it->second.current_pos++;
-        }
+                while (it->second.current_pos < it->second.total_size 
+                    && time_passed > state_list->dynamic_obstacle_state(it->second.current_pos).nsecs()) {
+                            time_passed -= state_list->dynamic_obstacle_state(it->second.current_pos).nsecs();
+                            it->second.fusion_map_stamp += state_list->dynamic_obstacle_state(it->second.current_pos).nsecs(); // 障碍物的时间
+                            if (not 在未来某个时期相撞)
+                                it->second.current_pos++;
+                }
 
-        const aw_simulation_obstacle::DynamicObstacleState & state 
-                = state_list->dynamic_obstacle_state(it->second.current_pos);
-        double x_utm_relative1 = state.robot_x();
-        double y_utm_relative1 = state.robot_y();
-        double step = dynamic_obstacle_[it->first]->dynamic_obstacle_state(it->second.current_pos).nsecs();
+                const aw_simulation_obstacle::DynamicObstacleState & state 
+                        = state_list->dynamic_obstacle_state(it->second.current_pos);
+                double x_utm_relative1 = state.robot_x();
+                double y_utm_relative1 = state.robot_y();
+                double step = dynamic_obstacle_[it->first]->dynamic_obstacle_state(it->second.current_pos).nsecs();
 
-        double x_utm_relative2 
-                = state_list->dynamic_obstacle_state(it->second.current_pos - 1).robot_x();
-        double y_utm_relative2 
-                = state_list->dynamic_obstacle_state(it->second.current_pos - 1).robot_y();
+                double x_utm_relative2 
+                        = state_list->dynamic_obstacle_state(it->second.current_pos - 1).robot_x();
+                double y_utm_relative2 
+                        = state_list->dynamic_obstacle_state(it->second.current_pos - 1).robot_y();
 
-        double robot_x = (x_utm_relative1 - x_utm_relative2);
-        double robot_y = (y_utm_relative1 - y_utm_relative2);
-        //double pi_angle = atan2(robot_y, robot_x);
-        
-        x_utm_relative1 -= robot_utm_east;
-        y_utm_relative1 -= robot_utm_north;
-        x_utm_relative2 -= robot_utm_east;
-        y_utm_relative2 -= robot_utm_north;
-        robot_x = robot_x / step * time_passed + x_utm_relative2;
-        robot_y = robot_y / step * time_passed + y_utm_relative2;
-        double sin_robot_utm_yaw = sin(robot_utm_yaw);
-        double cos_robot_utm_yaw = cos(robot_utm_yaw);
-        obstacle.robot_x = robot_x * cos_robot_utm_yaw + robot_y * sin_robot_utm_yaw;
-        obstacle.robot_y = robot_y * cos_robot_utm_yaw - robot_x * sin_robot_utm_yaw;
-        obstacle.robot_z = state.robot_z();
-        
-        for (int i = 0; i < state.points_size(); i++) {
+                double robot_x = (x_utm_relative1 - x_utm_relative2);
+                double robot_y = (y_utm_relative1 - y_utm_relative2);
+                //double pi_angle = atan2(robot_y, robot_x);
+                
+                x_utm_relative1 -= robot_utm_east;
+                y_utm_relative1 -= robot_utm_north;
+                x_utm_relative2 -= robot_utm_east;
+                y_utm_relative2 -= robot_utm_north;
+                robot_x = robot_x / step * time_passed + x_utm_relative2;
+                robot_y = robot_y / step * time_passed + y_utm_relative2;
+                double sin_robot_utm_yaw = sin(robot_utm_yaw);
+                double cos_robot_utm_yaw = cos(robot_utm_yaw);
+                obstacle.robot_x = robot_x * cos_robot_utm_yaw + robot_y * sin_robot_utm_yaw;
+                obstacle.robot_y = robot_y * cos_robot_utm_yaw - robot_x * sin_robot_utm_yaw;
+                obstacle.robot_z = state.robot_z();
+                
+                for (int i = 0; i < state.points_size(); i++) {
                     double x = state.points(i).x() - robot_utm_east;
                     double y = state.points(i).y() - robot_utm_north;
                     geometry_msgs::Point32 p;
@@ -293,9 +293,9 @@ namespace aw
                     p.y = y * cos_robot_utm_yaw - x * sin_robot_utm_yaw;
                     p.z = state.points(i).z();
                     obstacle.points.push_back(p);
-        }
+                }
 
-        if (state.polygon_size() > 0) {
+                if (state.polygon_size() > 0) {
                     for (int i = 0; i < state.polygon_size(); i++)
                     {
                         double x = state.polygon(i).x() - robot_utm_east;
@@ -306,7 +306,7 @@ namespace aw
                         p.z = state.polygon(i).z();
                         obstacle.polygon.points.push_back(p);
                     }
-        } else {
+                } else {
                     double pi_angle = atan2(state.relative_velo_y(), state.relative_velo_x());
                     double cos_pi_angle = cos(pi_angle);
                     double sin_pi_angle = sin(pi_angle);
@@ -338,26 +338,26 @@ namespace aw
                     p.y = other_robot_y * cos_robot_utm_yaw - other_robot_x * sin_robot_utm_yaw;
                     p.z = 0.0;
                     obstacle.polygon.points.push_back(p);
-        }
-        double velo = hypot(state.relative_velo_x(), state.relative_velo_y());
-        if (it->second.replay_times == kReplayTimesNotSet && velo > kStaticVeloThreshold) {
-                    it->second.replay_times = kDynamicReplayTimes;
-        }
-        double velo_x = state.relative_velo_x() * cos_robot_utm_yaw + state.relative_velo_y() * sin_robot_utm_yaw;
-        double velo_y = state.relative_velo_y() * cos_robot_utm_yaw - state.relative_velo_x() * sin_robot_utm_yaw;
-        double r_x = localized_pose.omega_yaw * obstacle.robot_y;
-        double r_y = -localized_pose.omega_yaw * obstacle.robot_x;
-        obstacle.relative_velo_x = velo_x - localized_pose.velo_robot_x + r_x;
-        obstacle.relative_velo_y = velo_y - localized_pose.velo_robot_y + r_y; 
-        obstacle.relative_velo_z = state.relative_acc_z();
-        obstacle.relative_acc_x = state.relative_acc_x() - localized_pose.acc_robot_x;
-        obstacle.relative_acc_y = state.relative_acc_y() - localized_pose.acc_robot_y;
-        obstacle.relative_acc_z = state.relative_acc_z();
-        obstacle.object_type = state.object_type();
+                }
+                double velo = hypot(state.relative_velo_x(), state.relative_velo_y());
+                if (it->second.replay_times == kReplayTimesNotSet && velo > kStaticVeloThreshold) {
+                            it->second.replay_times = kDynamicReplayTimes;
+                }
+                double velo_x = state.relative_velo_x() * cos_robot_utm_yaw + state.relative_velo_y() * sin_robot_utm_yaw;
+                double velo_y = state.relative_velo_y() * cos_robot_utm_yaw - state.relative_velo_x() * sin_robot_utm_yaw;
+                double r_x = localized_pose.omega_yaw * obstacle.robot_y;
+                double r_y = -localized_pose.omega_yaw * obstacle.robot_x;
+                obstacle.relative_velo_x = velo_x - localized_pose.velo_robot_x + r_x;
+                obstacle.relative_velo_y = velo_y - localized_pose.velo_robot_y + r_y; 
+                obstacle.relative_velo_z = state.relative_acc_z();
+                obstacle.relative_acc_x = state.relative_acc_x() - localized_pose.acc_robot_x;
+                obstacle.relative_acc_y = state.relative_acc_y() - localized_pose.acc_robot_y;
+                obstacle.relative_acc_z = state.relative_acc_z();
+                obstacle.object_type = state.object_type();
 
-        fusion_map_true_pub_.dynamic_obstacle_list.push_back(obstacle);
+                fusion_map_true_pub_.dynamic_obstacle_list.push_back(obstacle);
 
-        if (it->second.current_pos >= it->second.total_size) {
+                if (it->second.current_pos >= it->second.total_size) {
                     if (it->second.replay_times == kReplayTimesNotSet)
                     {
                         it->second.replay_times = kStaticReplayTimes;
@@ -376,9 +376,9 @@ namespace aw
                         dynamic_obstacle_list.push_back(it->first);
                         dynamic_obstacle_id_doing_.erase(it++);
                     }
-        } else {
+                } else {
                     it++;
-        }
+                }
             }
         }
 
