@@ -12,6 +12,7 @@ CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kine
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_idl/FusionMap.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_idl/HingeState.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_idl/LocalizedPose.h
+CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_idl/TrajectoryPose.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacle.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacleRequest.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacleResponse.h
@@ -87,6 +88,7 @@ CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_idl/FusionMap.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_idl/HingeState.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_idl/LocalizedPose.h
+CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_idl/TrajectoryPose.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacle.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacleRequest.h
 CMakeFiles/obstacle_restorer_node.dir/src/obstacle_restorer_node.cpp.o: /opt/ros/kinetic/include/aw_simulation_obstacle/RestoreObstacleResponse.h
