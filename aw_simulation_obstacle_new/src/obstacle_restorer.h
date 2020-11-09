@@ -1,5 +1,5 @@
-#ifndef AW_AW_SIMULATION_OBSTACLE_RESTORER_H_
-#define AW_AW_SIMULATION_OBSTACLE_RESTORER_H_
+#ifndef AW_AW_SIMULATION_OBSTACLE_RESTORER_NEW_H_
+#define AW_AW_SIMULATION_OBSTACLE_RESTORER_NEW_H_
 
 #include <ros/ros.h>
 #include <string>
@@ -7,7 +7,6 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <aw_idl/FusionMap.h>
-#include <aw_idl/TrajectoryPose.h>
 #include <stdio.h>
 #include <sys/time.h>
 #include <mutex>
@@ -37,9 +36,6 @@ private:
     void LocalizedPoseCallback(
         const aw_idl::LocalizedPose& localized_pose);
 
-    void TrajectoryPoseCallback(
-        const aw_idl::TrajectoryPose& trajectory_pose);
-
     void Comp(
         const aw_idl::LocalizedPose& localized_pose);
 
@@ -51,11 +47,7 @@ private:
     
     ros::Subscriber localized_pose_subscriber_;
 
-    ros::Subscriber trajectory_pose_subscriber_;
-
     aw_idl::LocalizedPose localized_pose_;
-
-    aw_idl::TrajectoryPose trajectory_pose_;
 
     aw_idl::FusionMap fusion_map_true_;
     uint32_t* fusion_map_true_seg_size_;
@@ -93,15 +85,9 @@ private:
 
     uint64_t secs_;
     uint64_t nsecs_;
-    double utm_east_;
-    double utm_north_;
-    double yaw_;
-    double vel_;
-    double acc_;
     uint64_t fusion_map_step_;
     std::mutex mtx_obstacle_;
     std::stack<aw_idl::LocalizedPose> loc_data_;
-    std::stack<aw_idl::TrajectoryPose> tra_data_;
     std::mutex mtx_data_;
 
 private:

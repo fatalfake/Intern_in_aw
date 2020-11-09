@@ -197,137 +197,76 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
         std::shared_ptr<aw_simulation_obstacle::DynamicObstacleStateList> state_list = dynamic_obstacle_[it->first];
 
         /******start*****/
-        // std::stack<aw_idl::LocalizedPose> loc_data_temp = loc_data_;
-        // std::vector<double> loc_data_temp_x;
-        // std::vector<double> loc_data_temp_y;
-        // localized_pose_temp = loc_data_.top();
+        std::stack<aw_idl::LocalizedPose> loc_data_temp = loc_data_;
+        std::vector<double> loc_data_temp_x;
+        std::vector<double> loc_data_temp_y;
 
-        int param1 = 3;
+        int param1=5, param2=5;
         bool will_collide = false;
 
-        double cur_velo_north = localized_pose.velo_north;
-        double cur_velo_east = localized_pose.velo_east;
-
-        const aw_simulation_obstacle::DynamicObstacleState & state_ 
-                = state_list->dynamic_obstacle_state(it->second.current_pos);
-        double x_utm_relative1_ = state_.robot_x();
-        double y_utm_relative1_ = state_.robot_y();
-        double velo_x_ = state_.relative_velo_x();
-        double velo_y_ = state_.relative_velo_y();
-        double step_ = state_.nsecs();
-
-        // ROS_INFO_STREAM("x_utm_relative1_"); 是绝对坐标
-        // ROS_INFO_STREAM(x_utm_relative1_);
-        // ROS_INFO_STREAM("y_utm_relative1_");
-        // ROS_INFO_STREAM(y_utm_relative1_);
-        // ROS_INFO_STREAM("step_");
-        // ROS_INFO_STREAM(step_); 
-        // 一个pos大约2e8纳秒
-
-        //用当前点+速度×时间预测是否会碰撞效果不是很好。下一步打算：先搞清楚自车预测轨迹怎么能拿到，然后再搞清楚障碍物两个邻近pos线段怎么能不出错的拿到。然后挨个线段计算
-
-        double esti_utm_north = cur_velo_north * param1 + robot_utm_north;
-        double esti_utm_east = cur_velo_east * param1 + robot_utm_east;
-        double robot_utm_north_ = robot_utm_north - cur_velo_north * 5;
-        double robot_utm_east_ = robot_utm_east - cur_velo_east * 5;
-        //线段1 是(robot_utm_east_, robot_utm_north_) xa ya， (esti_utm_east, esti_utm_north) xb yb
-
-        //线段2 是(x_utm_relative1_, y_utm_relative1_)xa ya, (x_utm_relative2_, y_utm_relative2_) xb yb
-        double x_utm_relative2_ = velo_x_ * param1 + x_utm_relative1_;
-        double y_utm_relative2_ = velo_y_ * param1 + y_utm_relative1_;
-
-        double res1, res2, res3, res4;
-
-        if(std::max(robot_utm_east_, esti_utm_east) < std::min(x_utm_relative1_, x_utm_relative2_) ||
-           std::max(x_utm_relative1_, x_utm_relative2_) < std::min(robot_utm_east_, esti_utm_east) ||
-           std::max(robot_utm_north_, esti_utm_north) < std::min(y_utm_relative1_, y_utm_relative2_) ||
-           std::max(y_utm_relative1_, y_utm_relative2_) < std::min(robot_utm_north_, esti_utm_north) ) {
-               will_collide =false;
-        } else{
-            res1 = (robot_utm_east_ - esti_utm_east) * (y_utm_relative1_ - esti_utm_north) - (robot_utm_north_ - esti_utm_north) * (x_utm_relative1_ - esti_utm_east);
-	        res2 = (robot_utm_east_ - esti_utm_east) * (y_utm_relative2_ - esti_utm_north) - (robot_utm_north_ - esti_utm_north) * (x_utm_relative2_ - esti_utm_east);
-	        res3 = (x_utm_relative1_ - x_utm_relative2_) * (robot_utm_north_ - y_utm_relative2_) - (y_utm_relative1_ - y_utm_relative2_) * (robot_utm_east_ - x_utm_relative2_);
-	        res4 = (x_utm_relative1_ - x_utm_relative2_) * (esti_utm_north - y_utm_relative2_) - (y_utm_relative1_ - y_utm_relative2_) * (esti_utm_east - x_utm_relative2_);
-
-            if(res1 * res2 <= 0 && res3 * res4 <= 0) {
-                will_collide = true;
-                ROS_INFO_STREAM("*****************************************************GONNA COLLIDE");
-            }
+        aw_idl::LocalizedPose localized_pose_temp;
+        for(int i=0;i<(std::min(param1, (int)loc_data_temp.size()));i++){
+            localized_pose_temp = loc_data_temp.top();
+            loc_data_temp.pop();
+            loc_data_temp_x.push_back(localized_pose_temp.utm_east);
+            loc_data_temp_y.push_back(localized_pose_temp.utm_north);
         }
         
-        // ROS_INFO_STREAM("x_utm_relative2_");
-        // ROS_INFO_STREAM(x_utm_relative2_);
-        // ROS_INFO_STREAM("esti_utm_east");
-        // ROS_INFO_STREAM(y_utm_relative2_);
-
-        // ROS_INFO_STREAM("esti_utm_north");
-        // ROS_INFO_STREAM(esti_utm_north);
-        // ROS_INFO_STREAM("esti_utm_east");
-        // ROS_INFO_STREAM(esti_utm_east);
-
-        
-        // for(int i=0;i<(std::min(param1, (int)loc_data_temp.size()));i++){
-        //     localized_pose_temp = loc_data_temp.top();
-        //     loc_data_temp.pop();
-        //     loc_data_temp_x.push_back(localized_pose_temp.utm_east);
-        //     loc_data_temp_y.push_back(localized_pose_temp.utm_north);
-        // }
-        
-        // double A=0.0, B=0.0, C=0.0, D=0.0, E= 0.0, F = 0.0;
-        // for (uint32_t i=0; i<loc_data_temp_x.size(); i++){
-        //             A += loc_data_temp_x[i] * loc_data_temp_x[i];
-        //             B += loc_data_temp_x[i];
-        //             C += loc_data_temp_x[i] * loc_data_temp_y[i];
-        //             D += loc_data_temp_y[i];
-        // }
-        // double loc_data_a, loc_data_b, test_denominator = 0.0;
-        // if((test_denominator = (loc_data_temp_x.size()*A -B*B))){
-        //     loc_data_a = (loc_data_temp_x.size() * C - B * D) / test_denominator;
-        //     loc_data_b = (A * D - B * C) / test_denominator;
+        double A=0.0, B=0.0, C=0.0, D=0.0, E= 0.0, F = 0.0;
+        for (uint32_t i=0; i<loc_data_temp_x.size(); i++){
+                    A += loc_data_temp_x[i] * loc_data_temp_x[i];
+                    B += loc_data_temp_x[i];
+                    C += loc_data_temp_x[i] * loc_data_temp_y[i];
+                    D += loc_data_temp_y[i];
+        }
+        double loc_data_a, loc_data_b, test_denominator = 0.0;
+        if((test_denominator = (loc_data_temp_x.size()*A -B*B))){
+            loc_data_a = (loc_data_temp_x.size() * C - B * D) / test_denominator;
+            loc_data_b = (A * D - B * C) / test_denominator;
                 
-        //     // y = loc_data_a * x+loc_data_b
-        //     loc_data_temp_x.clear();
-        //     loc_data_temp_y.clear();
-        //     ROS_INFO_STREAM("The line is:!!!!!!!");
-        //     ROS_INFO_STREAM(loc_data_a);
-        //     ROS_INFO_STREAM(loc_data_b);
-        //     double robot_utm_east_temp =  localized_pose.utm_east;
-        //     double robot_utm_north_temp = robot_utm_east_temp*loc_data_a + loc_data_b;
+            // y = loc_data_a * x+loc_data_b
+            loc_data_temp_x.clear();
+            loc_data_temp_y.clear();
+            ROS_INFO_STREAM("The line is:!!!!!!!");
+            ROS_INFO_STREAM(loc_data_a);
+            ROS_INFO_STREAM(loc_data_b);
+            double robot_utm_east_temp =  localized_pose.utm_east;
+            double robot_utm_north_temp = robot_utm_east_temp*loc_data_a + loc_data_b;
             
-        //     double robot_utm_east_temp1 = robot_utm_east+5;
-        //     double robot_utm_north_temp1 = robot_utm_east_temp1*loc_data_a + loc_data_b;
+            double robot_utm_east_temp1 = robot_utm_east+5;
+            double robot_utm_north_temp1 = robot_utm_east_temp1*loc_data_a + loc_data_b;
 
-        //     //线段1 是(robot_utm_east_temp, robot_utm_north_temp) xa ya， (robot_utm_east_temp1, robot_utm_north_temp1) xb yb
+            //线段1 是(robot_utm_east_temp, robot_utm_north_temp) xa ya， (robot_utm_east_temp1, robot_utm_north_temp1) xb yb
 
-        //     //线段2 是(east_, north_)xa ya, (east1_, north1_) xb yb
-        //     double east_, north_, east1_, north1_, res1, res2, res3, res4;
-        //     for(uint32_t i=it->second.current_pos; i<it->second.current_pos+param2; i++){
-        //         east_ = state_list->dynamic_obstacle_state(i).robot_x();
-        //         north_ = state_list->dynamic_obstacle_state(i).robot_y();
-        //         east1_ = state_list->dynamic_obstacle_state(i+1).robot_x();
-        //         north1_ = state_list->dynamic_obstacle_state(i+1).robot_y();
-        //         if(std::max(robot_utm_east_temp1, robot_utm_east_temp) < std::min(east1_, east_) ||
-        //             std::max(east1_, east_) < std::min(robot_utm_east_temp1, robot_utm_east_temp) ||
-        //             std::max(robot_utm_north_temp1, robot_utm_north_temp) < std::min(north1_, north_) ||
-        //             std::max(north_, north_) < std::min(robot_utm_north_temp1, robot_utm_north_temp) ) {
-        //                 will_collide =false;
-        //                 continue;
-        //             }
-        //         res1 = (robot_utm_east_temp - robot_utm_east_temp1) * (north_ - robot_utm_east_temp1) - (robot_utm_north_temp - robot_utm_north_temp1) * (east_ - robot_utm_east_temp1);
-        //         res2 = (robot_utm_east_temp - robot_utm_east_temp1) * (north1_ - robot_utm_east_temp1) - (robot_utm_north_temp - robot_utm_north_temp1) * (east1_ - robot_utm_east_temp1);
-        //         res3 = (east_ - east1_) * (robot_utm_north_temp - north1_) - (north_ - north1_) * (robot_utm_east_temp - east1_);
-        //         res4 = (east_ - east1_) * (robot_utm_north_temp1 - north1_) - (north_ - north1_) * (robot_utm_east_temp1 - east1_);
+            //线段2 是(east_, north_)xa ya, (east1_, north1_) xb yb
+            double east_, north_, east1_, north1_, res1, res2, res3, res4;
+            for(uint32_t i=it->second.current_pos; i<it->second.current_pos+param2; i++){
+                east_ = state_list->dynamic_obstacle_state(i).robot_x();
+                north_ = state_list->dynamic_obstacle_state(i).robot_y();
+                east1_ = state_list->dynamic_obstacle_state(i+1).robot_x();
+                north1_ = state_list->dynamic_obstacle_state(i+1).robot_y();
+                if(std::max(robot_utm_east_temp1, robot_utm_east_temp) < std::min(east1_, east_) ||
+                    std::max(east1_, east_) < std::min(robot_utm_east_temp1, robot_utm_east_temp) ||
+                    std::max(robot_utm_north_temp1, robot_utm_north_temp) < std::min(north1_, north_) ||
+                    std::max(north_, north_) < std::min(robot_utm_north_temp1, robot_utm_north_temp) ) {
+                        will_collide =false;
+                        continue;
+                    }
+                res1 = (robot_utm_east_temp - robot_utm_east_temp1) * (north_ - robot_utm_east_temp1) - (robot_utm_north_temp - robot_utm_north_temp1) * (east_ - robot_utm_east_temp1);
+                res2 = (robot_utm_east_temp - robot_utm_east_temp1) * (north1_ - robot_utm_east_temp1) - (robot_utm_north_temp - robot_utm_north_temp1) * (east1_ - robot_utm_east_temp1);
+                res3 = (east_ - east1_) * (robot_utm_north_temp - north1_) - (north_ - north1_) * (robot_utm_east_temp - east1_);
+                res4 = (east_ - east1_) * (robot_utm_north_temp1 - north1_) - (north_ - north1_) * (robot_utm_east_temp1 - east1_);
 
-        //         if(res1 * res2 <= 0 && res3 * res4 <= 0) {
-        //             will_collide = true;
-        //             break;
-        //         }
-        //     }
-        // } 
-        // else{
-        //     loc_data_a = 1;
-        //     loc_data_b = 0;
-        // }
+                if(res1 * res2 <= 0 && res3 * res4 <= 0) {
+                    will_collide = true;
+                    break;
+                }
+            }
+        } 
+        else{
+            loc_data_a = 1;
+            loc_data_b = 0;
+        }
 
         /*****end*****/
 
@@ -335,11 +274,7 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
                && time_passed > state_list->dynamic_obstacle_state(it->second.current_pos).nsecs()) {
             time_passed -= state_list->dynamic_obstacle_state(it->second.current_pos).nsecs();
             it->second.fusion_map_stamp += state_list->dynamic_obstacle_state(it->second.current_pos).nsecs(); // 障碍物的时间
-            if(!will_collide){
-                it->second.current_pos++;
-            }else{
-
-            }
+            it->second.current_pos++;
         }
 
         const aw_simulation_obstacle::DynamicObstacleState & state 
