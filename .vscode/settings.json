@@ -59,6 +59,8 @@
         "utility": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "optional": "cpp",
+        "future": "cpp"
     }
 }

@@ -202,6 +202,8 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
         // std::vector<double> loc_data_temp_y;
         // localized_pose_temp = loc_data_.top();
 
+        /***
+
         int param1 = 3;
         bool will_collide = false;
 
@@ -224,12 +226,10 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
         // ROS_INFO_STREAM(step_); 
         // 一个pos大约2e8纳秒
 
-        //用当前点+速度×时间预测是否会碰撞效果不是很好。下一步打算：先搞清楚自车预测轨迹怎么能拿到，然后再搞清楚障碍物两个邻近pos线段怎么能不出错的拿到。然后挨个线段计算
-
         double esti_utm_north = cur_velo_north * param1 + robot_utm_north;
         double esti_utm_east = cur_velo_east * param1 + robot_utm_east;
-        double robot_utm_north_ = robot_utm_north - cur_velo_north * 5;
-        double robot_utm_east_ = robot_utm_east - cur_velo_east * 5;
+        double robot_utm_north_ = robot_utm_north - cur_velo_north * 5 - 4 * cos_robot_utm_yaw;
+        double robot_utm_east_ = robot_utm_east - cur_velo_east * 5 - 4 * sin_robot_utm_yaw;
         //线段1 是(robot_utm_east_, robot_utm_north_) xa ya， (esti_utm_east, esti_utm_north) xb yb
 
         //线段2 是(x_utm_relative1_, y_utm_relative1_)xa ya, (x_utm_relative2_, y_utm_relative2_) xb yb
@@ -254,6 +254,8 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
                 ROS_INFO_STREAM("*****************************************************GONNA COLLIDE");
             }
         }
+
+        **/
         
         // ROS_INFO_STREAM("x_utm_relative2_");
         // ROS_INFO_STREAM(x_utm_relative2_);
@@ -335,11 +337,11 @@ void ObstacleRestorer::ProcessDoingCreateDynamicObstacle(const aw_idl::Localized
                && time_passed > state_list->dynamic_obstacle_state(it->second.current_pos).nsecs()) {
             time_passed -= state_list->dynamic_obstacle_state(it->second.current_pos).nsecs();
             it->second.fusion_map_stamp += state_list->dynamic_obstacle_state(it->second.current_pos).nsecs(); // 障碍物的时间
-            if(!will_collide){
+            // if(!will_collide){
                 it->second.current_pos++;
-            }else{
+            // }else{
 
-            }
+            // }
         }
 
         const aw_simulation_obstacle::DynamicObstacleState & state 

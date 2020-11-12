@@ -17,6 +17,8 @@
 #include "dynamic_obstacle.pb.h"
 #include <mutex>
 
+#include "geometry_msgs/Point.h"
+
 namespace aw {
 namespace simulation {
 

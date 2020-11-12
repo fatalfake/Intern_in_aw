@@ -113,6 +113,8 @@ dynamic_obstacle.pb.h
 /home/autowise/qyc/aw_simulation_obstacle_new/src/dynamic_obstacle.pb.h
 mutex
 -
+geometry_msgs/Point.h
+/home/autowise/qyc/aw_simulation_obstacle_new/src/geometry_msgs/Point.h
 
 /home/autowise/qyc/aw_simulation_obstacle_new/src/obstacle_restorer_node.cpp
 ros/ros.h

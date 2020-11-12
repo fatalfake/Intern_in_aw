@@ -462,3 +462,25 @@ void ObstacleRestorer::run() {
 }
 }
 
+        //线段1 是(robot_utm_east_, robot_utm_north_) xa ya， (esti_utm_east, esti_utm_north) xb yb
+
+        //线段2 是(x_utm_relative1_, y_utm_relative1_)xa ya, (x_utm_relative2_, y_utm_relative2_) xb yb
+
+        double res1, res2, res3, res4;
+
+        if(std::max(robot_utm_east_, esti_utm_east) < std::min(x_utm_relative1_, x_utm_relative2_) ||
+           std::max(x_utm_relative1_, x_utm_relative2_) < std::min(robot_utm_east_, esti_utm_east) ||
+           std::max(robot_utm_north_, esti_utm_north) < std::min(y_utm_relative1_, y_utm_relative2_) ||
+           std::max(y_utm_relative1_, y_utm_relative2_) < std::min(robot_utm_north_, esti_utm_north) ) {
+               will_collide =false;
+        } else{
+            res1 = (robot_utm_east_ - esti_utm_east) * (y_utm_relative1_ - esti_utm_north) - (robot_utm_north_ - esti_utm_north) * (x_utm_relative1_ - esti_utm_east);
+	        res2 = (robot_utm_east_ - esti_utm_east) * (y_utm_relative2_ - esti_utm_north) - (robot_utm_north_ - esti_utm_north) * (x_utm_relative2_ - esti_utm_east);
+	        res3 = (x_utm_relative1_ - x_utm_relative2_) * (robot_utm_north_ - y_utm_relative2_) - (y_utm_relative1_ - y_utm_relative2_) * (robot_utm_east_ - x_utm_relative2_);
+	        res4 = (x_utm_relative1_ - x_utm_relative2_) * (esti_utm_north - y_utm_relative2_) - (y_utm_relative1_ - y_utm_relative2_) * (esti_utm_east - x_utm_relative2_);
+
+            if(res1 * res2 <= 0 && res3 * res4 <= 0) {
+                will_collide = true;
+                ROS_INFO_STREAM("*****************************************************GONNA COLLIDE");
+            }
+        }
