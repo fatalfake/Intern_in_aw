@@ -1,0 +1,162 @@
+新的simulation环境下，抽取case需要从有影响的障碍物最早出现的时间点开始抽取。
+
+进度：rosrun aw_bag play /data/shanghai_anting_newtown/20201019/2020_10_19_13_00_24_yutong_3_shanghai_anting_newtown_1 --topics /aw/planning_info -r 10.0 -s 470
+
+
+./savecase.py -s 570 -e 650 /data/shanghai_innovation_port/20200728/2020_07_28_19_40_13_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-364
+
+动态车辆 后方来车超车（被跟随) 封闭道路 非停 直行 timeout:150  ---OK
+
+
+./savecase.py -s 520 -e 550 /data/shanghai_innovation_port/20200908/2020_09_08_19_17_07_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-E1
+
+动态车辆 对向 封闭道路 非停 过弯（钝角）timeout: 80 ---OK
+
+./savecase.py -s 960 -e 1000 /data/shanghai_innovation_port/20200908/2020_09_08_19_17_07_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-E2
+
+静态车辆 避让 封闭道路 非停车 直行 timeout: 80 ---OK
+
+./savecase.py -s 1200 -e 1250 /data/shanghai_innovation_port/20200908/2020_09_08_19_17_07_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-E3
+
+动态车辆 对向 封闭道路 非停 直行 timeout: 90 ---OK
+
+./savecase.py -s 1620 -e 1670 /data/shanghai_innovation_port/20200908/2020_09_08_19_17_07_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-E4
+
+动态车辆 封闭 避让 非停 直行   timeout:80  ---OK
+
+./savecase.py -s 1570 -e 1590 /data/shanghai_innovation_port/20200908/2020_09_08_19_17_07_arts16_7_shanghai_innovation_port_1 ./cases/test_JIADING-E5
+
+动态车辆 封闭 避让(同向) 非停 过弯 (钝角)  timeout:50  ---OK
+
+./savecase.py -s 1320 -e 1340 /data/shanghai_auto_expo/20200817/2020_08_17_06_20_10_arts16_7_shanghai_auto_expo_1 ./cases/test_JIADING-E6
+
+动态行人 对向（行人在车左边） 封闭 非停 直行 timeout:60  ---OK
+
+./savecase.py -s 1770 -e 1790 /data/shanghai_auto_expo/20200817/2020_08_17_06_20_10_arts16_7_shanghai_auto_expo_1 ./cases/test_JIADING-E7
+
+动态车辆 跟随（从左后方） 封闭 非停 直行 晴 白天 timeout:60  ---OK
+
+./savecase.py -s 390 -e 410 /data/beijing_huanbao_park/20200819/2020_08_19_10_59_17_yutong_4_beijing_huanbao_park_0 ./cases/test_BJHUANBAO-E3
+
+动态车辆 开放道路路口右转 避让（同向右后方来车） timeout:60  ---OK
+
+./savecase.py -s 430 -e 450 /data/beijing_huanbao_park/20200823/2020_08_23_13_17_07_yutong_4_beijing_huanbao_park_0 ./cases/test_BJHUANBAO-E4
+
+动态车辆 开放 避让 路口 右转 （左后方来车）timeout:70 ---OK
+
+./savecase.py -s 1870 -e 1890 /data/beijing_huanbao_park/20200904/2020_09_04_14_27_39_yutong_4_beijing_huanbao_park_0 ./cases/test_BJHUANBAO-E5
+
+动态车辆 避让 开放 路口 左转 （横穿） timeout:100 ---OK
+
+
+./savecase.py -s 380 -e 430 /data/beijing_huanbao_park/20200811/2020_08_11_12_17_54_yutong_4_beijing_huanbao_park_0 ./cases/test_BJHUANBAO-E7
+
+动态车辆 开放 避让 路口 右转 （左右后方都来车) timeout:120 ---OK
+
+./savecase.py -s 200 -e 280 /data/beijing_huanbao_park/20200907/2020_09_07_11_02_28_yutong_4_beijing_huanbao_park_2 ./cases/test_BJHUANBAO-E8
+
+动态车辆 避让 开放 路口 右转 （左后方来车) timeout: 160 ---OK
+
+
+
+./savecase.py -s 1800 -e 1830 /data/shanghai_auto_expo/20200817/2020_08_17_06_20_10_arts16_7_shanghai_auto_expo_1 ./cases/test_JIADING-E8
+
+动态行人 对向（行人在车右边） 封闭 非停 直行 timeout: 80 ---OK
+
+./savecase.py -s 1520 -e 1570 /data/shanghai_auto_expo/20201011/2020_10_11_18_28_35_arts16_7_shanghai_auto_expo_0 ./cases/test_JIADING-E9
+
+动态行人 对向（大量行人在车左边)  夜间 封闭 非停 过弯 timeout: 100   ---OK
+
+./savecase.py -s 1320 -e 1350 /data/suzhou_xiangcheng_all/20201013/2020_10_13_16_05_38_jingda_2_suzhou_xiangcheng_all_0 ./cases/test_SUZHOUXC-E2
+
+动态行人 横穿 白天 开放 非路口 直行 timeout:60  ---OK
+
+./savecase.py -s 230 -e 260 /data/suzhou_xiangcheng_all/20201013/2020_10_13_16_24_45_yutong_2_suzhou_xiangcheng_all_0 ./cases/test_SUZHOUXC-E3
+
+动态车辆 避让（障碍物车掉头汇入本车道） 开放 路口 直行 timeout:70 ---OK
+
+./savecase.py -s 493 -e 520 /data/suzhou_xiangcheng_all/20201013/2020_10_13_16_24_45_yutong_2_suzhou_xiangcheng_all_0 ./cases/test_SUZHOUXC-E4
+
+动态车辆 避让 （右侧右转车辆汇入本车道） 开放 路口 直行 timeout:80 ---OK
+
+./savecase.py -s 110 -e 130 /data/shanghai_auto_expo/20201019/2020_10_19_19_43_05_arts16_7_shanghai_auto_expo_0 cases/test_JIADING-E10
+
+动态车辆 对向 封闭道路 非停 过弯（锐角）timeout: 70 ---OK
+
+./savecase.py -s 540 -e 560 /data/shanghai_auto_expo/20201019/2020_10_19_19_43_05_arts16_7_shanghai_auto_expo_0 cases/test_JIADING-E11
+
+动态行人 对向(行人在车左侧） 封闭道路 非停 过弯（钝角） timeout:70 ---OK
+
+./savecase.py -s 937 -e 967 /data/shanghai_auto_expo/20201019/2020_10_19_19_43_05_arts16_7_shanghai_auto_expo_0 cases/test_JIADING-E12
+
+动态行人 对向&跟随（行人在车两侧） 封闭 非停 直行 timeout:90 ---OK
+
+./savecase.py -s 90 -e 110 /data/shanghai_anting_newtown/20201019/2020_10_19_13_00_24_yutong_3_shanghai_anting_newtown_1 ./cases/test_JIADING-E13
+
+动态车辆 跟随（从后方超车时夹本车） 开放 非路口 直道 timeout:60 ---OK
+
+./savecase.py -s 470 -e 530 /data/shanghai_anting_newtown/20201019/2020_10_19_13_00_24_yutong_3_shanghai_anting_newtown_1 ./cases/test_JIADING-E14
+
+动态车辆 平行 （左侧车辆平行驶过，本车向路边稍有偏转，导致规划stuck） 开放 非路口 直道 timeout:120 ---OK 
+
+./savecase.py -s 1205 -e 1280 /data/shanghai_anting_newtown/20201019/2020_10_19_11_24_59_yutong_3_shanghai_anting_newtown_0 ./cases/test_JIADING-E15/
+
+动态车辆 避让 （左侧连续有车辆驶过，平行/汇入本车道，本车向路边稍有偏转，导致规划stuck） 开放 非路口 直道 timeout：100 ---OK
+
+#######下列case跑不通########
+
+./savecase.py -s 370 -e 450 /data/beijing_huanbao_park/20200810/2020_08_10_14_45_23_yutong_4_beijing_huanbao_park_0 ./cases/test_BJHUANBAO-E6
+
+动态车辆 开放 避让 路口 右转 （右后方来车）timeout:240 ---NOT OK 有路径选择问题
+
+./savecase.py  -s 4420 -e 4520 /data/shanghai_disney/20200730/2020_07_30_22_41_45_jingda_1_shanghai_disney_0 ./cases/test_DISNEY-E1
+
+动态车辆 封闭 避让(后方开过来卡位) 非停 直行 （后面车开过来就stuck？？咋回事：：：据观察，有非常多肉眼不可见的动态障碍物。孤立case，暂且忽略） JIRA DISNEY228  timeout:
+
+./savecase.py -s 3710 -e 3810 /data/shanghai_disney/20200727/2020_07_27_22_38_29_jingda_1_shanghai_disney_0 ./cases/test_DISNEY-E2
+
+./savecase.py -s 3750 -e 3810 /data/shanghai_disney/20200727/2020_07_27_22_38_29_jingda_1_shanghai_disney_0 ./cases/test_DISNEY-E2
+
+动态车辆 封闭 避让 非停 直行  （中间会卡住很久造成不能复现场景，丢弃case）
+
+
+./savecase.py -s 110 -e 160 /data/shanghai_auto_expo/20201011/2020_10_11_18_28_35_arts16_7_shanghai_auto_expo_0 ./cases/test_JIADING-E9
+
+动态车辆 横穿 （路口左方驶过) 封闭 非停 过弯 (会碰撞)
+
+./savecase.py -s 470 -e 490 /data/suzhou_xiangcheng_all/20201013/2020_10_13_16_24_45_yutong_2_suzhou_xiangcheng_all_0 ./cases/test_SUZHOUXC-E4
+
+动态车辆 横穿 (非机动车从本车后横穿过去) 开放 路口 直行 timeout: --NOT OK 会在原地等待
+
+./savecase.py -s 1940 -e 1980 /data/suzhou_xiangcheng_demo/20200911/2020_09_11_10_25_27_yutong_1_suzhou_xiangcheng_demo_1 ./cases/test_SUZHOUXC-E1
+
+动态车辆 避让 开放 非路口 直行（静止车辆障碍开出去) timeout: 80  ---NOT OK 总是会stuck
+
+./savecase.py -s 30 -e 60 /data/suzhou_xiangcheng_demo/20201019/2020_10_19_10_42_09_yutong_1_suzhou_xiangcheng_demo_1 ./cases/test_SUZHOUXC-E5/
+
+动态车辆 避让（左转，左侧车道有同向车辆） 开放 路口 左转 timeout:120 ---失败原因未知
+
+########下列case还未生成######
+
+
+
+
+
+
+########下列case生成时报错######
+./savecase.py -s 790 -e 820 /data/shanghai_auto_expo/20200916/2020_09_16_07_23_52_arts16_6_shanghai_auto_expo_0 ./cases/test_JIADING-E?
+
+动态行人 避让 封闭 非停 过弯 timeout:
+提示    No '/aw/localized_pose' msgs received within the full period.   aw_bag版本号：ros-kinetic-autowise-aw-bag=2020.09.02.05.0751
+
+./savecase.py -s 210 -e 230 /data/shanghai_auto_expo/20200920/2020_09_20_18_12_37_arts16_7_shanghai_auto_expo_1 ./cases/test_JIADING-E?
+
+动态行人 对向 封闭 非停 直行 timeout:   同上错误
+
+./savecase.py -s 1900 -e 1930 /data/shanghai_innovation_port/20200919/2020_09_19_19_34_20_arts16_6_shanghai_innovation_port_0 ./cases/test_JIADING-E?
+
+动态车辆 对向 封闭 非停 直行 timeout： 同上
+
+
+
+sudo apt-get upgrade ros-kinetic-autowise-aw-bag
